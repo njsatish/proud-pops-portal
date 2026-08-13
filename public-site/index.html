@@ -1,62 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proud Pops Barbershop | Roanoke, VA</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#0F172A;
-  color:white;
-}
-header{
-  padding:20px 40px;
-  background:#111827;
-}
-.logo{
-  color:#B87333;
-  font-size:32px;
-  font-weight:bold;
-}
-.hero{
-  text-align:center;
-  padding:120px 20px;
-}
-.hero h1{
-  font-size:64px;
-}
-.btn{
-  display:inline-block;
-  padding:14px 28px;
-  background:#B87333;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proud Pops Barbershop in Roanoke, Virginia. Traditional cuts, modern style, and convenient booking through Booksy.">
+  <title>Proud Pops Barbershop | Roanoke, VA</title>
+  <style>
+    :root{--navy:#0b1627;--navy2:#10233d;--copper:#c47a45;--cream:#f7f0e8;--muted:#b9c3cf;--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--navy);color:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:inherit}.container{width:min(1160px,calc(100% - 40px));margin:auto}.eyebrow{color:var(--copper);font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.section{padding:88px 0}.section.alt{background:#0e1c30}.title{font-family:Georgia,serif;font-size:clamp(2.15rem,5vw,3.7rem);line-height:1.08;margin:.35rem 0 1rem}.lead{color:var(--muted);font-size:1.08rem;max-width:680px}
+    .announcement{background:var(--copper);color:#111;text-align:center;padding:9px 18px;font-weight:800;font-size:.88rem}.nav{position:sticky;top:0;z-index:30;background:rgba(8,17,30,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:900;letter-spacing:.04em}.mark{width:43px;height:43px;border:1px solid var(--copper);border-radius:50%;display:grid;place-items:center;color:var(--copper);font-size:1.3rem}.links{display:flex;align-items:center;gap:25px}.links a{text-decoration:none;font-size:.92rem;color:#dce4ed}.links a:hover{color:var(--copper)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 23px;border-radius:999px;text-decoration:none;font-weight:850;border:1px solid transparent;transition:.2s}.button.primary{background:var(--copper);color:#101010}.button.primary:hover{background:#d98e55;transform:translateY(-2px)}.button.ghost{border-color:rgba(255,255,255,.35)}.button.ghost:hover{border-color:var(--copper);color:var(--copper)}
+    .hero{min-height:720px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 82% 28%,rgba(196,122,69,.22),transparent 27%),linear-gradient(120deg,#081321 0%,#102440 62%,#0a1729 100%)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 95%,rgba(255,255,255,.03) 95%),linear-gradient(rgba(255,255,255,.025) 95%,transparent 95%);background-size:48px 48px;mask-image:linear-gradient(to right,#000,transparent)}.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:58px}.hero h1{font-family:Georgia,serif;font-size:clamp(3.3rem,7vw,6.7rem);line-height:.93;margin:15px 0 24px;letter-spacing:-.045em}.hero h1 span{color:var(--copper)}.hero p{font-size:1.12rem;color:#cad3df;max-width:630px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:33px}.rating{display:flex;align-items:center;gap:12px;margin-top:28px;color:#ced7e1;font-size:.9rem}.stars{color:#f4b942;letter-spacing:2px}.portrait{position:relative;min-height:490px;border:1px solid var(--line);border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.01));box-shadow:0 35px 80px rgba(0,0,0,.35);overflow:hidden}.portrait:before{content:"PP";position:absolute;inset:0;display:grid;place-items:center;font:900 12rem Georgia;color:rgba(196,122,69,.14)}.portrait:after{content:"PROUD POPS • ROANOKE";position:absolute;bottom:25px;left:25px;right:25px;padding:18px;border:1px solid var(--line);background:rgba(6,14,25,.72);backdrop-filter:blur(10px);font-size:.78rem;letter-spacing:.18em;text-align:center;color:var(--cream)}
+    .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#091421}.trustgrid{display:grid;grid-template-columns:repeat(4,1fr)}.trustitem{padding:27px 20px;text-align:center;border-right:1px solid var(--line)}.trustitem:last-child{border:0}.trustitem strong{display:block;color:var(--copper);font-size:1.45rem}.trustitem span{color:var(--muted);font-size:.86rem}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}.card{padding:28px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));transition:.25s}.card:hover{transform:translateY(-5px);border-color:rgba(196,122,69,.65)}.cardtop{display:flex;justify-content:space-between;gap:15px;align-items:start}.card h3{margin:0;font-size:1.15rem}.price{font-size:1.35rem;color:var(--copper);font-weight:900}.card p{color:var(--muted);font-size:.92rem;margin:11px 0 0}.note{color:#8f9cab;font-size:.8rem;margin-top:20px}
+    .gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:230px 230px;gap:15px;margin-top:38px}.shot{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#213652,#0e1c31)}.shot:first-child{grid-row:1/3}.shot:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 65% 32%,rgba(196,122,69,.42),transparent 28%),linear-gradient(145deg,transparent,rgba(0,0,0,.45))}.shot span{position:absolute;left:19px;bottom:17px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.76rem}.shot small{position:absolute;right:18px;top:16px;color:rgba(255,255,255,.55)}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}.quote{padding:26px;border-radius:20px;background:var(--cream);color:#142034}.quote .stars{font-size:.82rem}.quote p{font-family:Georgia,serif;font-size:1.12rem}.quote strong{font-size:.83rem;text-transform:uppercase;letter-spacing:.12em}
+    .location-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;margin-top:35px}.hours,.map{border:1px solid var(--line);border-radius:22px;padding:28px;background:rgba(255,255,255,.03)}.hour{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 0;color:#d8e0e9}.map{min-height:330px;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at center,rgba(196,122,69,.17),transparent 35%),linear-gradient(145deg,#152b48,#0a1729)}
+    .cta{padding:75px 0;background:var(--copper);color:#111}.ctain{display:flex;justify-content:space-between;align-items:center;gap:35px}.cta h2{font-family:Georgia,serif;font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;margin:0}.cta .button{background:#0b1627;color:#fff}.footer{padding:35px 0;color:#9eabb9;font-size:.86rem}.footin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.mobilebook{display:none}
+    @media(max-width:850px){.links a:not(.navbook){display:none}.hero{min-height:auto;padding:90px 0}.hero-grid{grid-template-columns:1fr}.portrait{min-height:310px}.trustgrid{grid-template-columns:1fr 1fr}.trustitem:nth-child(2){border-right:0}.cards,.reviews{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:250px 190px 190px}.shot:first-child{grid-column:1/3;grid-row:auto}.location-grid{grid-template-columns:1fr}.ctain{display:block}.cta .button{margin-top:24px}.mobilebook{display:flex;position:fixed;left:18px;right:18px;bottom:16px;z-index:50;box-shadow:0 12px 36px rgba(0,0,0,.45)}body{padding-bottom:76px}}
+    @media(max-width:520px){.container{width:min(100% - 28px,1160px)}.navbook{display:none!important}.hero h1{font-size:3.25rem}.trustgrid{grid-template-columns:1fr 1fr}.gallery{display:grid;grid-template-columns:1fr;grid-template-rows:repeat(4,210px)}.shot:first-child{grid-column:auto}.section{padding:68px 0}}
+  </style>
 </head>
 <body>
-
-<header>
-<div class="logo">✂ Proud Pops</div>
-</header>
-
-<section class="hero">
-<h1>Traditional Cuts. Modern Style.</h1>
-
-<p>
-Roanoke's premium neighborhood barbershop.
-</p>
-
-<a class="btn"
-href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo"
-target="_blank">
-BOOK NOW ON BOOKSY
-</a>
-</section>
-
-</body>
-</html>
+  <div class="announcement">NOW BOOKING ONLINE — CHOOSE YOUR SERVICE AND TIME ON BOOKSY</div>
+  <header class="nav"><div class="container navin">
+    <a class="brand" href="#top"><span class="mark">✂</span><span>PROUD POPS</span></a>
+    <nav class="links" aria-label="Primary navigation"><a href="#services">Services</a><a href="#work">Our work</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a><a class="button primary navbook" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Book on Booksy</a></nav>
+  </div></header>
+  <main id="top">
+    <section class="hero"><div class="container hero-grid"><div>
+      <div class="eyebrow">Roanoke, Virginia</div>
+      <h1>Clean cuts.<br><span>Proud style.</span></h1>
+      <p>Classic barbering with a modern edge. Explore the shop, view popular services, and reserve your next appointment through Proud Pops on Booksy.</p>
+      <div class="actions"><a class="button primary" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Book now on Booksy ↗</a><a class="button ghost" href="#services">Explore services</a></div>
+      <div class="rating"><span class="stars">★★★★★</span><span>Professional service • Easy online booking</span></div>
+    </div><div class="portrait" aria-label="Proud Pops branded visual placeholder"></div></div></section>
+    <section class="trust"><div class="container trustgrid"><div class="trustitem"><strong>Booksy</strong><span>Online scheduling</span></div><div class="trustitem"><strong>Roanoke</strong><span>Local barbershop</span></div><div class="trustitem"><strong>Modern</strong><span>Precision styling</span></div><div class="trustitem"><strong>Classic</strong><span>Barber traditions</span></div></div></section>
+    <section class="section" id="services"><div class="container"><div class="eyebrow">Services</div><h2 class="title">Sharpen your look.</h2><p class="lead">A presentation-ready service menu. Final names, prices, and durations should be synchronized with Proud Pops' current Booksy listing before launch.</p>
+      <div class="cards"><article class="card"><div class="cardtop"><h3>Signature Haircut</h3><span class="price">Booksy</span></div><p>Consultation, precision cut, and finished styling.</p></article><article class="card"><div class="cardtop"><h3>Fade & Detail</h3><span class="price">Booksy</span></div><p>Clean transition, detailed edges, and polished finish.</p></article><article class="card"><div class="cardtop"><h3>Haircut + Beard</h3><span class="price">Booksy</span></div><p>A complete grooming appointment for a balanced look.</p></article><article class="card"><div class="cardtop"><h3>Beard Grooming</h3><span class="price">Booksy</span></div><p>Shape, line, and refine with careful detailing.</p></article><article class="card"><div class="cardtop"><h3>Kids Cut</h3><span class="price">Booksy</span></div><p>A comfortable, polished cut for younger clients.</p></article><article class="card"><div class="cardtop"><h3>View All Services</h3><span class="price">↗</span></div><p>See current pricing, availability, and appointment durations on Booksy.</p></article></div>
+      <p class="note">Demo content: service descriptions and operating details must be confirmed by Proud Pops before public production use.</p>
+    </div></section>
+    <section class="section alt" id="work"><div class="container"><div class="eyebrow">Portfolio</div><h2 class="title">The work speaks clearly.</h2><p class="lead">These branded placeholders are ready to be replaced with Proud Pops' authorized haircut and shop photography.</p><div class="gallery"><div class="shot"><small>01</small><span>Signature work</span></div><div class="shot"><small>02</small><span>Clean fades</span></div><div class="shot"><small>03</small><span>Sharp details</span></div><div class="shot"><small>04</small><span>Fresh finish</span></div></div></div></section>
+    <section class="section" id="reviews"><div class="container"><div class="eyebrow">Reputation</div><h2 class="title">Built for local trust.</h2><p class="lead">V2 uses review placeholders only. Approved Booksy or Google review text can be added after the owner grants permission.</p><div class="reviews"><blockquote class="quote"><div class="stars">★★★★★</div><p>“Add an approved customer review here.”</p><strong>Verified customer</strong></blockquote><blockquote class="quote"><div class="stars">★★★★★</div><p>“Add an approved customer review here.”</p><strong>Verified customer</strong></blockquote><blockquote class="quote"><div class="stars">★★★★★</div><p>“Add an approved customer review here.”</p><strong>Verified customer</strong></blockquote></div></div></section>
+    <section class="section alt" id="visit"><div class="container"><div class="eyebrow">Plan your visit</div><h2 class="title">Proud Pops Barbershop.</h2><p class="lead">Roanoke, Virginia. Use Booksy for current availability, the confirmed business address, and appointment details.</p><div class="location-grid"><div class="hours"><h3>Hours</h3><div class="hour"><span>Current schedule</span><strong>View on Booksy</strong></div><div class="hour"><span>Appointments</span><strong>Book online</strong></div><div class="hour"><span>Service availability</span><strong>Live on Booksy</strong></div><div class="actions"><a class="button primary" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Open Booksy ↗</a></div></div><div class="map"><div><div class="mark" style="margin:auto">⌖</div><h3>Roanoke, Virginia</h3><p class="lead">Map and directions will be enabled after the exact public address is confirmed.</p></div></div></div></div></section>
+    <section class="cta"><div class="container ctain"><div><div class="eyebrow" style="color:#2a1608">Your next appointment</div><h2>Ready for a fresh cut?</h2></div><a class="button" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Book with Proud Pops ↗</a></div></section>
+  </main>
+  <footer class="footer"><div class="container footin"><span>© <span id="year"></span> Proud Pops Barbershop • Roanoke, VA</span><span>Demo website by Denduluru Technologies</span></div></footer>
+  <a class="button primary mobilebook" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Book now on Booksy ↗</a>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body></html>
