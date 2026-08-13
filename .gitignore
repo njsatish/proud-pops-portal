@@ -37,3 +37,4 @@ coverage/
 # IDE files
 .vscode/
 .idea/
+deployment/proud-pops-aws-state.env
