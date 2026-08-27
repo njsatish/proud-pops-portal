@@ -38,3 +38,6 @@ coverage/
 .vscode/
 .idea/
 deployment/proud-pops-aws-state.env
+
+# Local Proud Pops deployment state
+deployment/proud-pops-v8-state.env

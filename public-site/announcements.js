@@ -1,0 +1,1 @@
+(()=>{fetch(window.PROUD_POPS_API+"/announcements").then(r=>r.json()).then(a=>{if(!a.length)return;const x=a[0],bar=document.querySelector(".notice");if(bar){bar.textContent=x.title+" — "+x.message;bar.dataset.type=x.type}}).catch(()=>{})})();
