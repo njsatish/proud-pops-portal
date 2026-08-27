@@ -1,64 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Proud Pops Barbershop in Roanoke, Virginia. Haircuts, beard grooming, customer reviews, hours, directions, and Booksy booking."><title>Proud Pops Barbershop | Roanoke, VA</title><link rel="icon" type="image/png" sizes="64x64" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png"><style>
-:root{--bg:#081523;--panel:#10243c;--copper:#c77c45;--cream:#f7f0e7;--muted:#b7c2ce}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:white;font:16px/1.6 Inter,system-ui,sans-serif}a{color:inherit}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}.notice{background:var(--copper);color:#111;text-align:center;padding:9px;font-weight:800;font-size:13px}header{position:sticky;top:0;z-index:9;background:#081523ee;border-bottom:1px solid #ffffff18}nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:.08em;text-decoration:none;display:flex;align-items:center;gap:10px}.brand img{width:52px;height:52px;object-fit:cover;border-radius:50%;border:2px solid var(--copper)}.brand b,.tag{color:var(--copper)}.links{display:flex;gap:22px;align-items:center}.links a{text-decoration:none}.btn{display:inline-flex;padding:13px 22px;border-radius:999px;background:var(--copper);color:#111;text-decoration:none;font-weight:900;border:1px solid transparent}.outline{background:transparent;color:white;border-color:#ffffff55}.hero{min-height:670px;display:grid;align-items:center;background:linear-gradient(90deg,#071320 10%,#07132099),url('assets/images/low-skin-fade.png') center/cover}h1{font:700 clamp(52px,8vw,100px)/.92 Georgia,serif;margin:14px 0 24px;max-width:760px}h1 em{color:var(--copper);font-style:normal}h2{font:700 clamp(36px,5vw,60px)/1.05 Georgia,serif;margin:8px 0 18px}.lead{color:var(--muted);max-width:760px}.tag{letter-spacing:.18em;font-weight:900;font-size:12px}section{padding:88px 0}.grid3,.gallery,.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}.card,.visitcard{background:var(--panel);padding:27px;border:1px solid #ffffff18;border-radius:18px}.gallery figure{margin:0;background:var(--panel);border-radius:18px;overflow:hidden;border:1px solid #ffffff18}.gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}figcaption{padding:16px;display:flex;justify-content:space-between;gap:10px}figcaption small{font-size:9px;color:var(--copper)}.disclosure{margin-top:22px;padding:18px;border-left:3px solid var(--copper);background:#ffffff0a;color:#cbd4de}.review{margin:0;background:var(--cream);color:#142034;padding:26px;border-radius:18px}.review p{font:18px/1.55 Georgia,serif}.stars{color:var(--copper)}.review cite{font-style:normal;font-weight:900}.review small{display:block;color:#667281;margin-top:6px}.visitgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}.row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ffffff18}.phone{font-size:28px;font-weight:900;color:var(--copper);text-decoration:none}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}.aboutgrid{display:grid;grid-template-columns:.72fr 1.28fr;gap:34px;align-items:center}.aboutlogo{width:100%;max-width:390px;border-radius:24px;box-shadow:0 24px 60px #0007}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}.fact{padding:18px;background:#ffffff0a;border:1px solid #ffffff18;border-radius:16px}.fact strong{display:block;color:var(--copper);font-size:24px}.policies{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}.policy{background:#ffffff0a;border:1px solid #ffffff1c;border-radius:18px;padding:25px}.policy strong{display:block;color:var(--copper);font-size:21px;margin-bottom:7px}.cta{background:var(--copper);color:#111}.ctarow{display:flex;justify-content:space-between;align-items:center;gap:25px}.cta .btn{background:#081523;color:white}footer{padding:35px 0;color:#9eacbb;font-size:13px}@media(max-width:840px){.links a:not(.btn){display:none}.grid3,.gallery{grid-template-columns:1fr 1fr}.reviews,.visitgrid,.policies,.aboutgrid,.facts{grid-template-columns:1fr}}@media(max-width:540px){.grid3,.gallery{grid-template-columns:1fr}h1{font-size:54px}.ctarow{display:block}}
-/* PROUDPOPS-PHOTO-DIMENSIONS-START */
-/* Consistent haircut photography: portrait cards with top-weighted crops. */
-.gallery {
-  align-items: stretch;
-}
-.gallery figure {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: hidden;
-}
-.gallery img {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 4 / 5 !important;
-  object-fit: cover !important;
-  object-position: center 18% !important;
-  background: #141414;
-}
-.gallery figcaption {
-  min-height: 64px;
-  align-items: center;
-  flex: 1;
-}
-.hero {
-  background-position: center 24% !important;
-}
-.aboutlogo {
-  display: block;
-  width: min(100%, 390px) !important;
-  height: auto !important;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  object-position: center;
-}
-@media (max-width: 840px) {
-  .gallery img {
-    aspect-ratio: 4 / 5 !important;
-    object-position: center 16% !important;
-  }
-}
-@media (max-width: 540px) {
-  .gallery {
-    gap: 22px;
-  }
-  .gallery figure {
-    width: min(100%, 430px);
-    margin-inline: auto;
-  }
-  .gallery img {
-    aspect-ratio: 4 / 5 !important;
-    max-height: 540px;
-  }
-  .hero {
-    min-height: 600px;
-    background-position: 62% 22% !important;
-  }
-}
-/* PROUDPOPS-PHOTO-DIMENSIONS-END */
+:root{--bg:#081523;--panel:#10243c;--copper:#c77c45;--cream:#f7f0e7;--muted:#b7c2ce}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:white;font:16px/1.6 Inter,system-ui,sans-serif}a{color:inherit}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}.notice{background:var(--copper);color:#111;text-align:center;padding:9px;font-weight:800;font-size:13px}header{position:sticky;top:0;z-index:9;background:#081523ee;border-bottom:1px solid #ffffff18}nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:.08em;text-decoration:none;display:flex;align-items:center;gap:10px}.brand img{width:52px;height:52px;object-fit:cover;border-radius:50%;border:2px solid var(--copper)}.brand b,.tag{color:var(--copper)}.links{display:flex;gap:22px;align-items:center}.links a{text-decoration:none}.btn{display:inline-flex;padding:13px 22px;border-radius:999px;background:var(--copper);color:#111;text-decoration:none;font-weight:900;border:1px solid transparent}.outline{background:transparent;color:white;border-color:#ffffff55}.hero{min-height:670px;display:grid;align-items:center;background:linear-gradient(90deg,#071320 10%,#07132099),url('assets/images/low-skin-fade.png') center/cover}h1{font:700 clamp(52px,8vw,100px)/.92 Georgia,serif;margin:14px 0 24px;max-width:760px}h1 em{color:var(--copper);font-style:normal}h2{font:700 clamp(36px,5vw,60px)/1.05 Georgia,serif;margin:8px 0 18px}.lead{color:var(--muted);max-width:760px}.tag{letter-spacing:.18em;font-weight:900;font-size:12px}section{padding:88px 0}.grid3,.gallery,.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}.card,.visitcard{background:var(--panel);padding:27px;border:1px solid #ffffff18;border-radius:18px}.gallery figure{margin:0;background:var(--panel);border-radius:18px;overflow:hidden;border:1px solid #ffffff18}.gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}figcaption{padding:16px;display:flex;justify-content:space-between;gap:10px}figcaption small{font-size:9px;color:var(--copper)}.disclosure{margin-top:22px;padding:18px;border-left:3px solid var(--copper);background:#ffffff0a;color:#cbd4de}.review{margin:0;background:var(--cream);color:#142034;padding:26px;border-radius:18px}.review p{font:18px/1.55 Georgia,serif}.stars{color:var(--copper)}.review cite{font-style:normal;font-weight:900}.review small{display:block;color:#667281;margin-top:6px}.visitgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}.row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ffffff18}.phone{font-size:28px;font-weight:900;color:var(--copper);text-decoration:none}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}.aboutgrid{display:grid;grid-template-columns:.72fr 1.28fr;gap:34px;align-items:center}.aboutlogo{width:100%;max-width:390px;border-radius:24px;box-shadow:0 24px 60px #0007}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}.fact{padding:18px;background:#ffffff0a;border:1px solid #ffffff18;border-radius:16px}.fact strong{display:block;color:var(--copper);font-size:24px}.policies{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}.policy{background:#ffffff0a;border:1px solid #ffffff1c;border-radius:18px;padding:25px}.policy strong{display:block;color:var(--copper);font-size:21px;margin-bottom:7px}.cta{background:var(--copper);color:#111}.ctarow{display:flex;justify-content:space-between;align-items:center;gap:25px}.cta .btn{background:#081523;color:white}footer{padding:35px 0;color:#9eacbb;font-size:13px}.modal-overlay{display:none;position:fixed;inset:0;background:#000000b3;z-index:99;overflow-y:auto;padding:20px}.modal-overlay.open{display:block}.modal-panel{background:var(--panel);border:1px solid #ffffff22;border-radius:20px;max-width:600px;width:100%;margin:40px auto;padding:34px;position:relative}.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:#ffffff14;border:1px solid #ffffff22;color:white;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}.modal-close:hover{background:#ffffff28}@media(max-width:840px){.links a:not(.btn){display:none}.grid3,.gallery{grid-template-columns:1fr 1fr}.reviews,.visitgrid,.policies,.aboutgrid,.facts{grid-template-columns:1fr}}@media(max-width:540px){.grid3,.gallery{grid-template-columns:1fr}h1{font-size:54px}.ctarow{display:block}}
 </style><!-- PROUDPOPS-BLACK-GOLD-THEME-START -->
 <style id="proudpops-black-gold-theme">
   /* Proud Pops premium black-and-gold color system */
@@ -127,4 +68,292 @@
   footer, .footer { background: #050505 !important; border-color: var(--pp-border) !important; }
 </style>
 <!-- PROUDPOPS-BLACK-GOLD-THEME-END -->
-</head><body><div class="notice">PROUD POPS BARBERSHOP • ROANOKE, VIRGINIA</div><header><nav class="wrap"><a class="brand" href="#top"><img src="assets/images/proud-pops-logo.webp" alt="Proud Pops Barber Shop logo"><span>PROUD <b>POPS</b></span></a><div class="links"><a href="#about">About</a><a href="#services">Services</a><a href="#styles">Styles</a><a href="#reviews">Reviews</a><a href="#policies">Policies</a><a href="#visit">Visit</a><a class="btn" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Book on Booksy ↗</a></div></nav></header><main id="top"><section class="hero"><div class="wrap"><div class="tag">TRADITIONAL CRAFT • MODERN STYLE</div><h1>Clean cuts.<br><em>Proud style.</em></h1><p class="lead" style="font-size:19px">Discover a polished barbershop experience and reserve a convenient appointment through Proud Pops on Booksy.</p><a class="btn" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Book your appointment ↗</a></div></section><section id="about"><div class="wrap aboutgrid"><div><img class="aboutlogo" src="assets/images/proud-pops-logo.webp" alt="Proud Pops Barber Shop logo"></div><div><div class="tag">ABOUT PROUD POPS</div><h2>Experience behind every detail.</h2><p class="lead">Proud Pops Barbershop is a locally owned Roanoke barbershop led by Steven Webb, a master barber with more than 29 years of experience. The shop is known for detailed grooming, clean finishes, welcoming conversation, and carefully blended fades.</p><div class="facts"><div class="fact"><strong>29+ years</strong><span>Barbering experience</span></div><div class="fact"><strong>Roanoke</strong><span>Locally owned shop</span></div><div class="fact"><strong>Precision</strong><span>Fades and grooming</span></div></div><div class="actions"><a class="btn" href="#reviews">Read customer reviews</a><a class="btn outline" href="#visit">Plan your visit</a></div></div></div></section><section id="services"><div class="wrap"><div class="tag">POPULAR SERVICES</div><h2>Choose your next look.</h2><div class="grid3"><div class="card"><h3>Haircut</h3><p>Precision cutting and finished styling.</p></div><div class="card"><h3>Edgeup</h3><p>Clean lines and detailed finishing.</p></div><div class="card"><h3>Beard Trim</h3><p>Shape, refine, and sharpen the beard line.</p></div></div></div></section><section id="styles" style="background:#0c1c30"><div class="wrap"><div class="tag">STYLE GALLERY</div><h2>Fresh haircut inspiration.</h2><div class="gallery"><figure><img src="assets/images/low-skin-fade.png" alt="AI-generated hairstyle concept: Low Skin Fade" loading="lazy"><figcaption><b>Low Skin Fade</b><small>AI-GENERATED CONCEPT</small></figcaption></figure><figure><img src="assets/images/high-taper.png" alt="AI-generated hairstyle concept: High Taper" loading="lazy"><figcaption><b>High Taper</b><small>AI-GENERATED CONCEPT</small></figcaption></figure><figure><img src="assets/images/classic-cut.png" alt="AI-generated hairstyle concept: Classic Cut" loading="lazy"><figcaption><b>Classic Cut</b><small>AI-GENERATED CONCEPT</small></figcaption></figure><figure><img src="assets/images/burst-fade.png" alt="AI-generated hairstyle concept: Burst Fade" loading="lazy"><figcaption><b>Burst Fade</b><small>AI-GENERATED CONCEPT</small></figcaption></figure><figure><img src="assets/images/temple-taper.png" alt="AI-generated hairstyle concept: Temple Taper + Beard" loading="lazy"><figcaption><b>Temple Taper + Beard</b><small>AI-GENERATED CONCEPT</small></figcaption></figure><figure><img src="assets/images/bald-fade-waves.png" alt="AI-generated hairstyle concept: Bald Fade + Waves" loading="lazy"><figcaption><b>Bald Fade + Waves</b><small>AI-GENERATED CONCEPT</small></figcaption></figure></div><div class="disclosure"><b>Demo disclosure:</b> These images were generated with Microsoft Copilot for hairstyle inspiration. They do not depict Proud Pops clients, staff, premises, or actual completed work.</div></div></section><section id="reviews"><div class="wrap"><div class="tag">CUSTOMER REVIEWS</div><h2>What customers are saying.</h2><div class="reviews"><blockquote class="review"><div class="stars">★★★★★</div><p>“It blows my mind that there aren’t more reviews here—Steve is an absolute doctor when it comes to cutting hair! His shop is always the best spot for good conversation and a killer cut every time.”</p><cite>Matthew Thomas (Houffdizzle)</cite><small>Razor cut, beard maintenance, beard trim</small></blockquote><blockquote class="review"><div class="stars">★★★★★</div><p>“Chris Fleming has been cutting my hair for several years now. The cut is always on point, scheduling is convenient, and the place is always clean.”</p><cite>DCS</cite><small>Condensed for website display</small></blockquote><blockquote class="review"><div class="stars">★★★★★</div><p>“Steven is the man! He spends the entire appointment making sure you’re on point. His attention to detail is like no other. My barber for life!”</p><cite>Rick Henegar</cite><small>Condensed for website display</small></blockquote></div><p class="lead" style="font-size:13px">Review wording and attribution should receive owner approval before final production launch.</p></div></section><section id="policies"><div class="wrap"><div class="tag">BOOKING POLICIES</div><h2>Plan before arriving.</h2><p class="lead">Proud Pops serves clients by scheduled appointment so each appointment receives focused time and attention.</p><div class="policies"><div class="policy"><strong>Appointments only</strong><span>No walk-ins. Please reserve an available time through Booksy before arriving.</span></div><div class="policy"><strong>No waiting area</strong><span>Please arrive close to the scheduled appointment time. The shop does not have a customer waiting area.</span></div></div><div class="actions"><a class="btn" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">View availability on Booksy ↗</a></div></div></section><section id="visit" style="background:#0c1c30"><div class="wrap"><div class="tag">HOURS & LOCATION</div><h2>Visit Proud Pops.</h2><div class="visitgrid"><div class="visitcard"><h3>Contact</h3><p style="font-size:19px">1118 Main St SW<br>Roanoke, VA 24015</p><a class="phone" href="tel:+15408191346">(540) 819-1346</a><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=1118%20Main%20St%20SW%2C%20Roanoke%2C%20VA%2024015" target="_blank" rel="noopener">Get directions ↗</a><a class="btn outline" href="tel:+15408191346">Call now</a></div></div><div class="visitcard"><h3>Business Hours</h3><div class="row"><span>Monday</span><b>Closed</b></div><div class="row"><span>Tuesday</span><b>10 AM–6 PM</b></div><div class="row"><span>Wednesday</span><b>10 AM–6 PM</b></div><div class="row"><span>Thursday</span><b>10 AM–8 PM</b></div><div class="row"><span>Friday</span><b>10 AM–8 PM</b></div><div class="row"><span>Saturday</span><b>10 AM–5 PM</b></div><div class="row"><span>Sunday</span><b>Closed</b></div></div></div><p class="lead" style="font-size:13px">Hours may change on holidays. Confirm current availability through Booksy.</p></div></section><section class="cta"><div class="wrap ctarow"><div><div class="tag" style="color:#321809">READY FOR A FRESH CUT?</div><h2>Book directly with Proud Pops.</h2></div><a class="btn" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke#ba_s=seo" target="_blank" rel="noopener">Open Booksy ↗</a></div></section></main><footer><div class="wrap">© 2026 Proud Pops Barbershop • 1118 Main St SW, Roanoke, VA 24015 • Demo by Denduluru Technologies</div></footer><script>window.PROUD_POPS_API='https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com';</script><script src='announcements.js'></script></body></html>
+<style>
+/* PROUDPOPS-PHOTO-DIMENSIONS-START */
+/* Consistent haircut photography: portrait cards with top-weighted crops. */
+.gallery {
+  align-items: stretch;
+}
+.gallery figure {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.gallery img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 5 !important;
+  object-fit: cover !important;
+  object-position: center 18% !important;
+  background: #141414;
+}
+.gallery figcaption {
+  min-height: 64px;
+  align-items: center;
+  flex: 1;
+}
+.hero {
+  background-position: center 24% !important;
+}
+.aboutlogo {
+  display: block;
+  width: min(100%, 390px) !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 840px) {
+  .gallery img {
+    aspect-ratio: 4 / 5 !important;
+    object-position: center 16% !important;
+  }
+}
+@media (max-width: 540px) {
+  .gallery {
+    gap: 22px;
+  }
+  .gallery figure {
+    width: min(100%, 430px);
+    margin-inline: auto;
+  }
+  .gallery img {
+    aspect-ratio: 4 / 5 !important;
+    max-height: 540px;
+  }
+  .hero {
+    min-height: 600px;
+    background-position: 62% 22% !important;
+  }
+}
+/* PROUDPOPS-PHOTO-DIMENSIONS-END */
+</style>
+</head><body><div class="notice">PROUD POPS BARBERSHOP • ROANOKE, VIRGINIA</div><header><nav class="wrap"><a class="brand" href="#top"><img src="assets/images/proud-pops-logo.webp" alt="Proud Pops Barber Shop logo"><span>PROUD <b>POPS</b></span></a><div class="links"><a href="#about">About</a><a href="#services">Services</a><a href="#styles">Styles</a><a href="#reviews">Reviews</a><a href="#policies">Policies</a><a href="#visit">Visit</a><a class="btn" href="#" onclick="openBooksyModal();return false;">Book Now</a></div></nav></header><main id="top"><section class="hero"><div class="wrap"><div class="tag">TRADITIONAL CRAFT • MODERN STYLE</div><h1>Clean cuts.<br><em>Proud style.</em></h1><p class="lead" style="font-size:19px">Discover a polished barbershop experience and reserve a convenient appointment through Proud Pops on Booksy.</p><a class="btn" href="#" onclick="openBooksyModal();return false;">Book Your Appointment</a></div></section><section id="about"><div class="wrap aboutgrid"><div><img class="aboutlogo" src="assets/images/proud-pops-logo.webp" alt="Proud Pops Barber Shop logo"></div><div><div class="tag">ABOUT PROUD POPS</div><h2>Experience behind every detail.</h2><p class="lead">Proud Pops Barbershop is a locally owned Roanoke barbershop led by Steven Webb, a master barber with more than 29 years of experience. The shop is known for detailed grooming, clean finishes, welcoming conversation, and carefully blended fades.</p><div class="facts"><div class="fact"><strong>29+ years</strong><span>Barbering experience</span></div><div class="fact"><strong>Roanoke</strong><span>Locally owned shop</span></div><div class="fact"><strong>Precision</strong><span>Fades and grooming</span></div></div><div class="actions"><a class="btn" href="#reviews">Read customer reviews</a><a class="btn outline" href="#visit">Plan your visit</a></div></div></div></section><section id="services"><div class="wrap"><div class="tag">POPULAR SERVICES</div><h2>Choose your next look.</h2><div class="grid3"><div class="card"><h3>Haircut</h3><p>Precision cutting and finished styling.</p></div><div class="card"><h3>Edgeup</h3><p>Clean lines and detailed finishing.</p></div><div class="card"><h3>Beard Trim</h3><p>Shape, refine, and sharpen the beard line.</p></div></div></div></section><section id="styles" style="background:#0c1c30"><div class="wrap"><div class="tag">STYLE GALLERY</div><h2>Fresh haircut inspiration.</h2><div class="gallery"><figure><img src="assets/images/low-skin-fade.png" alt="AI-generated hairstyle concept: Low Skin Fade" loading="lazy"><figcaption><b>Low Skin Fade</b></figcaption></figure><figure><img src="assets/images/high-taper.png" alt="AI-generated hairstyle concept: High Taper" loading="lazy"><figcaption><b>High Taper</b></figcaption></figure><figure><img src="assets/images/classic-cut.png" alt="AI-generated hairstyle concept: Classic Cut" loading="lazy"><figcaption><b>Classic Cut</b></figcaption></figure><figure><img src="assets/images/burst-fade.png" alt="AI-generated hairstyle concept: Burst Fade" loading="lazy"><figcaption><b>Burst Fade</b></figcaption></figure><figure><img src="assets/images/temple-taper.png" alt="AI-generated hairstyle concept: Temple Taper + Beard" loading="lazy"><figcaption><b>Temple Taper + Beard</b></figcaption></figure><figure><img src="assets/images/bald-fade-waves.png" alt="AI-generated hairstyle concept: Bald Fade + Waves" loading="lazy"><figcaption><b>Bald Fade + Waves</b></figcaption></figure></div><div class="disclosure"><b>Demo disclosure:</b> Style gallery images are AI-generated concepts for inspiration only — not actual Proud Pops clients, staff, or completed work.</div></div></section><section id="reviews"><div class="wrap"><div class="tag">CUSTOMER REVIEWS</div><h2>What customers are saying.</h2><div class="reviews"><blockquote class="review"><div class="stars">★★★★★</div><p>“It blows my mind that there aren’t more reviews here—Steve is an absolute doctor when it comes to cutting hair! His shop is always the best spot for good conversation and a killer cut every time.”</p><cite>Matthew Thomas (Houffdizzle)</cite><small>Razor cut, beard maintenance, beard trim</small></blockquote><blockquote class="review"><div class="stars">★★★★★</div><p>“Steve is great at what he does and runs an awesome shop. From the first step in, it’s comfortable and everyone is laughing and creating a great atmosphere. I’ll be a client as long as I have hair!”</p><cite>Tim</cite><small>Haircut service</small></blockquote><blockquote class="review"><div class="stars">★★★★★</div><p>“Steve is just surgical with the clippers and blade. Precision and skill. Definitely would highly recommend.”</p><cite>Walter</cite><small>Haircut service</small></blockquote></div><p class="lead" style="font-size:13px">Review wording and attribution should receive owner approval before final production launch.</p></div></section><section id="policies"><div class="wrap"><div class="tag">BOOKING POLICIES</div><h2>Plan before arriving.</h2><p class="lead">Proud Pops serves clients by scheduled appointment so each appointment receives focused time and attention.</p><div class="policies"><div class="policy"><strong>Appointments only</strong><span>No walk-ins. Please reserve an available time through Booksy before arriving.</span></div><div class="policy"><strong>No waiting area</strong><span>Please arrive close to the scheduled appointment time. The shop does not have a customer waiting area.</span></div></div><div class="actions"><a class="btn" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke" target="_blank" rel="noopener">View on Booksy ↗</a></div></div></section><section id="visit" style="background:#0c1c30"><div class="wrap"><div class="tag">HOURS & LOCATION</div><h2>Visit Proud Pops.</h2><div class="visitgrid"><div class="visitcard"><h3>Contact</h3><p style="font-size:19px">1118 Main St SW<br>Roanoke, VA 24015</p><a class="phone" href="tel:+15408191346">(540) 819-1346</a><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=1118%20Main%20St%20SW%2C%20Roanoke%2C%20VA%2024015" target="_blank" rel="noopener">Get directions ↗</a><a class="btn outline" href="tel:+15408191346">Call now</a></div></div><div class="visitcard"><h3>Business Hours</h3><div class="row"><span>Monday</span><b>Closed</b></div><div class="row"><span>Tuesday</span><b>10 AM–6 PM</b></div><div class="row"><span>Wednesday</span><b>10 AM–6 PM</b></div><div class="row"><span>Thursday</span><b>10 AM–8 PM</b></div><div class="row"><span>Friday</span><b>10 AM–8 PM</b></div><div class="row"><span>Saturday</span><b>10 AM–5 PM</b></div><div class="row"><span>Sunday</span><b>Closed</b></div></div></div><p class="lead" style="font-size:13px">Hours may change on holidays. Confirm current availability through Booksy.</p></div></section><section class="cta"><div class="wrap ctarow"><div><div class="tag" style="color:#321809">READY FOR A FRESH CUT?</div><h2>Book directly with Proud Pops.</h2></div><a class="btn" href="#" onclick="openBooksyModal();return false;">Book Now</a></div></section></main><footer><div class="wrap">© 2026 Proud Pops Barbershop • 1118 Main St SW, Roanoke, VA 24015 • <a href="https://www.facebook.com/p/Proud-Pops-Barbershop-100063230739040/" target="_blank" rel="noopener" style="color:inherit">Facebook</a> • Demo by Denduluru Technologies<br><span style="font-size:10px;opacity:.35">Design previews: <a href="concept-classic.html" style="color:inherit">Classic</a> · <a href="concept-brass.html" style="color:inherit">Brass</a> · <a href="concept-modern.html" style="color:inherit">Modern</a></span></div></footer><div id="booksy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booksy-modal-title"><div class="modal-panel"><button type="button" class="modal-close" aria-label="Close" onclick="closeBooksyModal()">&times;</button><div class="tag" id="booksy-modal-title">BOOK YOUR APPOINTMENT</div><h2 style="margin-top:8px">Ready to Book?</h2><p class="lead" style="margin:0 0 24px">Tap below to see open times and reserve your spot.</p><div id="booksy-official-host"></div></div></div><script>
+(function () {
+  var modal = document.getElementById('booksy-modal');
+  var loaded = false;
+
+  function loadBooksyWidget() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://booksy.com/widget/code.js?id=212027&country=us&lang=en';
+    s.async = true;
+    document.getElementById('booksy-official-host').appendChild(s);
+  }
+
+  window.openBooksyModal = function () {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    loadBooksyWidget();
+  };
+
+  window.closeBooksyModal = function () {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) window.closeBooksyModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      window.closeBooksyModal();
+    }
+  });
+})();
+</script><script>window.PROUD_POPS_API='https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com';</script><script src='announcements.js'></script>
+<script>
+(async function () {
+
+  const about = document.querySelector('#about');
+
+  if (!about) return;
+
+  const widget = `
+  <section style="padding:70px 0;background:#0c1c30">
+    <div class="wrap">
+      <div style="max-width:650px;margin:auto;background:#10243c;border:1px solid #ffffff18;border-radius:18px;padding:30px;text-align:center">
+
+        <div class="tag">LIVE BOOKSY AVAILABILITY</div>
+
+        <h2>⭐ Next Available Appointment</h2>
+
+        <div id="booksy-slot">
+          Loading...
+        </div>
+
+        <div style="margin-top:20px">
+          <a class="btn"
+             href="#"
+             onclick="openBooksyModal();return false;">
+            Book Appointment
+          </a>
+        </div>
+
+          </div>
+    </div>
+  </section>
+  `;
+
+  about.insertAdjacentHTML('beforebegin', widget);
+
+  try {
+
+  const response = await fetch(
+    'https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com/booksy/availability'
+  );
+
+  const data = await response.json();
+
+  const slot = document.getElementById('booksy-slot');
+
+  if (!data.slots || data.slots.length === 0) {
+    slot.innerHTML = 'See Booksy for availability';
+    return;
+  }
+
+  const grouped = {};
+
+  data.slots.forEach(s => {
+    if (!grouped[s.date]) {
+      grouped[s.date] = [];
+    }
+    grouped[s.date].push(s.time);
+  });
+
+  const dates =
+    Object.keys(grouped).slice(0, 5);
+
+  let html = `
+    <div style="
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-bottom:30px;
+    ">
+  `;
+
+  dates.forEach(date => {
+
+    const [y,m,d] =
+      date.split('-').map(Number);
+
+    const dt =
+      new Date(y,m-1,d);
+
+    html += `
+      <div style="
+        background:#10243c;
+        border:1px solid #ffffff22;
+        border-radius:18px;
+        padding:14px;
+        min-width:95px;
+        text-align:center;
+      ">
+        <div style="color:#b7c2ce;font-size:12px">
+          ${dt.toLocaleDateString('en-US',{
+            weekday:'short'
+          }).toUpperCase()}
+        </div>
+
+        <div style="
+          color:#c77c45;
+          font-size:30px;
+          font-weight:700;
+        ">
+          ${d}
+        </div>
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+
+  dates.forEach(date => {
+
+    const [y,m,d] =
+      date.split('-').map(Number);
+
+    const dt =
+      new Date(y,m-1,d);
+
+    html += `
+      <div style="
+        margin-top:25px;
+        margin-bottom:10px;
+        font-size:26px;
+        font-weight:700;
+        color:white;
+      ">
+        ${dt.toLocaleDateString(
+          'en-US',
+          {
+            weekday:'long',
+            month:'long',
+            day:'numeric'
+          }
+        )}
+      </div>
+
+      <div style="
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        justify-content:center;
+      ">
+    `;
+
+    grouped[date]
+      .slice(0,5)
+      .forEach(time => {
+
+        const parts =
+          time.split(':');
+
+        const t =
+          new Date();
+
+        t.setHours(parts[0]);
+        t.setMinutes(parts[1]);
+
+        html += `
+          <div style="
+            background:#10243c;
+            border:1px solid #ffffff18;
+            border-radius:16px;
+            padding:14px 20px;
+            font-weight:700;
+          ">
+            ${t.toLocaleTimeString(
+              'en-US',
+              {
+                hour:'numeric',
+                minute:'2-digit'
+              }
+            )}
+          </div>
+        `;
+      });
+
+    html += `</div>`;
+  });
+
+  slot.innerHTML = html;
+
+} catch (e) {
+
+  const slot = document.getElementById('booksy-slot');
+
+  if (slot) {
+    slot.innerHTML =
+      'Book directly through Booksy';
+  }
+}
+
+})();
+</script>
+</body></html>
