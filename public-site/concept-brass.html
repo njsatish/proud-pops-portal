@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proud Pops Barbershop — Concept: Brass & Leather</title>
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#241812; --espresso-deep:#170F0B; --brass:#C79A48; --brass-bright:#E0B863;
+    --ivory:#F1E6D1; --green:#3B5344; --line:#4a382a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--espresso);color:var(--ivory);font-family:'Karla',sans-serif;line-height:1.6}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:600;letter-spacing:.2px}
+  a{color:inherit}
+
+  header{padding:22px 0;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:12px}
+  .medallion{width:42px;height:42px;border-radius:50%;border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:900;color:var(--brass);font-size:16px}
+  .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:21px;letter-spacing:.3px}
+  nav .links{display:flex;gap:30px;font-size:14px}
+  nav .links a{text-decoration:none;color:#d8c6a8;border-bottom:1px solid transparent}
+  nav .links a:hover{color:var(--brass-bright);border-color:var(--brass-bright)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 26px;border-radius:2px;font-weight:600;font-size:14px;
+    text-decoration:none;border:1px solid var(--brass);letter-spacing:.4px;cursor:pointer}
+  .btn-brass{background:var(--brass);color:var(--espresso-deep)}
+  .btn-brass:hover{background:var(--brass-bright)}
+  .btn-line{background:transparent;color:var(--ivory);border-color:#6b5a44}
+
+  .hero{padding:90px 0 100px;position:relative}
+  .hero .wrap{display:grid;grid-template-columns:1fr;justify-items:center;text-align:center;gap:26px}
+  .medallion-lg{width:120px;height:120px;border-radius:50%;border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 35% 30%,#3a2a1c,var(--espresso-deep) 75%)}
+  .medallion-lg .inner{width:88px;height:88px;border-radius:50%;border:1px solid var(--brass);display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;color:var(--brass);font-size:12px;letter-spacing:2px;text-align:center}
+  .eyebrow{color:var(--brass);letter-spacing:3px;font-size:12px;font-weight:700;text-transform:uppercase}
+  .hero h1{font-size:clamp(38px,6vw,66px);max-width:16ch;line-height:1.05}
+  .hero h1 em{font-style:italic;color:var(--brass-bright)}
+  .hero p{max-width:52ch;color:#cbb99a;font-size:17px}
+  .hero-actions{display:flex;gap:14px}
+
+  section{padding:80px 0}
+  .tag{display:inline-block;color:var(--brass);font-size:12px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase;margin-bottom:14px}
+  .section-head{text-align:center;max-width:600px;margin:0 auto 52px}
+  .section-head h2{font-size:clamp(28px,4vw,42px)}
+  .section-head p{color:#b9a687;margin-top:12px}
+
+  .rule{width:60px;height:2px;background:var(--brass);margin:18px auto 0}
+
+  /* leather panel services */
+  .services{background:var(--espresso-deep)}
+  .panel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .panel{background:var(--espresso-deep);padding:32px 26px;position:relative}
+  .panel .svc{font-family:'Fraunces',serif;font-size:22px;color:var(--ivory)}
+  .panel .time{color:#8a7a62;font-size:13px;margin:8px 0 20px}
+  .panel .price{font-family:'Fraunces',serif;font-weight:900;font-size:32px;color:var(--brass-bright)}
+  .panel .corner{position:absolute;top:14px;right:14px;width:10px;height:10px;border-top:2px solid var(--brass);border-right:2px solid var(--brass)}
+  .panel .book{display:inline-block;margin-top:18px;color:var(--brass);font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.5px;
+    border-bottom:1px solid var(--brass)}
+  .panel .book:hover{color:var(--brass-bright);border-color:var(--brass-bright)}
+
+  .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+  .about-medal{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3a2a1c,var(--espresso-deep) 75%);
+    border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;text-align:center;padding:36px}
+  .about-medal span{font-family:'Fraunces',serif;color:var(--brass-bright);font-size:16px;letter-spacing:1.5px;line-height:1.5}
+  .about h2{margin-bottom:18px}
+  .about p{color:#cbb99a;margin-bottom:14px}
+  .stat-row{display:flex;gap:40px;margin-top:28px}
+  .stat b{display:block;font-family:'Fraunces',serif;font-weight:900;font-size:30px;color:var(--brass-bright)}
+  .stat span{font-size:12px;color:#8a7a62;letter-spacing:1px;text-transform:uppercase}
+
+  .reviews{background:var(--espresso-deep)}
+  .review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .review{background:var(--espresso-deep);padding:34px}
+  .stars{color:var(--brass);letter-spacing:2px;margin-bottom:14px;font-size:15px}
+  .review p{font-style:italic;color:#e3d5ba;margin-bottom:16px;font-family:'Fraunces',serif;font-size:17px;font-weight:400;line-height:1.5}
+  .review cite{font-style:normal;color:var(--brass-bright);font-weight:700;font-size:14px}
+  .review small{display:block;color:#8a7a62;font-size:12px;margin-top:2px}
+
+  .cta{text-align:center;background:radial-gradient(circle at 50% 0%,#2e2015,var(--espresso) 60%)}
+  .cta h2{font-size:clamp(28px,5vw,44px);margin-bottom:12px}
+  .cta p{color:#b9a687;margin-bottom:30px}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;color:#8a7a62;font-size:13px;text-align:center}
+  .modal-overlay{display:none;position:fixed;inset:0;background:#000000c9;z-index:99;overflow-y:auto;padding:20px}
+  .modal-overlay.open{display:block}
+  .modal-panel{background:var(--espresso-deep);border:1px solid var(--brass);border-radius:6px;max-width:600px;width:100%;margin:40px auto;padding:34px;position:relative;color:var(--ivory)}
+  .modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:transparent;border:1px solid var(--brass);color:var(--brass);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal-close:hover{background:var(--brass);color:var(--espresso-deep)}
+  .modal-panel h2{margin:6px 0 10px}
+  .modal-panel p{color:#cbb99a;margin:0 0 24px}
+
+  @media(max-width:840px){
+    .about .wrap{grid-template-columns:1fr}
+    nav .links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="medallion">PP</div>
+      <div class="brand-name">Proud Pops</div>
+    </div>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-brass" href="#" onclick="openBooksyModal();return false;">Reserve</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="medallion-lg"><div class="inner">EST.<br>PROUD<br>POPS</div></div>
+    <div class="eyebrow">Roanoke, Virginia</div>
+    <h1>The Craft of a <em>Proper</em> Barber</h1>
+    <p>Twenty-nine years of precision cutting, in a shop built on quiet confidence — good light, good conversation, and a chair worth waiting for.</p>
+    <div class="hero-actions">
+      <a class="btn btn-brass" href="#" onclick="openBooksyModal();return false;">Reserve Your Chair</a>
+      <a class="btn btn-line" href="#about">Meet Steve</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">Services</div>
+      <h2>The Offering</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="panel-grid">
+      <div class="panel"><div class="corner"></div><div class="svc">Haircut</div><div class="time">45 min</div><div class="price">$40</div><br><a class="book" href="#" onclick="openBooksyModal();return false;">Reserve →</a></div>
+      <div class="panel"><div class="corner"></div><div class="svc">Edgeup</div><div class="time">30 min</div><div class="price">$25</div><br><a class="book" href="#" onclick="openBooksyModal();return false;">Reserve →</a></div>
+      <div class="panel"><div class="corner"></div><div class="svc">Beard Trim</div><div class="time">25 min</div><div class="price">$20</div><br><a class="book" href="#" onclick="openBooksyModal();return false;">Reserve →</a></div>
+      <div class="panel"><div class="corner"></div><div class="svc">Shave</div><div class="time">20 min</div><div class="price">$15</div><br><a class="book" href="#" onclick="openBooksyModal();return false;">Reserve →</a></div>
+      <div class="panel"><div class="corner"></div><div class="svc">Cut + Enhancement</div><div class="time">1 hr</div><div class="price">$50</div><br><a class="book" href="#" onclick="openBooksyModal();return false;">Reserve →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-medal"><span>29 YEARS<br>OF<br>CRAFT</span></div>
+    <div>
+      <div class="tag">The Barber</div>
+      <h2>Meet Steve</h2>
+      <p>Nearly three decades in, Steve's approach hasn't changed: take the time, get it right, send you out looking sharper than when you walked in.</p>
+      <p>Proud Pops runs on reputation, not gimmicks — a shop where the details matter and every client leaves a regular.</p>
+      <div class="stat-row">
+        <div class="stat"><b>29</b><span>Years Experience</span></div>
+        <div class="stat"><b>5.0</b><span>Average Rating</span></div>
+        <div class="stat"><b>5</b><span>Signature Services</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">Testimonials</div>
+      <h2>In Their Words</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="review-grid">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>“Steve is great at what he does and runs an awesome shop. From the first step in, it's comfortable and everyone is laughing and creating a great atmosphere. I'll be a client as long as I have hair!”</p>
+        <cite>Tim</cite><small>Haircut service</small>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>“Steve is just surgical with the clippers and blade. Precision and skill. Definitely would highly recommend.”</p>
+        <cite>Walter</cite><small>Haircut service</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="visit">
+  <div class="wrap">
+    <div class="tag">Visit</div>
+    <h2>1118 Main Street SW<br>Roanoke, VA 24015</h2>
+    <p>Walk-ins welcome when the chair's open — reservations always come first.</p>
+    <a class="btn btn-brass" href="#" onclick="openBooksyModal();return false;">Reserve Your Chair</a>
+  </div>
+</section>
+
+<footer>© 2026 Proud Pops Barbershop · Design concept "Brass & Leather" · <a href="https://www.facebook.com/p/Proud-Pops-Barbershop-100063230739040/" target="_blank" rel="noopener" style="color:inherit">Facebook</a> · Demo by Denduluru Technologies</footer>
+<div id="booksy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booksy-modal-title">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" aria-label="Close" onclick="closeBooksyModal()">&times;</button>
+    <div class="tag" id="booksy-modal-title">BOOK YOUR APPOINTMENT</div>
+    <h2>Ready to Book?</h2>
+    <p>Tap below to see open times and reserve your spot.</p>
+    <div id="booksy-official-host"></div>
+  </div>
+</div>
+<script>
+(function () {
+  var modal = document.getElementById('booksy-modal');
+  var loaded = false;
+  function loadBooksyWidget() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://booksy.com/widget/code.js?id=212027&country=us&lang=en';
+    s.async = true;
+    document.getElementById('booksy-official-host').appendChild(s);
+  }
+  window.openBooksyModal = function () {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    loadBooksyWidget();
+  };
+  window.closeBooksyModal = function () {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) window.closeBooksyModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      window.closeBooksyModal();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
