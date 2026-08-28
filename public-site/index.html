@@ -805,109 +805,7 @@ a:focus-visible, button:focus-visible {
 })();
 </script>
 <!-- PROUDPOPS-LIVE-AVAILABILITY-CONTRAST-V4-END -->
-<!-- PROUDPOPS-BOOKSY-YELLOW-ARTIFACT-V5-START -->
-<style id="proudpops-booksy-yellow-artifact-v5">
-  .pp-booksy-yellow-artifact {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-    overflow: hidden !important;
-  }
-  .pp-booksy-remove-after::after,
-  .pp-booksy-remove-before::before {
-    display: none !important;
-    content: none !important;
-  }
-</style>
-<script id="proudpops-booksy-yellow-artifact-v5-script">
-(function () {
-  function normalizedText(element) {
-    return (element.textContent || '').replace(/\s+/g, ' ').trim().toUpperCase();
-  }
 
-  function isGoldColor(color) {
-    var match = String(color).match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
-    if (!match) return false;
-    var r = Number(match[1]);
-    var g = Number(match[2]);
-    var b = Number(match[3]);
-    return r >= 175 && g >= 120 && g <= 215 && b <= 120 && r > g && g > b;
-  }
-
-  function visible(element) {
-    var style = getComputedStyle(element);
-    var rect = element.getBoundingClientRect();
-    return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
-  }
-
-  function removeYellowArtifact() {
-    var modal = document.getElementById('booksy-modal');
-    if (!modal || !visible(modal)) return;
-
-    var bookNow = Array.from(modal.querySelectorAll('a, button, div, span')).find(function (element) {
-      return normalizedText(element) === 'BOOK NOW' && visible(element);
-    });
-    if (!bookNow) return;
-
-    var buttonRect = bookNow.getBoundingClientRect();
-    var scope = modal.querySelector('.modal-panel') || modal;
-
-    Array.from(scope.querySelectorAll('*')).forEach(function (element) {
-      if (element === bookNow || element.contains(bookNow) || bookNow.contains(element)) return;
-      if (!visible(element)) return;
-
-      var rect = element.getBoundingClientRect();
-      var style = getComputedStyle(element);
-      var text = normalizedText(element);
-      var aligned = Math.abs(rect.left - buttonRect.left) <= 45;
-      var below = rect.top >= buttonRect.bottom - 8 && rect.top <= buttonRect.bottom + 95;
-      var similarWidth = rect.width >= buttonRect.width * 0.72 && rect.width <= buttonRect.width * 1.45;
-      var stripHeight = rect.height >= 10 && rect.height <= 55;
-
-      if (!text && aligned && below && similarWidth && stripHeight && isGoldColor(style.backgroundColor)) {
-        element.classList.add('pp-booksy-yellow-artifact');
-      }
-    });
-
-    var ancestors = [];
-    var node = bookNow;
-    for (var i = 0; node && i < 5; i += 1, node = node.parentElement) ancestors.push(node);
-    ancestors.forEach(function (element) {
-      var after = getComputedStyle(element, '::after');
-      var before = getComputedStyle(element, '::before');
-      if (after && after.content !== 'none' && isGoldColor(after.backgroundColor)) {
-        element.classList.add('pp-booksy-remove-after');
-      }
-      if (before && before.content !== 'none' && isGoldColor(before.backgroundColor)) {
-        element.classList.add('pp-booksy-remove-before');
-      }
-    });
-  }
-
-  function start() {
-    removeYellowArtifact();
-    var modal = document.getElementById('booksy-modal');
-    if (!modal) return;
-    var observer = new MutationObserver(function () {
-      window.requestAnimationFrame(removeYellowArtifact);
-    });
-    observer.observe(modal, {childList: true, subtree: true, attributes: true});
-    window.setInterval(removeYellowArtifact, 500);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
-  }
-})();
-</script>
-<!-- PROUDPOPS-BOOKSY-YELLOW-ARTIFACT-V5-END -->
 <!-- PROUDPOPS-MOBILE-CALL-BOOK-BAR-V1-START -->
 <style id="proudpops-mobile-call-book-bar-v1-style">
   .pp-mobile-actions {
@@ -1079,96 +977,47 @@ a:focus-visible, button:focus-visible {
 })();
 </script>
 <!-- PROUDPOPS-MOBILE-CALL-BOOK-BAR-V1-END -->
-<!-- PROUDPOPS-BOOKSY-YELLOW-ARTIFACT-V6-START -->
-<style id="proudpops-booksy-yellow-artifact-v6-style">
-  #pp-booksy-artifact-mask {
-    position: fixed;
-    z-index: 10050;
-    display: none;
-    background: #fffaf0;
-    pointer-events: none;
+
+<!-- PROUDPOPS-BOOKSY-BUSINESS-LINK-V7-START -->
+<style id="proudpops-booksy-business-link-v7-style">
+  /* Exact Booksy artifact identified in Chrome DevTools: a.booksy-business-link, 200 x 16. */
+  #booksy-modal a.booksy-business-link,
+  .modal-panel a.booksy-business-link,
+  a.booksy-business-link {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
   }
 </style>
-<script id="proudpops-booksy-yellow-artifact-v6-script">
+<script id="proudpops-booksy-business-link-v7-script">
 (function () {
-  var mask;
-  var timer;
-
-  function isVisible(element) {
-    if (!element) return false;
-    var style = window.getComputedStyle(element);
-    var rect = element.getBoundingClientRect();
-    return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
-  }
-
-  function findOfficialBookNow() {
-    var modal = document.getElementById('booksy-modal');
-    if (!modal || !isVisible(modal)) return null;
-
-    var candidates = Array.from(document.querySelectorAll('a, button, div, span'));
-    return candidates.find(function (element) {
-      var text = (element.textContent || '').replace(/\s+/g, ' ').trim().toUpperCase();
-      if (text !== 'BOOK NOW' || !isVisible(element)) return false;
-      var rect = element.getBoundingClientRect();
-      var modalRect = modal.getBoundingClientRect();
-      return rect.left >= modalRect.left && rect.right <= modalRect.right &&
-             rect.top >= modalRect.top && rect.bottom <= modalRect.bottom &&
-             rect.width >= 180 && rect.width <= 500 && rect.height >= 40 && rect.height <= 130;
-    }) || null;
-  }
-
-  function ensureMask() {
-    if (mask) return mask;
-    mask = document.createElement('div');
-    mask.id = 'pp-booksy-artifact-mask';
-    mask.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(mask);
-    return mask;
-  }
-
-  function positionMask() {
-    var modal = document.getElementById('booksy-modal');
-    var button = findOfficialBookNow();
-    var artifactMask = ensureMask();
-
-    if (!modal || !button || !isVisible(modal)) {
-      artifactMask.style.display = 'none';
-      return;
-    }
-
-    var rect = button.getBoundingClientRect();
-    var panel = modal.querySelector('.modal-panel');
-    var panelColor = panel ? window.getComputedStyle(panel).backgroundColor : 'rgb(255, 250, 240)';
-
-    artifactMask.style.display = 'block';
-    artifactMask.style.left = Math.max(0, rect.left - 20) + 'px';
-    artifactMask.style.top = (rect.bottom + 2) + 'px';
-    artifactMask.style.width = (rect.width + 40) + 'px';
-    artifactMask.style.height = '68px';
-    artifactMask.style.background = panelColor;
-  }
-
-  function startTracking() {
-    window.clearInterval(timer);
-    positionMask();
-    timer = window.setInterval(positionMask, 200);
+  function removeBooksyBusinessLinkArtifact() {
+    document.querySelectorAll('a.booksy-business-link').forEach(function (element) {
+      element.style.setProperty('display', 'none', 'important');
+      element.style.setProperty('visibility', 'hidden', 'important');
+      element.style.setProperty('width', '0', 'important');
+      element.style.setProperty('height', '0', 'important');
+      element.style.setProperty('margin', '0', 'important');
+      element.style.setProperty('padding', '0', 'important');
+      element.setAttribute('aria-hidden', 'true');
+      element.setAttribute('tabindex', '-1');
+    });
   }
 
   function initialize() {
-    var modal = document.getElementById('booksy-modal');
-    if (!modal) return;
-
-    new MutationObserver(function () {
-      window.requestAnimationFrame(positionMask);
-    }).observe(modal, {attributes: true, childList: true, subtree: true});
-
-    document.addEventListener('click', function () {
-      window.setTimeout(startTracking, 50);
-    }, true);
-
-    window.addEventListener('resize', positionMask);
-    window.addEventListener('scroll', positionMask, true);
-    startTracking();
+    removeBooksyBusinessLinkArtifact();
+    var observer = new MutationObserver(removeBooksyBusinessLinkArtifact);
+    observer.observe(document.body, {childList: true, subtree: true});
   }
 
   if (document.readyState === 'loading') {
@@ -1178,5 +1027,5 @@ a:focus-visible, button:focus-visible {
   }
 })();
 </script>
-<!-- PROUDPOPS-BOOKSY-YELLOW-ARTIFACT-V6-END -->
+<!-- PROUDPOPS-BOOKSY-BUSINESS-LINK-V7-END -->
 </body></html>
