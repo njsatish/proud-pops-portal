@@ -295,6 +295,94 @@ a:focus-visible, button:focus-visible {
 }
 /* PROUDPOPS-COLORFUL-PREMIUM-V1-END */
 </style>
+<style>
+/* PROUDPOPS-COMPACT-BOOKSY-WIDGET-V2-START */
+/* Compact modal while retaining the official embedded Booksy widget behavior. */
+#booksy-modal.modal-overlay {
+  padding: 20px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow-y: auto !important;
+}
+#booksy-modal .modal-panel {
+  width: min(620px, calc(100vw - 40px)) !important;
+  min-width: 0 !important;
+  max-width: 620px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: min(680px, calc(100vh - 40px)) !important;
+  margin: auto !important;
+  padding: 34px 38px 32px !important;
+  overflow-y: auto !important;
+  border-radius: 28px !important;
+}
+#booksy-modal .modal-panel h2 {
+  margin: 8px 54px 12px 0 !important;
+  font-size: clamp(42px, 7vw, 64px) !important;
+  line-height: .96 !important;
+}
+#booksy-modal .modal-panel .lead {
+  margin: 0 0 20px !important;
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+#booksy-modal .modal-close {
+  top: 22px !important;
+  right: 22px !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+#booksy-official-host {
+  position: relative !important;
+  display: block !important;
+  width: min(390px, 100%) !important;
+  min-height: 0 !important;
+  height: 82px !important;
+  max-height: 82px !important;
+  margin: 18px 0 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#booksy-official-host > * {
+  max-width: 100% !important;
+}
+#booksy-official-host iframe {
+  width: 100% !important;
+  max-width: 390px !important;
+  height: 82px !important;
+  max-height: 82px !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+@media (max-width: 540px) {
+  #booksy-modal.modal-overlay { padding: 12px !important; }
+  #booksy-modal .modal-panel {
+    width: calc(100vw - 24px) !important;
+    max-height: calc(100vh - 24px) !important;
+    padding: 28px 22px 24px !important;
+    border-radius: 22px !important;
+  }
+  #booksy-modal .modal-panel h2 {
+    font-size: clamp(38px, 13vw, 52px) !important;
+    margin-right: 48px !important;
+  }
+  #booksy-modal .modal-close {
+    top: 16px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+  #booksy-official-host {
+    width: 100% !important;
+    height: 78px !important;
+    max-height: 78px !important;
+  }
+}
+/* PROUDPOPS-COMPACT-BOOKSY-WIDGET-V2-END */
+</style>
 </head><body><div class="notice">PROUD POPS BARBERSHOP • ROANOKE, VIRGINIA</div><header><nav class="wrap"><a class="brand" href="#top"><img src="assets/images/proud-pops-logo.webp" alt="Proud Pops Barber Shop logo"><span>PROUD <b>POPS</b></span></a><div class="links"><a href="#about">About</a><a href="#services">Services</a><a href="#styles">Styles</a><a href="#reviews">Reviews</a><a href="#policies">Policies</a><a href="#visit">Visit</a><a class="btn" href="#" onclick="openBooksyModal();return false;">Book Now</a></div></nav></header><main id="top"><section class="hero"><div class="wrap"><div class="tag">TRADITIONAL CRAFT • MODERN STYLE</div><h1>Clean cuts.<br><em>Proud style.</em></h1><p class="lead" style="font-size:19px">Discover a polished barbershop experience and reserve a convenient appointment through Proud Pops on Booksy.</p><a class="btn" href="#" onclick="openBooksyModal();return false;">Book Your Appointment</a></div></section><section id="about"><div class="wrap aboutgrid"><div><img class="aboutlogo" src="assets/images/proud-pops-logo.webp" alt="Proud Pops Barber Shop logo"></div><div><div class="tag">ABOUT PROUD POPS</div><h2>Experience behind every detail.</h2><p class="lead">Proud Pops Barbershop is a locally owned Roanoke barbershop led by Steven Webb, a master barber with more than 29 years of experience. The shop is known for detailed grooming, clean finishes, welcoming conversation, and carefully blended fades.</p><div class="facts"><div class="fact"><strong>29+ years</strong><span>Barbering experience</span></div><div class="fact"><strong>Roanoke</strong><span>Locally owned shop</span></div><div class="fact"><strong>Precision</strong><span>Fades and grooming</span></div></div><div class="actions"><a class="btn" href="#reviews">Read customer reviews</a><a class="btn outline" href="#visit">Plan your visit</a></div></div></div></section><section id="services"><div class="wrap"><div class="tag">POPULAR SERVICES</div><h2>Choose your next look.</h2><div class="grid3"><div class="card"><h3>Haircut</h3><p>Precision cutting and finished styling.</p></div><div class="card"><h3>Edgeup</h3><p>Clean lines and detailed finishing.</p></div><div class="card"><h3>Beard Trim</h3><p>Shape, refine, and sharpen the beard line.</p></div></div></div></section><section id="styles" style="background:#0c1c30"><div class="wrap"><div class="tag">STYLE GALLERY</div><h2>Fresh haircut inspiration.</h2><div class="gallery"><figure><img src="assets/images/low-skin-fade.png" alt="AI-generated hairstyle concept: Low Skin Fade" loading="lazy"><figcaption><b>Low Skin Fade</b></figcaption></figure><figure><img src="assets/images/high-taper.png" alt="AI-generated hairstyle concept: High Taper" loading="lazy"><figcaption><b>High Taper</b></figcaption></figure><figure><img src="assets/images/classic-cut.png" alt="AI-generated hairstyle concept: Classic Cut" loading="lazy"><figcaption><b>Classic Cut</b></figcaption></figure><figure><img src="assets/images/burst-fade.png" alt="AI-generated hairstyle concept: Burst Fade" loading="lazy"><figcaption><b>Burst Fade</b></figcaption></figure><figure><img src="assets/images/temple-taper.png" alt="AI-generated hairstyle concept: Temple Taper + Beard" loading="lazy"><figcaption><b>Temple Taper + Beard</b></figcaption></figure><figure><img src="assets/images/bald-fade-waves.png" alt="AI-generated hairstyle concept: Bald Fade + Waves" loading="lazy"><figcaption><b>Bald Fade + Waves</b></figcaption></figure></div><div class="disclosure"><b>Demo disclosure:</b> Style gallery images are AI-generated concepts for inspiration only — not actual Proud Pops clients, staff, or completed work.</div></div></section><section id="reviews"><div class="wrap"><div class="tag">CUSTOMER REVIEWS</div><h2>What customers are saying.</h2><div class="reviews"><blockquote class="review"><div class="stars">★★★★★</div><p>“It blows my mind that there aren’t more reviews here—Steve is an absolute doctor when it comes to cutting hair! His shop is always the best spot for good conversation and a killer cut every time.”</p><cite>Matthew Thomas (Houffdizzle)</cite><small>Razor cut, beard maintenance, beard trim</small></blockquote><blockquote class="review"><div class="stars">★★★★★</div><p>“Steve is great at what he does and runs an awesome shop. From the first step in, it’s comfortable and everyone is laughing and creating a great atmosphere. I’ll be a client as long as I have hair!”</p><cite>Tim</cite><small>Haircut service</small></blockquote><blockquote class="review"><div class="stars">★★★★★</div><p>“Steve is just surgical with the clippers and blade. Precision and skill. Definitely would highly recommend.”</p><cite>Walter</cite><small>Haircut service</small></blockquote></div><p class="lead" style="font-size:13px">Review wording and attribution should receive owner approval before final production launch.</p></div></section><section id="policies"><div class="wrap"><div class="tag">BOOKING POLICIES</div><h2>Plan before arriving.</h2><p class="lead">Proud Pops serves clients by scheduled appointment so each appointment receives focused time and attention.</p><div class="policies"><div class="policy"><strong>Appointments only</strong><span>No walk-ins. Please reserve an available time through Booksy before arriving.</span></div><div class="policy"><strong>No waiting area</strong><span>Please arrive close to the scheduled appointment time. The shop does not have a customer waiting area.</span></div></div><div class="actions"><a class="btn" href="https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke" target="_blank" rel="noopener">View on Booksy ↗</a></div></div></section><section id="visit" style="background:#0c1c30"><div class="wrap"><div class="tag">HOURS & LOCATION</div><h2>Visit Proud Pops.</h2><div class="visitgrid"><div class="visitcard"><h3>Contact</h3><p style="font-size:19px">1118 Main St SW<br>Roanoke, VA 24015</p><a class="phone" href="tel:+15408191346">(540) 819-1346</a><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=1118%20Main%20St%20SW%2C%20Roanoke%2C%20VA%2024015" target="_blank" rel="noopener">Get directions ↗</a><a class="btn outline" href="tel:+15408191346">Call now</a></div></div><div class="visitcard"><h3>Business Hours</h3><div class="row"><span>Monday</span><b>Closed</b></div><div class="row"><span>Tuesday</span><b>10 AM–6 PM</b></div><div class="row"><span>Wednesday</span><b>10 AM–6 PM</b></div><div class="row"><span>Thursday</span><b>10 AM–8 PM</b></div><div class="row"><span>Friday</span><b>10 AM–8 PM</b></div><div class="row"><span>Saturday</span><b>10 AM–5 PM</b></div><div class="row"><span>Sunday</span><b>Closed</b></div></div></div><p class="lead" style="font-size:13px">Hours may change on holidays. Confirm current availability through Booksy.</p></div></section><section class="cta"><div class="wrap ctarow"><div><div class="tag" style="color:#321809">READY FOR A FRESH CUT?</div><h2>Book directly with Proud Pops.</h2></div><a class="btn" href="#" onclick="openBooksyModal();return false;">Book Now</a></div></section></main><footer><div class="wrap">© 2026 Proud Pops Barbershop • 1118 Main St SW, Roanoke, VA 24015 • <a href="https://www.facebook.com/p/Proud-Pops-Barbershop-100063230739040/" target="_blank" rel="noopener" style="color:inherit">Facebook</a> • Demo by Denduluru Technologies<br><span style="font-size:10px;opacity:.35">Design previews: <a href="concept-classic.html" style="color:inherit">Classic</a> · <a href="concept-brass.html" style="color:inherit">Brass</a> · <a href="concept-modern.html" style="color:inherit">Modern</a></span></div></footer><div id="booksy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booksy-modal-title"><div class="modal-panel"><button type="button" class="modal-close" aria-label="Close" onclick="closeBooksyModal()">&times;</button><div class="tag" id="booksy-modal-title">BOOK YOUR APPOINTMENT</div><h2 style="margin-top:8px">Ready to Book?</h2><p class="lead" style="margin:0 0 24px">Tap below to see open times and reserve your spot.</p><div id="booksy-official-host"></div></div></div><script>
 (function () {
   var modal = document.getElementById('booksy-modal');
@@ -522,113 +610,5 @@ a:focus-visible, button:focus-visible {
 
 })();
 </script>
-<!-- PROUDPOPS-BOOKSY-YELLOW-BAR-FIX-START -->
-<style id="proudpops-booksy-yellow-bar-fix">
-  /* Replace the third-party widget fragment that creates the yellow bar. */
-  #booksy-official-host {
-    display: flex !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 28px 0 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-  }
-  #booksy-official-host iframe,
-  #booksy-official-host script,
-  #booksy-official-host > div:not(.pp-booksy-clean-wrap),
-  #booksy-official-host [style*="background"]:not(.pp-booksy-clean-button) {
-    display: none !important;
-  }
-  .pp-booksy-clean-wrap {
-    display: block !important;
-    width: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-    border: 0 !important;
-  }
-  .pp-booksy-clean-button {
-    min-width: 230px;
-    min-height: 58px;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 28px;
-    border: 0 !important;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #169c8c, #46c7bd) !important;
-    color: #ffffff !important;
-    font: 800 20px/1.2 Inter, system-ui, sans-serif;
-    letter-spacing: .02em;
-    text-decoration: none !important;
-    box-shadow: 0 12px 28px rgba(22,156,140,.28) !important;
-  }
-  .pp-booksy-clean-button:hover {
-    background: linear-gradient(135deg, #117568, #169c8c) !important;
-    color: #ffffff !important;
-    transform: translateY(-2px);
-  }
-  @media (max-width: 540px) {
-    #booksy-official-host { justify-content: stretch !important; }
-    .pp-booksy-clean-wrap,
-    .pp-booksy-clean-button { width: 100% !important; }
-  }
-</style>
-<script id="proudpops-booksy-yellow-bar-fix-script">
-(function () {
-  var BOOKSY_URL = 'https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke';
 
-  function renderCleanBooksyButton() {
-    var host = document.getElementById('booksy-official-host');
-    if (!host) return;
-
-    host.innerHTML = '';
-
-    var wrap = document.createElement('div');
-    wrap.className = 'pp-booksy-clean-wrap';
-
-    var link = document.createElement('a');
-    link.className = 'pp-booksy-clean-button';
-    link.href = BOOKSY_URL;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.textContent = 'View Open Times on Booksy';
-    link.setAttribute('aria-label', 'View open appointment times on Booksy, opens in a new tab');
-
-    wrap.appendChild(link);
-    host.appendChild(wrap);
-  }
-
-  function installCleanModalHandler() {
-    var modal = document.getElementById('booksy-modal');
-    if (!modal) return;
-
-    window.openBooksyModal = function () {
-      renderCleanBooksyButton();
-      modal.classList.add('open');
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-
-      var closeButton = modal.querySelector('.modal-close');
-      if (closeButton) closeButton.focus();
-    };
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      renderCleanBooksyButton();
-      installCleanModalHandler();
-    });
-  } else {
-    renderCleanBooksyButton();
-    installCleanModalHandler();
-  }
-})();
-</script>
-<!-- PROUDPOPS-BOOKSY-YELLOW-BAR-FIX-END -->
 </body></html>
