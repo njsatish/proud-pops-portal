@@ -1111,4 +1111,242 @@ a:focus-visible, button:focus-visible {
 })();
 </script>
 <!-- PROUDPOPS-BOOKSY-BUSINESS-LINK-V7-END -->
+<!-- PROUDPOPS-PUBLIC-THEME-REVIEW-LINKS-V1-START -->
+<style id="proudpops-public-theme-review-links-v1-style">
+  /* Shared theme variables used only by the optional review views. */
+  body.pp-theme-colorful {
+    --pp-review-navy:#102a43; --pp-review-navy2:#173d5c; --pp-review-ink:#102a43;
+    --pp-review-gold:#e4b63f; --pp-review-gold2:#f4d16e; --pp-review-blue:#246bce;
+    --pp-review-teal:#169c8c; --pp-review-copper:#d97941; --pp-review-light:#fff8ea;
+    --pp-review-alt:#eaf4ff; --pp-review-dark:#173d5c; --pp-review-radius:24px;
+  }
+  body.pp-theme-heritage {
+    --pp-review-navy:#302b28; --pp-review-navy2:#5a4134; --pp-review-ink:#302b28;
+    --pp-review-gold:#b88a3b; --pp-review-gold2:#e2c07d; --pp-review-blue:#486581;
+    --pp-review-teal:#668b7a; --pp-review-copper:#a55735; --pp-review-light:#f7efe1;
+    --pp-review-alt:#ede4d5; --pp-review-dark:#43362f; --pp-review-radius:10px;
+  }
+  body.pp-theme-modern {
+    --pp-review-navy:#14171c; --pp-review-navy2:#242a31; --pp-review-ink:#15191e;
+    --pp-review-gold:#ffb000; --pp-review-gold2:#ffd166; --pp-review-blue:#3b82f6;
+    --pp-review-teal:#0d9488; --pp-review-copper:#ff6b35; --pp-review-light:#f8f8f6;
+    --pp-review-alt:#eef3f7; --pp-review-dark:#181d23; --pp-review-radius:8px;
+  }
+  body.pp-theme-roanoke {
+    --pp-review-navy:#0b3558; --pp-review-navy2:#0a6680; --pp-review-ink:#0b3558;
+    --pp-review-gold:#f2b84b; --pp-review-gold2:#ffd981; --pp-review-blue:#1779ba;
+    --pp-review-teal:#1aa69a; --pp-review-copper:#e26d3c; --pp-review-light:#fff9ed;
+    --pp-review-alt:#e3f3ff; --pp-review-dark:#0a5871; --pp-review-radius:30px;
+  }
+  body.pp-theme-copper {
+    --pp-review-navy:#080808; --pp-review-navy2:#1f1a17; --pp-review-ink:#1c1815;
+    --pp-review-gold:#d7a24a; --pp-review-gold2:#f0c878; --pp-review-blue:#945f3d;
+    --pp-review-teal:#6c8379; --pp-review-copper:#b75e37; --pp-review-light:#f8f1e7;
+    --pp-review-alt:#ece7e1; --pp-review-dark:#15110f; --pp-review-radius:18px;
+  }
+
+  body[class*="pp-theme-"] .notice {
+    background:linear-gradient(90deg,var(--pp-review-gold),var(--pp-review-gold2),var(--pp-review-copper)) !important;
+    color:#17130b !important;
+  }
+  body[class*="pp-theme-"] header,
+  body[class*="pp-theme-"] .header,
+  body[class*="pp-theme-"] .site-header {
+    background:rgba(8,12,17,.97) !important;
+  }
+  body[class*="pp-theme-"] .brand b,
+  body[class*="pp-theme-"] .brand strong,
+  body[class*="pp-theme-"] .brand span b { color:var(--pp-review-gold) !important; }
+  body[class*="pp-theme-"] .btn,
+  body[class*="pp-theme-"] a[class*="book"],
+  body[class*="pp-theme-"] button[class*="book"] {
+    background:linear-gradient(135deg,var(--pp-review-gold),var(--pp-review-gold2)) !important;
+    color:#17130b !important;
+    border-color:transparent !important;
+  }
+  body[class*="pp-theme-"] .hero {
+    background-image:linear-gradient(90deg,var(--pp-review-navy) 0%,color-mix(in srgb,var(--pp-review-navy) 82%,transparent) 43%,rgba(0,0,0,.18) 78%),url('assets/images/low-skin-fade.png') !important;
+  }
+  body[class*="pp-theme-"] .hero h1 em,
+  body[class*="pp-theme-"] .hero h1 span,
+  body[class*="pp-theme-"] .hero .tag { color:var(--pp-review-gold2) !important; }
+  body[class*="pp-theme-"] #about { background:var(--pp-review-light) !important; }
+  body[class*="pp-theme-"] #services,
+  body[class*="pp-theme-"] #policies { background:var(--pp-review-alt) !important; }
+  body[class*="pp-theme-"] #styles,
+  body[class*="pp-theme-"] #visit { background:linear-gradient(145deg,var(--pp-review-dark),var(--pp-review-navy2)) !important; }
+  body[class*="pp-theme-"] #reviews { background:linear-gradient(135deg,var(--pp-review-light),var(--pp-review-alt)) !important; }
+  body[class*="pp-theme-"] .card,
+  body[class*="pp-theme-"] .fact,
+  body[class*="pp-theme-"] .policy,
+  body[class*="pp-theme-"] .review,
+  body[class*="pp-theme-"] .visitcard,
+  body[class*="pp-theme-"] .visit-card,
+  body[class*="pp-theme-"] .gallery figure {
+    border-radius:var(--pp-review-radius) !important;
+  }
+  body[class*="pp-theme-"] .tag,
+  body[class*="pp-theme-"] .eyebrow { color:var(--pp-review-blue) !important; }
+  body[class*="pp-theme-"] .fact strong,
+  body[class*="pp-theme-"] .policy strong,
+  body[class*="pp-theme-"] .phone { color:var(--pp-review-copper) !important; }
+  body[class*="pp-theme-"] #booksy-slot > div:nth-child(3) > div {
+    background:var(--pp-review-blue) !important;
+    border-color:var(--pp-review-blue) !important;
+    color:#fff !important;
+  }
+  body[class*="pp-theme-"] #booksy-slot > div:nth-child(3) > div:hover {
+    background:var(--pp-review-teal) !important;
+  }
+
+  body.pp-theme-modern h1,
+  body.pp-theme-modern h2 { font-family:Inter,system-ui,sans-serif !important; font-weight:900 !important; }
+  body.pp-theme-modern .btn { border-radius:8px !important; }
+  body.pp-theme-heritage .hero { filter:saturate(.88); }
+  body.pp-theme-roanoke .hero { filter:saturate(1.08); }
+
+  .pp-theme-review-footer {
+    padding:15px 20px calc(20px + env(safe-area-inset-bottom,0px));
+    background:#090c10;
+    color:#aeb9c3;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.1);
+    font-size:11px;
+    line-height:1.8;
+  }
+  .pp-theme-review-footer strong {
+    color:#e7edf2;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .pp-theme-review-links {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:5px 11px;
+    margin-top:5px;
+  }
+  .pp-theme-review-link {
+    padding:1px 3px;
+    color:#aeb9c3;
+    background:none;
+    border:0;
+    font:inherit;
+    text-decoration:underline;
+    text-decoration-color:rgba(255,255,255,.3);
+    text-underline-offset:3px;
+    cursor:pointer;
+  }
+  .pp-theme-review-link:hover,
+  .pp-theme-review-link.active {
+    color:#f2c75c;
+    text-decoration-color:#f2c75c;
+  }
+  .pp-theme-review-share {
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    margin-left:4px;
+    padding:2px 7px;
+    color:#d7e1e8;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:999px;
+    font:inherit;
+    cursor:pointer;
+  }
+  .pp-theme-review-status {
+    min-height:18px;
+    margin-top:3px;
+    color:#80cdbf;
+  }
+  @media(max-width:640px) {
+    .pp-theme-review-footer {
+      padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
+    }
+    .pp-theme-review-links { gap:5px 8px; }
+  }
+</style>
+
+<section class="pp-theme-review-footer" aria-label="Homepage design review options">
+  <strong>Preview homepage design</strong>
+  <div class="pp-theme-review-links">
+    <button class="pp-theme-review-link" type="button" data-pp-theme="colorful">1 Colorful</button>
+    <button class="pp-theme-review-link" type="button" data-pp-theme="heritage">2 Heritage</button>
+    <button class="pp-theme-review-link" type="button" data-pp-theme="modern">3 Modern</button>
+    <button class="pp-theme-review-link" type="button" data-pp-theme="roanoke">4 Roanoke</button>
+    <button class="pp-theme-review-link" type="button" data-pp-theme="copper">5 Copper</button>
+    <button class="pp-theme-review-share" type="button" aria-label="Copy a shareable link for the selected design">Copy selected link</button>
+  </div>
+  <div class="pp-theme-review-status" role="status" aria-live="polite"></div>
+</section>
+
+<script id="proudpops-public-theme-review-links-v1-script">
+(function(){
+  var themes=['colorful','heritage','modern','roanoke','copper'];
+  var labels={colorful:'Colorful Premium',heritage:'Cream Heritage',modern:'Modern Studio',roanoke:'Roanoke Blue',copper:'Black Copper'};
+  var storageKey='proudPopsPublicTheme';
+
+  function normalize(value){
+    value=String(value||'').toLowerCase().trim();
+    return themes.includes(value)?value:'colorful';
+  }
+
+  function setTheme(theme,updateUrl,scrollToTop){
+    theme=normalize(theme);
+    themes.forEach(function(name){document.body.classList.remove('pp-theme-'+name);});
+    document.body.classList.add('pp-theme-'+theme);
+    document.body.dataset.ppTheme=theme;
+    localStorage.setItem(storageKey,theme);
+
+    document.querySelectorAll('[data-pp-theme]').forEach(function(button){
+      var active=button.dataset.ppTheme===theme;
+      button.classList.toggle('active',active);
+      button.setAttribute('aria-pressed',active?'true':'false');
+    });
+
+    if(updateUrl){
+      var url=new URL(window.location.href);
+      url.searchParams.set('theme',theme);
+      history.replaceState({},'',url);
+    }
+    if(scrollToTop){window.scrollTo({top:0,behavior:'smooth'});}
+  }
+
+  function selectedTheme(){
+    var url=new URL(window.location.href);
+    return normalize(url.searchParams.get('theme')||localStorage.getItem(storageKey)||'colorful');
+  }
+
+  function copySelectedLink(){
+    var theme=normalize(document.body.dataset.ppTheme);
+    var url=new URL(window.location.href);
+    url.searchParams.set('theme',theme);
+    url.hash='';
+    var status=document.querySelector('.pp-theme-review-status');
+
+    function success(){
+      if(status) status.textContent='Copied '+labels[theme]+' review link.';
+      window.setTimeout(function(){if(status) status.textContent='';},3000);
+    }
+
+    if(navigator.clipboard&&window.isSecureContext){
+      navigator.clipboard.writeText(url.toString()).then(success).catch(function(){window.prompt('Copy this review link:',url.toString());});
+    }else{
+      window.prompt('Copy this review link:',url.toString());
+    }
+  }
+
+  document.querySelectorAll('[data-pp-theme]').forEach(function(button){
+    button.addEventListener('click',function(){setTheme(button.dataset.ppTheme,true,true);});
+  });
+  var share=document.querySelector('.pp-theme-review-share');
+  if(share) share.addEventListener('click',copySelectedLink);
+  window.addEventListener('popstate',function(){setTheme(selectedTheme(),false,false);});
+  setTheme(selectedTheme(),true,false);
+})();
+</script>
+<!-- PROUDPOPS-PUBLIC-THEME-REVIEW-LINKS-V1-END -->
 </body></html>
