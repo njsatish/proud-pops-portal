@@ -718,4 +718,91 @@ a:focus-visible, button:focus-visible {
 })();
 </script>
 <!-- PROUDPOPS-WIDGET-AVAILABILITY-CONTRAST-V3-END -->
+<!-- PROUDPOPS-LIVE-AVAILABILITY-CONTRAST-V4-START -->
+<style id="proudpops-live-availability-contrast-v4">
+  /* Exact selectors for the dynamically rendered availability markup. */
+  #booksy-slot {
+    background: #f7f9fc !important;
+    color: #102a43 !important;
+  }
+  #booksy-slot > div:nth-child(2) {
+    color: #102a43 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+  #booksy-slot > div:nth-child(3) > div {
+    background: #246bce !important;
+    color: #ffffff !important;
+    border-color: #174b9a !important;
+    opacity: 1 !important;
+    font-weight: 800 !important;
+    text-shadow: none !important;
+    box-shadow: 0 7px 15px rgba(36,107,206,.18) !important;
+  }
+  #booksy-slot > div:nth-child(3) > div:hover {
+    background: #169c8c !important;
+    border-color: #117568 !important;
+  }
+</style>
+<script id="proudpops-live-availability-contrast-v4-script">
+(function () {
+  function applyAvailabilityContrast() {
+    var slot = document.getElementById('booksy-slot');
+    if (!slot) return;
+
+    var groups = Array.from(slot.children);
+    var dateText = groups[1];
+    var timesContainer = groups[2];
+
+    slot.style.setProperty('background', '#f7f9fc', 'important');
+    slot.style.setProperty('color', '#102a43', 'important');
+
+    if (dateText) {
+      dateText.style.setProperty('color', '#102a43', 'important');
+      dateText.style.setProperty('opacity', '1', 'important');
+      dateText.style.setProperty('text-shadow', 'none', 'important');
+    }
+
+    if (timesContainer) {
+      Array.from(timesContainer.children).forEach(function (time) {
+        time.style.setProperty('background', '#246bce', 'important');
+        time.style.setProperty('color', '#ffffff', 'important');
+        time.style.setProperty('border-color', '#174b9a', 'important');
+        time.style.setProperty('opacity', '1', 'important');
+        time.style.setProperty('font-weight', '800', 'important');
+        time.style.setProperty('text-shadow', 'none', 'important');
+      });
+    }
+
+    var section = slot.closest('section');
+    if (section) {
+      var heading = Array.from(section.querySelectorAll('h1, h2')).find(function (element) {
+        return element.textContent.includes('Next Available Appointment');
+      });
+      if (heading) {
+        heading.style.setProperty('color', '#ffffff', 'important');
+        heading.style.setProperty('opacity', '1', 'important');
+        heading.style.setProperty('text-shadow', '0 2px 12px rgba(0,0,0,.25)', 'important');
+      }
+    }
+  }
+
+  function installObserver() {
+    var slot = document.getElementById('booksy-slot');
+    if (!slot) return;
+    var observer = new MutationObserver(function () {
+      applyAvailabilityContrast();
+    });
+    observer.observe(slot, {childList: true, subtree: true});
+    applyAvailabilityContrast();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', installObserver);
+  } else {
+    installObserver();
+  }
+})();
+</script>
+<!-- PROUDPOPS-LIVE-AVAILABILITY-CONTRAST-V4-END -->
 </body></html>
