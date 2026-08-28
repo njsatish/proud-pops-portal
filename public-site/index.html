@@ -1079,4 +1079,104 @@ a:focus-visible, button:focus-visible {
 })();
 </script>
 <!-- PROUDPOPS-MOBILE-CALL-BOOK-BAR-V1-END -->
+<!-- PROUDPOPS-BOOKSY-YELLOW-ARTIFACT-V6-START -->
+<style id="proudpops-booksy-yellow-artifact-v6-style">
+  #pp-booksy-artifact-mask {
+    position: fixed;
+    z-index: 10050;
+    display: none;
+    background: #fffaf0;
+    pointer-events: none;
+  }
+</style>
+<script id="proudpops-booksy-yellow-artifact-v6-script">
+(function () {
+  var mask;
+  var timer;
+
+  function isVisible(element) {
+    if (!element) return false;
+    var style = window.getComputedStyle(element);
+    var rect = element.getBoundingClientRect();
+    return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
+  }
+
+  function findOfficialBookNow() {
+    var modal = document.getElementById('booksy-modal');
+    if (!modal || !isVisible(modal)) return null;
+
+    var candidates = Array.from(document.querySelectorAll('a, button, div, span'));
+    return candidates.find(function (element) {
+      var text = (element.textContent || '').replace(/\s+/g, ' ').trim().toUpperCase();
+      if (text !== 'BOOK NOW' || !isVisible(element)) return false;
+      var rect = element.getBoundingClientRect();
+      var modalRect = modal.getBoundingClientRect();
+      return rect.left >= modalRect.left && rect.right <= modalRect.right &&
+             rect.top >= modalRect.top && rect.bottom <= modalRect.bottom &&
+             rect.width >= 180 && rect.width <= 500 && rect.height >= 40 && rect.height <= 130;
+    }) || null;
+  }
+
+  function ensureMask() {
+    if (mask) return mask;
+    mask = document.createElement('div');
+    mask.id = 'pp-booksy-artifact-mask';
+    mask.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(mask);
+    return mask;
+  }
+
+  function positionMask() {
+    var modal = document.getElementById('booksy-modal');
+    var button = findOfficialBookNow();
+    var artifactMask = ensureMask();
+
+    if (!modal || !button || !isVisible(modal)) {
+      artifactMask.style.display = 'none';
+      return;
+    }
+
+    var rect = button.getBoundingClientRect();
+    var panel = modal.querySelector('.modal-panel');
+    var panelColor = panel ? window.getComputedStyle(panel).backgroundColor : 'rgb(255, 250, 240)';
+
+    artifactMask.style.display = 'block';
+    artifactMask.style.left = Math.max(0, rect.left - 20) + 'px';
+    artifactMask.style.top = (rect.bottom + 2) + 'px';
+    artifactMask.style.width = (rect.width + 40) + 'px';
+    artifactMask.style.height = '68px';
+    artifactMask.style.background = panelColor;
+  }
+
+  function startTracking() {
+    window.clearInterval(timer);
+    positionMask();
+    timer = window.setInterval(positionMask, 200);
+  }
+
+  function initialize() {
+    var modal = document.getElementById('booksy-modal');
+    if (!modal) return;
+
+    new MutationObserver(function () {
+      window.requestAnimationFrame(positionMask);
+    }).observe(modal, {attributes: true, childList: true, subtree: true});
+
+    document.addEventListener('click', function () {
+      window.setTimeout(startTracking, 50);
+    }, true);
+
+    window.addEventListener('resize', positionMask);
+    window.addEventListener('scroll', positionMask, true);
+    startTracking();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
+})();
+</script>
+<!-- PROUDPOPS-BOOKSY-YELLOW-ARTIFACT-V6-END -->
 </body></html>
