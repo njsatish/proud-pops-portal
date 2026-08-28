@@ -522,4 +522,113 @@ a:focus-visible, button:focus-visible {
 
 })();
 </script>
+<!-- PROUDPOPS-BOOKSY-YELLOW-BAR-FIX-START -->
+<style id="proudpops-booksy-yellow-bar-fix">
+  /* Replace the third-party widget fragment that creates the yellow bar. */
+  #booksy-official-host {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 28px 0 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  #booksy-official-host iframe,
+  #booksy-official-host script,
+  #booksy-official-host > div:not(.pp-booksy-clean-wrap),
+  #booksy-official-host [style*="background"]:not(.pp-booksy-clean-button) {
+    display: none !important;
+  }
+  .pp-booksy-clean-wrap {
+    display: block !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .pp-booksy-clean-button {
+    min-width: 230px;
+    min-height: 58px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: 0 !important;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #169c8c, #46c7bd) !important;
+    color: #ffffff !important;
+    font: 800 20px/1.2 Inter, system-ui, sans-serif;
+    letter-spacing: .02em;
+    text-decoration: none !important;
+    box-shadow: 0 12px 28px rgba(22,156,140,.28) !important;
+  }
+  .pp-booksy-clean-button:hover {
+    background: linear-gradient(135deg, #117568, #169c8c) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+  }
+  @media (max-width: 540px) {
+    #booksy-official-host { justify-content: stretch !important; }
+    .pp-booksy-clean-wrap,
+    .pp-booksy-clean-button { width: 100% !important; }
+  }
+</style>
+<script id="proudpops-booksy-yellow-bar-fix-script">
+(function () {
+  var BOOKSY_URL = 'https://booksy.com/en-us/212027_proud-pops-barbershop_barber-shop_134579_roanoke';
+
+  function renderCleanBooksyButton() {
+    var host = document.getElementById('booksy-official-host');
+    if (!host) return;
+
+    host.innerHTML = '';
+
+    var wrap = document.createElement('div');
+    wrap.className = 'pp-booksy-clean-wrap';
+
+    var link = document.createElement('a');
+    link.className = 'pp-booksy-clean-button';
+    link.href = BOOKSY_URL;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'View Open Times on Booksy';
+    link.setAttribute('aria-label', 'View open appointment times on Booksy, opens in a new tab');
+
+    wrap.appendChild(link);
+    host.appendChild(wrap);
+  }
+
+  function installCleanModalHandler() {
+    var modal = document.getElementById('booksy-modal');
+    if (!modal) return;
+
+    window.openBooksyModal = function () {
+      renderCleanBooksyButton();
+      modal.classList.add('open');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      var closeButton = modal.querySelector('.modal-close');
+      if (closeButton) closeButton.focus();
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      renderCleanBooksyButton();
+      installCleanModalHandler();
+    });
+  } else {
+    renderCleanBooksyButton();
+    installCleanModalHandler();
+  }
+})();
+</script>
+<!-- PROUDPOPS-BOOKSY-YELLOW-BAR-FIX-END -->
 </body></html>
