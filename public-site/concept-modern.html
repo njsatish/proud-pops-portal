@@ -426,5 +426,155 @@
 })();
 </script>
 
+<!-- PROUDPOPS-MODERN-HERO-FEATURED-PHOTO-V1-START -->
+<style id="proudpops-modern-hero-featured-photo-v1-style">
+  .pm-feature-photo-panel {
+    position:relative !important;
+    isolation:isolate;
+    overflow:hidden !important;
+    background:
+      linear-gradient(145deg,rgba(13,148,136,.18),rgba(240,185,63,.20) 58%,rgba(255,91,57,.18)),
+      linear-gradient(90deg,rgba(9,11,14,.08),rgba(9,11,14,.20)),
+      url('assets/images/low-skin-fade.png') center 16%/cover no-repeat !important;
+  }
+  .pm-feature-photo-panel::before {
+    content:"";
+    position:absolute;
+    z-index:1;
+    inset:0;
+    pointer-events:none;
+    background:
+      linear-gradient(90deg,rgba(9,11,14,.15),transparent 38%),
+      linear-gradient(0deg,rgba(9,11,14,.54),transparent 46%);
+  }
+  .pm-feature-photo-panel > * {
+    position:relative;
+    z-index:2;
+  }
+  .pm-feature-style-label {
+    position:absolute !important;
+    z-index:4 !important;
+    top:24px;
+    right:24px;
+    max-width:220px;
+    padding:11px 14px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:8px;
+    background:rgba(9,11,14,.78);
+    color:#fff;
+    box-shadow:0 12px 28px rgba(0,0,0,.25);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .pm-feature-style-label small {
+    display:block;
+    margin-bottom:3px;
+    color:#f0b93f !important;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .pm-feature-style-label strong {
+    display:block;
+    color:#fff !important;
+    font-size:17px;
+    line-height:1.15;
+  }
+  .pm-experience-badge {
+    position:absolute !important;
+    z-index:4 !important;
+    right:24px;
+    bottom:24px;
+    min-width:150px;
+    padding:15px 17px;
+    border-left:4px solid #45a99d;
+    border-radius:8px;
+    background:rgba(9,11,14,.86);
+    color:#fff;
+    box-shadow:0 12px 28px rgba(0,0,0,.28);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .pm-experience-badge strong {
+    display:block;
+    color:#f0b93f !important;
+    font-size:25px;
+    line-height:1;
+  }
+  .pm-experience-badge small {
+    display:block;
+    margin-top:5px;
+    color:#fff !important;
+    font-size:10px;
+    font-weight:850;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  @media(max-width:900px) {
+    .pm-feature-style-label { top:16px;right:16px; }
+    .pm-experience-badge { right:16px;bottom:16px; }
+  }
+  @media(max-width:620px) {
+    .pm-feature-photo-panel {
+      min-height:430px !important;
+      background-position:center 14% !important;
+    }
+    .pm-feature-style-label { max-width:180px; }
+    .pm-experience-badge { min-width:130px; }
+  }
+</style>
+<script id="proudpops-modern-hero-featured-photo-v1-script">
+(function(){
+  function visible(element){
+    if(!element)return false;
+    var style=getComputedStyle(element),rect=element.getBoundingClientRect();
+    return style.display!=='none'&&style.visibility!=='hidden'&&rect.width>0&&rect.height>0;
+  }
+  function identifyHero(){
+    return document.querySelector('.hero,[class*="hero"],main>section');
+  }
+  function identifyRightPanel(hero){
+    if(!hero)return null;
+    var heroRect=hero.getBoundingClientRect();
+    var candidates=Array.from(hero.querySelectorAll('div,aside,figure')).filter(function(element){
+      if(!visible(element))return false;
+      var rect=element.getBoundingClientRect();
+      var midpoint=rect.left+rect.width/2;
+      var within=rect.left>=heroRect.left+heroRect.width*.42&&rect.right<=heroRect.right+8;
+      var large=rect.width>=heroRect.width*.28&&rect.height>=heroRect.height*.48;
+      var rightSide=midpoint>heroRect.left+heroRect.width*.62;
+      return within&&large&&rightSide;
+    });
+    candidates.sort(function(a,b){
+      var ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      return (br.width*br.height)-(ar.width*ar.height);
+    });
+    return candidates[0]||null;
+  }
+  function enhance(){
+    var hero=identifyHero();
+    if(!hero)return;
+    var panel=identifyRightPanel(hero);
+    if(!panel)return;
+    panel.classList.add('pm-feature-photo-panel');
+    if(!panel.querySelector('.pm-feature-style-label')){
+      var label=document.createElement('div');
+      label.className='pm-feature-style-label';
+      label.innerHTML='<small>Featured Style</small><strong>Low Skin Fade</strong>';
+      panel.appendChild(label);
+    }
+    if(!panel.querySelector('.pm-experience-badge')){
+      var badge=document.createElement('div');
+      badge.className='pm-experience-badge';
+      badge.innerHTML='<strong>29+</strong><small>Years Experience</small>';
+      panel.appendChild(badge);
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance);else enhance();
+  window.addEventListener('load',enhance);
+})();
+</script>
+<!-- PROUDPOPS-MODERN-HERO-FEATURED-PHOTO-V1-END -->
 </body>
 </html>
