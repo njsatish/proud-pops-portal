@@ -908,4 +908,175 @@ a:focus-visible, button:focus-visible {
 })();
 </script>
 <!-- PROUDPOPS-BOOKSY-YELLOW-ARTIFACT-V5-END -->
+<!-- PROUDPOPS-MOBILE-CALL-BOOK-BAR-V1-START -->
+<style id="proudpops-mobile-call-book-bar-v1-style">
+  .pp-mobile-actions {
+    display: none;
+  }
+
+  @media (max-width: 840px) {
+    body {
+      padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    .pp-mobile-actions {
+      position: fixed;
+      z-index: 9997;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 10px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+      background: rgba(16, 42, 67, .96);
+      border-top: 1px solid rgba(255, 255, 255, .18);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, .24);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    .pp-mobile-action {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 16px;
+      font: 800 16px/1.1 Inter, system-ui, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .pp-mobile-call {
+      background: #ffffff;
+      color: #102a43 !important;
+      border: 2px solid #d8e2eb;
+    }
+
+    .pp-mobile-book {
+      background: linear-gradient(135deg, #d4a63c, #f0cb69);
+      color: #17130b !important;
+      box-shadow: 0 8px 20px rgba(212, 166, 60, .28);
+    }
+
+    .pp-mobile-action:active {
+      transform: scale(.98);
+    }
+
+    .pp-mobile-action:focus-visible {
+      outline: 3px solid #69a6ff !important;
+      outline-offset: 2px;
+    }
+
+    .pp-mobile-action-icon {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .pp-mobile-action-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .pp-mobile-action-copy small {
+      display: block;
+      color: inherit !important;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1;
+      opacity: .76;
+    }
+
+    .pp-mobile-action-copy strong {
+      display: block;
+      color: inherit !important;
+      font-size: 16px;
+      line-height: 1.05;
+    }
+
+    body.pp-booksy-modal-open .pp-mobile-actions {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .pp-mobile-actions { gap: 8px; padding-inline: 8px; }
+    .pp-mobile-action { padding-inline: 9px; }
+    .pp-mobile-action-copy strong { font-size: 14px; }
+    .pp-mobile-action-copy small { font-size: 9px; }
+  }
+</style>
+
+<nav class="pp-mobile-actions" aria-label="Quick contact and booking actions">
+  <a class="pp-mobile-action pp-mobile-call" href="tel:+15408191346" aria-label="Call Proud Pops at (540) 819-1346">
+    <span class="pp-mobile-action-icon" aria-hidden="true">☎</span>
+    <span class="pp-mobile-action-copy">
+      <small>Questions?</small>
+      <strong>Call Now</strong>
+    </span>
+  </a>
+  <button class="pp-mobile-action pp-mobile-book" type="button" aria-label="Book an appointment with Proud Pops">
+    <span class="pp-mobile-action-icon" aria-hidden="true">✦</span>
+    <span class="pp-mobile-action-copy">
+      <small>See open times</small>
+      <strong>Book Appointment</strong>
+    </span>
+  </button>
+</nav>
+
+<script id="proudpops-mobile-call-book-bar-v1-script">
+(function () {
+  function initializeMobileActions() {
+    var bookButton = document.querySelector('.pp-mobile-book');
+    var modal = document.getElementById('booksy-modal');
+    if (!bookButton) return;
+
+    bookButton.addEventListener('click', function () {
+      if (typeof window.openBooksyModal === 'function') {
+        window.openBooksyModal();
+      } else if (modal) {
+        modal.classList.add('open');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    if (modal) {
+      var updateModalState = function () {
+        var style = window.getComputedStyle(modal);
+        var isOpen = modal.classList.contains('open') || style.display === 'flex' || style.display === 'grid';
+        document.body.classList.toggle('pp-booksy-modal-open', isOpen);
+      };
+
+      new MutationObserver(updateModalState).observe(modal, {
+        attributes: true,
+        attributeFilter: ['class', 'style']
+      });
+      updateModalState();
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeMobileActions);
+  } else {
+    initializeMobileActions();
+  }
+})();
+</script>
+<!-- PROUDPOPS-MOBILE-CALL-BOOK-BAR-V1-END -->
 </body></html>
