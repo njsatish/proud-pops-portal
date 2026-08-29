@@ -1177,5 +1177,321 @@
 })();
 </script>
 <!-- PROUDPOPS-MODERN-HIDE-DUPLICATE-MOBILE-PRICE-V1-END -->
+<!-- PROUDPOPS-MODERN-NEXT-AVAILABLE-V1-START -->
+<style id="proudpops-modern-next-available-v1-style">
+  .pm-availability {
+    padding:78px 0;
+    background:linear-gradient(145deg,#111820,#1d2934);
+    color:#fff;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .pm-availability-head {
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:26px;
+    margin-bottom:28px;
+  }
+  .pm-availability-kicker {
+    margin:0 0 10px;
+    color:#45a99d;
+    font-size:12px;
+    font-weight:950;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+  }
+  .pm-availability h2 {
+    margin:0;
+    max-width:700px;
+    color:#fff !important;
+    font:950 clamp(42px,5vw,64px)/.98 Inter,system-ui,sans-serif !important;
+    letter-spacing:-.055em !important;
+  }
+  .pm-availability-intro {
+    max-width:460px;
+    margin:0;
+    color:#aebcc7;
+    font-size:16px;
+  }
+  .pm-availability-card {
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:26px;
+    padding:28px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:14px;
+    background:#0c1015;
+    box-shadow:0 22px 54px rgba(0,0,0,.32);
+  }
+  .pm-date-badge {
+    min-height:148px;
+    display:grid;
+    place-items:center;
+    align-self:start;
+    padding:18px;
+    border-left:5px solid #ff5b39;
+    border-radius:11px;
+    background:linear-gradient(145deg,#202a34,#151b22);
+    text-align:center;
+  }
+  .pm-date-badge small {
+    display:block;
+    color:#45a99d !important;
+    font-size:12px;
+    font-weight:950;
+    letter-spacing:.14em;
+  }
+  .pm-date-badge strong {
+    display:block;
+    margin:5px 0;
+    color:#f0b93f !important;
+    font-size:52px;
+    line-height:.95;
+  }
+  .pm-date-badge span {
+    display:block;
+    color:#fff !important;
+    font-size:11px;
+    font-weight:850;
+  }
+  .pm-availability-date {
+    margin:0 0 6px;
+    color:#fff !important;
+    font-size:28px;
+    font-weight:950;
+    letter-spacing:-.025em;
+  }
+  .pm-availability-note {
+    margin:0 0 20px;
+    color:#9eacb7 !important;
+    font-size:14px;
+  }
+  .pm-time-grid {
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:10px;
+  }
+  .pm-time-slot {
+    min-height:54px;
+    display:grid;
+    place-items:center;
+    padding:10px;
+    border:1px solid #245caa;
+    border-radius:9px;
+    background:#316fd0;
+    color:#fff !important;
+    font:900 16px/1 Inter,system-ui,sans-serif;
+    text-align:center;
+  }
+  .pm-time-slot:hover {
+    background:#159887;
+    border-color:#117568;
+  }
+  .pm-availability-actions {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:22px;
+  }
+  .pm-availability-book {
+    min-height:48px;
+    padding:0 24px;
+    border:0;
+    border-radius:9px;
+    background:linear-gradient(135deg,#f0b93f,#ffd36f);
+    color:#17130b !important;
+    font:900 15px/1 Inter,system-ui,sans-serif;
+    cursor:pointer;
+  }
+  .pm-availability-refresh {
+    min-height:44px;
+    padding:0 17px;
+    border:1px solid rgba(255,255,255,.24);
+    border-radius:9px;
+    background:transparent;
+    color:#fff;
+    font:800 13px/1 Inter,system-ui,sans-serif;
+    cursor:pointer;
+  }
+  .pm-availability-status {
+    min-height:24px;
+    color:#9eacb7;
+    font-size:13px;
+  }
+  .pm-availability-spinner {
+    width:18px;
+    height:18px;
+    display:inline-block;
+    margin-right:8px;
+    border:3px solid #394653;
+    border-top-color:#45a99d;
+    border-radius:50%;
+    vertical-align:-4px;
+    animation:pmAvailabilitySpin .75s linear infinite;
+  }
+  @keyframes pmAvailabilitySpin { to { transform:rotate(360deg); } }
+
+  @media(max-width:900px) {
+    .pm-availability-head { display:block; }
+    .pm-availability-intro { margin-top:14px; }
+    .pm-time-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  }
+  @media(max-width:620px) {
+    .pm-availability { padding:62px 0; }
+    .pm-availability-card { grid-template-columns:1fr;gap:20px;padding:20px; }
+    .pm-date-badge { width:128px;min-height:128px;margin:auto; }
+    .pm-availability-date { text-align:center;font-size:24px; }
+    .pm-availability-note { text-align:center; }
+    .pm-time-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .pm-availability-actions { justify-content:center; }
+    .pm-availability-book { width:100%; }
+  }
+</style>
+
+<section class="pm-availability" id="modern-availability">
+  <div class="wrap">
+    <div class="pm-availability-head">
+      <div>
+        <p class="pm-availability-kicker">Live Booksy Availability</p>
+        <h2>Next available times.</h2>
+      </div>
+      <p class="pm-availability-intro">See the next available day and appointment times before opening the booking experience.</p>
+    </div>
+
+    <div class="pm-availability-card">
+      <div class="pm-date-badge" aria-hidden="true">
+        <div><small id="pm-availability-day">--</small><strong id="pm-availability-number">--</strong><span id="pm-availability-month">LOADING</span></div>
+      </div>
+      <div>
+        <h3 class="pm-availability-date" id="pm-availability-date">Checking the next available appointment…</h3>
+        <p class="pm-availability-note">Times shown are provided by the Proud Pops Booksy availability service.</p>
+        <div class="pm-availability-status" id="pm-availability-status"><span class="pm-availability-spinner" aria-hidden="true"></span>Loading available times…</div>
+        <div class="pm-time-grid" id="pm-availability-times" aria-live="polite"></div>
+        <div class="pm-availability-actions">
+          <button class="pm-availability-book" type="button">Book Appointment</button>
+          <button class="pm-availability-refresh" type="button">Refresh Times</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script id="proudpops-modern-next-available-v1-script">
+(function(){
+  var API_URL='https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com/booksy/availability';
+  var dateFormatter=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric'});
+
+  function arrayFromResponse(data){
+    if(Array.isArray(data))return data;
+    if(Array.isArray(data.slots))return data.slots;
+    if(Array.isArray(data.times))return data.times;
+    if(Array.isArray(data.availability))return data.availability;
+    if(data.data){
+      if(Array.isArray(data.data))return data.data;
+      if(Array.isArray(data.data.slots))return data.data.slots;
+      if(Array.isArray(data.data.times))return data.data.times;
+      if(Array.isArray(data.data.availability))return data.data.availability;
+    }
+    return [];
+  }
+
+  function normalize(data){
+    var items=arrayFromResponse(data);
+    var dateValue=data.date||data.nextDate||data.next_available_date||data.nextAvailableDate||data.day||data.data?.date||data.data?.nextDate;
+    var times=[];
+
+    items.forEach(function(item){
+      if(typeof item==='string')times.push(item);
+      else if(item){
+        var value=item.time||item.label||item.startTime||item.start||item.displayTime;
+        var available=item.available!==false&&!item.fullyBooked&&!item.booked;
+        if(value&&available)times.push(value);
+        if(!dateValue)dateValue=item.date||item.day||item.startDate;
+      }
+    });
+
+    if(!times.length){
+      var direct=data.availableTimes||data.available_times||data.nextAvailableTimes||data.data?.availableTimes;
+      if(Array.isArray(direct))times=direct.map(function(item){return typeof item==='string'?item:(item.time||item.label||item.startTime)}).filter(Boolean);
+    }
+    return {date:dateValue,times:times.slice(0,10)};
+  }
+
+  function parseDate(value){
+    if(!value)return null;
+    var date=new Date(value);
+    return Number.isNaN(date.getTime())?null:date;
+  }
+
+  function setDate(date,value){
+    var title=document.getElementById('pm-availability-date');
+    var day=document.getElementById('pm-availability-day');
+    var number=document.getElementById('pm-availability-number');
+    var month=document.getElementById('pm-availability-month');
+    if(date){
+      title.textContent=dateFormatter.format(date);
+      day.textContent=date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();
+      number.textContent=date.getDate();
+      month.textContent=date.toLocaleDateString('en-US',{month:'short'}).toUpperCase();
+    }else{
+      title.textContent=value||'Next available appointment';
+      day.textContent='NEXT';number.textContent='•';month.textContent='OPENING';
+    }
+  }
+
+  function renderTimes(times){
+    var container=document.getElementById('pm-availability-times');
+    container.innerHTML='';
+    times.forEach(function(time){
+      var slot=document.createElement('div');slot.className='pm-time-slot';slot.textContent=time;container.appendChild(slot);
+    });
+  }
+
+  function setStatus(message,loading){
+    var status=document.getElementById('pm-availability-status');
+    status.innerHTML=(loading?'<span class="pm-availability-spinner" aria-hidden="true"></span>':'')+message;
+  }
+
+  function load(){
+    setStatus('Loading available times…',true);
+    fetch(API_URL,{cache:'no-store',credentials:'omit'})
+      .then(function(response){if(!response.ok)throw new Error('HTTP '+response.status);return response.json();})
+      .then(function(data){
+        var result=normalize(data);setDate(parseDate(result.date),result.date);
+        if(result.times.length){renderTimes(result.times);setStatus(result.times.length+' appointment times available.',false);}
+        else{renderTimes([]);setStatus('See Booksy for the latest available times.',false);}
+      })
+      .catch(function(){setDate(null,'Next available appointment');renderTimes([]);setStatus('Availability is taking longer than expected. Open Booksy to view current times.',false);});
+  }
+
+  function openBooking(){
+    if(typeof window.openBooksyModal==='function')return window.openBooksyModal();
+    var trigger=Array.from(document.querySelectorAll('a,button')).find(function(element){
+      if(element.classList.contains('pm-availability-book'))return false;
+      return /BOOK NOW|BOOK APPOINTMENT/i.test((element.textContent||'').trim());
+    });
+    if(trigger)return trigger.click();
+    var link=document.querySelector('a[href*="booksy.com"]');if(link)link.click();
+  }
+
+  function insertAfterHero(){
+    var section=document.getElementById('modern-availability');
+    var hero=document.querySelector('section.hero,.hero');
+    if(section&&hero&&section.previousElementSibling!==hero)hero.insertAdjacentElement('afterend',section);
+  }
+
+  function init(){
+    insertAfterHero();
+    document.querySelector('.pm-availability-book')?.addEventListener('click',openBooking);
+    document.querySelector('.pm-availability-refresh')?.addEventListener('click',load);
+    load();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<!-- PROUDPOPS-MODERN-NEXT-AVAILABLE-V1-END -->
 </body>
 </html>
