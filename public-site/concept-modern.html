@@ -1493,5 +1493,168 @@
 })();
 </script>
 <!-- PROUDPOPS-MODERN-NEXT-AVAILABLE-V1-END -->
+<!-- PROUDPOPS-MODERN-SERVICE-CARDS-V1-START -->
+<style id="proudpops-modern-service-cards-v1-style">
+  .pp-modern-service-grid {
+    display:grid !important;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    align-items:stretch !important;
+    gap:18px !important;
+    width:100% !important;
+  }
+
+  .pp-modern-service-card {
+    min-width:0 !important;
+    width:auto !important;
+    min-height:345px !important;
+    height:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    margin:0 !important;
+    padding:30px 27px !important;
+    border-radius:18px !important;
+  }
+
+  .pp-modern-service-card h3 {
+    min-height:58px !important;
+    margin:0 0 10px !important;
+    font-size:clamp(22px,1.7vw,30px) !important;
+    line-height:1.1 !important;
+    overflow-wrap:anywhere;
+  }
+
+  .pp-modern-service-card .pp-modern-service-duration {
+    min-height:26px !important;
+    margin:0 0 34px !important;
+    font-size:17px !important;
+    line-height:1.35 !important;
+  }
+
+  .pp-modern-service-card .pp-modern-service-price {
+    margin:0 0 32px !important;
+    font-size:clamp(42px,3vw,56px) !important;
+    line-height:1 !important;
+    font-weight:950 !important;
+  }
+
+  .pp-modern-service-card .pp-modern-service-book {
+    min-height:54px !important;
+    margin-top:auto !important;
+    padding:0 25px !important;
+    align-self:flex-start !important;
+  }
+
+  @media(max-width:1180px) {
+    .pp-modern-service-grid {
+      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    }
+    .pp-modern-service-card {
+      min-height:320px !important;
+    }
+  }
+
+  @media(max-width:760px) {
+    .pp-modern-service-grid {
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      gap:14px !important;
+    }
+    .pp-modern-service-card {
+      min-height:300px !important;
+      padding:24px 20px !important;
+      border-radius:14px !important;
+    }
+    .pp-modern-service-card h3 {
+      min-height:48px !important;
+      font-size:22px !important;
+    }
+    .pp-modern-service-card .pp-modern-service-duration {
+      margin-bottom:25px !important;
+      font-size:15px !important;
+    }
+    .pp-modern-service-card .pp-modern-service-price {
+      margin-bottom:25px !important;
+      font-size:42px !important;
+    }
+  }
+
+  @media(max-width:420px) {
+    .pp-modern-service-grid {
+      grid-template-columns:1fr !important;
+    }
+    .pp-modern-service-card {
+      min-height:260px !important;
+    }
+    .pp-modern-service-card h3 {
+      min-height:0 !important;
+    }
+  }
+</style>
+<script id="proudpops-modern-service-cards-v1-script">
+(function(){
+  function normalized(element){
+    return (element.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+  }
+
+  function findSection(){
+    var heading=Array.from(document.querySelectorAll('h1,h2,h3')).find(function(element){
+      return normalized(element)==='PICK YOUR CUT';
+    });
+    return heading ? heading.closest('section,main>div,div') : null;
+  }
+
+  function findCards(section){
+    if(!section)return [];
+    var names=['HAIRCUT','EDGEUP','BEARD TRIM','SHAVE','CUT + ENHANCEMENT'];
+    return Array.from(section.querySelectorAll('article,div,li')).filter(function(element){
+      var text=normalized(element);
+      var hasService=names.some(function(name){return text.includes(name);});
+      var hasPrice=/\$\s*(15|20|25|40|50)\b/.test(text);
+      var hasBook=/\bBOOK\b/.test(text);
+      if(!hasService||!hasPrice||!hasBook)return false;
+      return !Array.from(element.children).some(function(child){
+        var childText=normalized(child);
+        return names.filter(function(name){return childText.includes(name);}).length>1;
+      });
+    });
+  }
+
+  function smallestCommonParent(cards,section){
+    if(!cards.length)return null;
+    var parent=cards[0].parentElement;
+    while(parent&&parent!==section){
+      if(cards.every(function(card){return card.parentElement===parent;}))return parent;
+      parent=parent.parentElement;
+    }
+    return cards[0].parentElement;
+  }
+
+  function markParts(card){
+    card.classList.add('pp-modern-service-card');
+    var children=Array.from(card.querySelectorAll('h3,h4,p,small,span,strong,b,a,button'));
+    var duration=children.find(function(element){return /^\d+\s*(MIN|HR|HOUR)/i.test((element.textContent||'').trim());});
+    var price=children.find(function(element){return /^\$\s*\d+/i.test((element.textContent||'').trim());});
+    var book=children.find(function(element){return /^BOOK$/i.test((element.textContent||'').trim());});
+    if(duration)duration.classList.add('pp-modern-service-duration');
+    if(price)price.classList.add('pp-modern-service-price');
+    if(book)book.classList.add('pp-modern-service-book');
+  }
+
+  function install(){
+    var section=findSection();
+    var cards=findCards(section);
+    if(cards.length<5)return;
+    cards=cards.slice(0,5);
+    var grid=smallestCommonParent(cards,section);
+    if(!grid)return;
+    grid.classList.add('pp-modern-service-grid');
+    cards.forEach(markParts);
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+  window.addEventListener('load',install);
+})();
+</script>
+<!-- PROUDPOPS-MODERN-SERVICE-CARDS-V1-END -->
 </body>
 </html>
