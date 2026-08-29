@@ -1853,14 +1853,14 @@
       <div class="pp-sda-times" id="pp-sda-times"></div>
       <div class="pp-sda-selection" id="pp-sda-selection">
         <div><strong id="pp-sda-selection-main"></strong><small id="pp-sda-selection-detail"></small></div>
-        <button class="pp-sda-book" type="button">Continue with Booksy</button>
+        <button class="pp-sda-book" type="button">Confirm Availability in Booksy</button>
       </div>
       <div class="pp-sda-fallback" id="pp-sda-fallback">
         <strong>Live times are unavailable for this service right now.</strong>
         Use Booksy to see current availability and complete the appointment.
-        <br><button class="pp-sda-book pp-sda-fallback-book" type="button">Check Booksy</button>
+        <br><button class="pp-sda-book pp-sda-fallback-book" type="button">View Live Times in Booksy</button>
       </div>
-      <p class="pp-sda-note">A selected time is not reserved until Booksy confirms the appointment.</p>
+      <p class="pp-sda-note"><strong>Next step:</strong> Booksy will reopen its official booking flow so the customer can verify the service, date, and time. A selected time is not reserved until Booksy confirms the appointment.</p>
     </div>
   </div>
 </section>
@@ -1895,7 +1895,7 @@
     var matches=state.slots.filter(function(slot){return slot.date===state.selectedDate});
     if(!matches.length){setStatus('No times were returned for '+formatDate(state.selectedDate)+'.',false);return}
     setStatus(matches.length+' available time'+(matches.length===1?'':'s')+' for '+formatDate(state.selectedDate)+'.',false);
-    matches.forEach(function(slot){var b=document.createElement('button');b.type='button';b.className='pp-sda-time';b.textContent=formatTime(slot.time);b.addEventListener('click',function(){clearSelection();b.classList.add('selected');state.selectedSlot=slot;var s=service();document.getElementById('pp-sda-selection-main').textContent=s.name+' at '+formatTime(slot.time);document.getElementById('pp-sda-selection-detail').textContent=formatDate(slot.date)+' • '+s.duration+' min • $'+s.price;document.getElementById('pp-sda-selection').classList.add('active')});root.appendChild(b)});
+    matches.forEach(function(slot){var b=document.createElement('button');b.type='button';b.className='pp-sda-time';b.textContent=formatTime(slot.time);b.addEventListener('click',function(){clearSelection();b.classList.add('selected');state.selectedSlot=slot;var s=service();document.getElementById('pp-sda-selection-main').textContent='Your selection: '+s.name+' at '+formatTime(slot.time);document.getElementById('pp-sda-selection-detail').textContent=formatDate(slot.date)+' • '+s.duration+' min • $'+s.price+' • Booksy will verify this opening';document.getElementById('pp-sda-selection').classList.add('active')});root.appendChild(b)});
   }
   function load(){
     if(state.controller)state.controller.abort();state.controller=new AbortController();clearSelection();showFallback(false);document.getElementById('pp-sda-times').innerHTML='';document.getElementById('pp-sda-date').disabled=true;setStatus('Checking '+service().name+' availability…',true);
@@ -1904,12 +1904,57 @@
       .then(function(data){if(data.success!==true||!Array.isArray(data.slots))throw new Error('Invalid availability response');state.slots=data.slots.filter(function(slot){return slot&&slot.date&&slot.time});if(!renderDates()){setStatus('No upcoming availability was returned.',false);showFallback(true);return}renderTimes()})
       .catch(function(error){if(error.name==='AbortError')return;state.slots=[];document.getElementById('pp-sda-date').innerHTML='<option>Unavailable</option>';setStatus('Could not load verified '+service().name+' times.',false);showFallback(true)});
   }
-  function openBooksy(){if(typeof window.openBooksyModal==='function'){window.openBooksyModal();return}var t=Array.from(document.querySelectorAll('a,button')).find(function(e){if(e.classList.contains('pp-sda-book'))return false;return /BOOK NOW|BOOK APPOINTMENT/i.test((e.textContent||'').trim())});if(t)t.click();else document.querySelector('a[href*="booksy.com"]')?.click()}
+  function openBooksy(){
+    var selectedService=service();
+    var selectedSlot=state.selectedSlot;
+
+    if(selectedSlot){
+      try{
+        sessionStorage.setItem('proudpopsBookingSelection',JSON.stringify({
+          service:selectedService.name,
+          variantId:selectedService.variantId,
+          date:selectedSlot.date,
+          time:selectedSlot.time,
+          displayDate:formatDate(selectedSlot.date),
+          displayTime:formatTime(selectedSlot.time),
+          durationMinutes:selectedService.duration,
+          price:selectedService.price
+        }));
+      }catch(error){
+        console.warn('Could not preserve the Proud Pops booking selection.',error);
+      }
+    }
+
+    if(typeof window.openBooksyModal==='function'){
+      window.openBooksyModal();
+      return;
+    }
+
+    var trigger=Array.from(document.querySelectorAll('a,button')).find(function(element){
+      if(element.classList.contains('pp-sda-book'))return false;
+      var label=(element.textContent||'').replace(/\s+/g,' ').trim();
+      return /BOOK NOW|BOOK APPOINTMENT|BOOK YOUR APPOINTMENT/i.test(label);
+    });
+
+    if(trigger){
+      trigger.click();
+      return;
+    }
+
+    var officialLink=document.querySelector('a[href*="booksy.com"]');
+    if(officialLink){
+      officialLink.click();
+      return;
+    }
+
+    console.warn('Official Booksy booking trigger was not found.');
+  }
   function placeAfterHero(){var section=document.getElementById('modern-service-date-availability'),hero=document.querySelector('section.hero,.hero');if(section&&hero&&section.previousElementSibling!==hero)hero.insertAdjacentElement('afterend',section)}
   function init(){placeAfterHero();var serviceSelect=document.getElementById('pp-sda-service'),dateSelect=document.getElementById('pp-sda-date');serviceSelect.addEventListener('change',function(e){state.serviceKey=e.target.value;updateServiceSummary();load()});dateSelect.addEventListener('change',function(e){state.selectedDate=e.target.value;renderTimes()});document.getElementById('pp-sda-refresh').addEventListener('click',load);document.querySelectorAll('.pp-sda-book').forEach(function(b){b.addEventListener('click',openBooksy)});updateServiceSummary();load()}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
+<!-- PROUDPOPS-BOOKING-SELECTION-SUMMARY-V1 -->
 <!-- PROUDPOPS-SERVICE-DATE-AVAILABILITY-V1-END -->
 </body>
 </html>
