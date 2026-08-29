@@ -2007,6 +2007,40 @@
     document.body.appendChild(reminder);
   }
 
+  function buildVerifiedBooksyDeepLink(selectedService,selectedSlot){
+    var allowedVariants=new Set(['7331041','7331042','7331043','7331044','7331046']);
+    var variantId=String(selectedService&&selectedService.variantId||'');
+    var selectedDate=String(selectedSlot&&selectedSlot.date||'');
+    var selectedTime=String(selectedSlot&&selectedSlot.time||'');
+
+    if(!allowedVariants.has(variantId))throw new Error('Unsupported Booksy service variant.');
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(selectedDate))throw new Error('Invalid appointment date.');
+    if(!/^\d{2}:\d{2}$/.test(selectedTime))throw new Error('Invalid appointment time.');
+
+    var url=new URL('https://booksy.com/en-us/instant-experiences/widget/212027');
+    url.searchParams.set('variantId',variantId);
+    url.searchParams.set('date',selectedDate+'T'+selectedTime);
+    return url.toString();
+  }
+
+  function openOfficialBooksyFallback(){
+    if(typeof window.openBooksyModal==='function'){
+      window.openBooksyModal();
+      return true;
+    }
+
+    var trigger=Array.from(document.querySelectorAll('a,button')).find(function(element){
+      if(element.classList.contains('pp-sda-book'))return false;
+      var label=(element.textContent||'').replace(/\s+/g,' ').trim();
+      return /BOOK NOW|BOOK APPOINTMENT|BOOK YOUR APPOINTMENT/i.test(label);
+    });
+    if(trigger){trigger.click();return true;}
+
+    var officialLink=document.querySelector('a[href*="booksy.com"]');
+    if(officialLink){officialLink.click();return true;}
+    return false;
+  }
+
   function openBooksy(event){
     var selectedService=typeof service==='function'?service():null;
     var selectedSlot=(typeof state!=='undefined'&&state&&state.selectedSlot)?state.selectedSlot:null;
@@ -2018,7 +2052,7 @@
       return;
     }
 
-    if(selectedSlot&&selectedService){
+    if(selectedService&&selectedSlot){
       try{
         sessionStorage.setItem('proudpopsBookingSelection',JSON.stringify({
           service:selectedService.name||'',
@@ -2036,25 +2070,20 @@
       }
     }
 
-    showBooksySelectionReminder();
-    hideIntermediateBooksyModal();
-
-    var officialTrigger=findOfficialBooksyTrigger();
-    if(officialTrigger){
-      officialTrigger.click();
-      window.setTimeout(hideIntermediateBooksyModal,0);
-      window.setTimeout(hideIntermediateBooksyModal,180);
-      return;
+    if(!isFallback&&selectedService&&selectedSlot){
+      try{
+        var directUrl=buildVerifiedBooksyDeepLink(selectedService,selectedSlot);
+        var openedWindow=window.open(directUrl,'_blank','noopener,noreferrer');
+        if(openedWindow)return;
+        console.warn('The browser blocked the direct Booksy window. Opening the official widget instead.');
+      }catch(error){
+        console.warn('Direct Booksy handoff failed. Opening the official widget instead.',error);
+      }
     }
 
-    /* Last-resort fallback: use the existing modal only when the official
-       Booksy trigger has not been created by the widget script. */
-    if(typeof window.openBooksyModal==='function'){
-      window.openBooksyModal();
-      return;
+    if(!openOfficialBooksyFallback()){
+      console.warn('Official Booksy booking flow could not be opened.');
     }
-
-    console.warn('Official Booksy booking trigger was not found.');
   }
   function placeAfterHero(){var section=document.getElementById('modern-service-date-availability'),hero=document.querySelector('section.hero,.hero');if(section&&hero&&section.previousElementSibling!==hero)hero.insertAdjacentElement('afterend',section)}
   function init(){placeAfterHero();var serviceSelect=document.getElementById('pp-sda-service'),dateSelect=document.getElementById('pp-sda-date');serviceSelect.addEventListener('change',function(e){state.serviceKey=e.target.value;updateServiceSummary();load()});dateSelect.addEventListener('change',function(e){state.selectedDate=e.target.value;renderTimes()});document.getElementById('pp-sda-refresh').addEventListener('click',load);document.querySelectorAll('.pp-sda-book').forEach(function(b){b.addEventListener('click',openBooksy)});updateServiceSummary();load()}
@@ -2064,6 +2093,7 @@
 <!-- PROUDPOPS-BOOKING-SELECTION-SUMMARY-V1 -->
 <!-- PROUDPOPS-BOOKING-SELECTION-SUMMARY-V2-1 -->
 <!-- PROUDPOPS-DIRECT-OFFICIAL-BOOKSY-V1 -->
+<!-- PROUDPOPS-VERIFIED-BOOKSY-DEEP-LINK-V1 -->
 <!-- PROUDPOPS-SERVICE-DATE-AVAILABILITY-V1-END -->
 </body>
 </html>
