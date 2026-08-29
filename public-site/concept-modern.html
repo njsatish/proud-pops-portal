@@ -576,5 +576,164 @@
 })();
 </script>
 <!-- PROUDPOPS-MODERN-HERO-FEATURED-PHOTO-V1-END -->
+<!-- PROUDPOPS-MODERN-MOBILE-HERO-PHOTO-V2-START -->
+<style id="proudpops-modern-mobile-hero-photo-v2-style">
+  .pm-mobile-feature-photo {
+    display:none;
+  }
+
+  @media(max-width:760px) {
+    .pm-mobile-feature-photo {
+      position:relative;
+      display:block !important;
+      width:calc(100% - 28px);
+      min-height:440px;
+      margin:34px auto 28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      background:
+        linear-gradient(145deg,rgba(13,148,136,.12),rgba(240,185,63,.18) 58%,rgba(255,91,57,.14)),
+        linear-gradient(0deg,rgba(9,11,14,.60),transparent 48%),
+        url('assets/images/low-skin-fade.png') center 13%/cover no-repeat !important;
+      box-shadow:0 20px 48px rgba(0,0,0,.34);
+    }
+
+    .pm-mobile-feature-photo::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(90deg,rgba(9,11,14,.10),transparent 42%);
+    }
+
+    .pm-mobile-feature-label,
+    .pm-mobile-feature-price,
+    .pm-mobile-feature-experience {
+      position:absolute;
+      z-index:2;
+      border:1px solid rgba(255,255,255,.17);
+      border-radius:9px;
+      background:rgba(9,11,14,.86);
+      color:#fff;
+      box-shadow:0 11px 25px rgba(0,0,0,.30);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    .pm-mobile-feature-label {
+      top:15px;
+      right:15px;
+      max-width:170px;
+      padding:10px 13px;
+    }
+    .pm-mobile-feature-label small,
+    .pm-mobile-feature-price small,
+    .pm-mobile-feature-experience small {
+      display:block;
+      color:#f0b93f !important;
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+    .pm-mobile-feature-label strong {
+      display:block;
+      margin-top:2px;
+      color:#fff !important;
+      font-size:16px;
+      line-height:1.15;
+    }
+
+    .pm-mobile-feature-price {
+      left:15px;
+      bottom:15px;
+      min-width:142px;
+      padding:13px 15px;
+      border-left:4px solid #ff5b39;
+    }
+    .pm-mobile-feature-price strong {
+      display:block;
+      margin:3px 0;
+      color:#f0b93f !important;
+      font-size:28px;
+      line-height:1;
+    }
+    .pm-mobile-feature-price span {
+      color:#fff !important;
+      font-size:11px;
+      font-weight:850;
+    }
+
+    .pm-mobile-feature-experience {
+      right:15px;
+      bottom:15px;
+      min-width:132px;
+      padding:13px 14px;
+      border-left:4px solid #45a99d;
+    }
+    .pm-mobile-feature-experience strong {
+      display:block;
+      color:#f0b93f !important;
+      font-size:25px;
+      line-height:1;
+    }
+
+    /* Keep the mobile photo between hero content and the next section. */
+    .hero,
+    [class*="hero"] {
+      height:auto !important;
+      max-height:none !important;
+      overflow:visible !important;
+    }
+  }
+
+  @media(max-width:390px) {
+    .pm-mobile-feature-photo {
+      min-height:400px;
+      width:calc(100% - 20px);
+    }
+    .pm-mobile-feature-price { left:10px;bottom:10px;min-width:128px;padding:11px 12px; }
+    .pm-mobile-feature-experience { right:10px;bottom:10px;min-width:118px;padding:11px 12px; }
+    .pm-mobile-feature-label { top:10px;right:10px; }
+  }
+</style>
+<script id="proudpops-modern-mobile-hero-photo-v2-script">
+(function(){
+  function findHero(){
+    var heading=Array.from(document.querySelectorAll('h1')).find(function(element){
+      return /SHARP\s*FADES|REAL\s*CRAFT/i.test(element.textContent||'');
+    });
+    return heading ? heading.closest('section,main>div,div') : document.querySelector('.hero,[class*="hero"]');
+  }
+
+  function createPanel(){
+    var panel=document.createElement('div');
+    panel.className='pm-mobile-feature-photo';
+    panel.setAttribute('role','img');
+    panel.setAttribute('aria-label','Featured Low Skin Fade hairstyle');
+    panel.innerHTML=''
+      +'<div class="pm-mobile-feature-label"><small>Featured Style</small><strong>Low Skin Fade</strong></div>'
+      +'<div class="pm-mobile-feature-price"><small>Haircut From</small><strong>$40</strong><span>45 MIN</span></div>'
+      +'<div class="pm-mobile-feature-experience"><strong>29+</strong><small>Years Experience</small></div>';
+    return panel;
+  }
+
+  function install(){
+    if(document.querySelector('.pm-mobile-feature-photo'))return;
+    var hero=findHero();
+    if(!hero)return;
+
+    /* Insert after the hero's text/layout wrapper when possible. */
+    var heroWrapper=hero.querySelector(':scope > .wrap,:scope > [class*="grid"],:scope > [class*="inner"]');
+    if(heroWrapper) heroWrapper.insertAdjacentElement('afterend',createPanel());
+    else hero.appendChild(createPanel());
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+  window.addEventListener('load',install);
+})();
+</script>
+<!-- PROUDPOPS-MODERN-MOBILE-HERO-PHOTO-V2-END -->
 </body>
 </html>
