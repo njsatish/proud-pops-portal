@@ -1904,21 +1904,29 @@
       .then(function(data){if(data.success!==true||!Array.isArray(data.slots))throw new Error('Invalid availability response');state.slots=data.slots.filter(function(slot){return slot&&slot.date&&slot.time});if(!renderDates()){setStatus('No upcoming availability was returned.',false);showFallback(true);return}renderTimes()})
       .catch(function(error){if(error.name==='AbortError')return;state.slots=[];document.getElementById('pp-sda-date').innerHTML='<option>Unavailable</option>';setStatus('Could not load verified '+service().name+' times.',false);showFallback(true)});
   }
-  function openBooksy(){
-    var selectedService=service();
-    var selectedSlot=state.selectedSlot;
+  function openBooksy(event){
+    var selectedService=typeof service==='function'?service():null;
+    var selectedSlot=(typeof state!=='undefined'&&state&&state.selectedSlot)?state.selectedSlot:null;
+    var sourceButton=event&&event.currentTarget?event.currentTarget:null;
+    var isFallback=Boolean(sourceButton&&sourceButton.classList&&sourceButton.classList.contains('pp-sda-fallback-book'));
 
-    if(selectedSlot){
+    if(!isFallback&&(!selectedService||!selectedSlot||!selectedSlot.date||!selectedSlot.time)){
+      console.warn('A complete service, date, and time selection is required.');
+      return;
+    }
+
+    if(selectedSlot&&selectedService){
       try{
         sessionStorage.setItem('proudpopsBookingSelection',JSON.stringify({
-          service:selectedService.name,
-          variantId:selectedService.variantId,
-          date:selectedSlot.date,
-          time:selectedSlot.time,
-          displayDate:formatDate(selectedSlot.date),
-          displayTime:formatTime(selectedSlot.time),
-          durationMinutes:selectedService.duration,
-          price:selectedService.price
+          service:selectedService.name||'',
+          variantId:selectedService.variantId||'',
+          date:selectedSlot.date||'',
+          time:selectedSlot.time||'',
+          displayDate:selectedSlot.date?formatDate(selectedSlot.date):'',
+          displayTime:selectedSlot.time?formatTime(selectedSlot.time):'',
+          durationMinutes:Number(selectedService.duration)||0,
+          price:Number(selectedService.price)||0,
+          savedAt:new Date().toISOString()
         }));
       }catch(error){
         console.warn('Could not preserve the Proud Pops booking selection.',error);
@@ -1955,6 +1963,7 @@
 })();
 </script>
 <!-- PROUDPOPS-BOOKING-SELECTION-SUMMARY-V1 -->
+<!-- PROUDPOPS-BOOKING-SELECTION-SUMMARY-V2-1 -->
 <!-- PROUDPOPS-SERVICE-DATE-AVAILABILITY-V1-END -->
 </body>
 </html>
