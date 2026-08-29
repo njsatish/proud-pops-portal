@@ -911,5 +911,131 @@
 })();
 </script>
 <!-- PROUDPOPS-MODERN-MOBILE-ACTIONS-V1-END -->
+<!-- PROUDPOPS-MODERN-HIDE-DUPLICATE-MOBILE-PRICE-V1-START -->
+<style id="proudpops-modern-hide-duplicate-mobile-price-v1-style">
+  /* The original desktop right-side gradient panel remains visible on desktop. */
+  .pp-modern-desktop-hero-panel {
+    display:block;
+  }
+
+  @media(max-width:760px) {
+    /* Hide only the legacy desktop gradient panel and its duplicate price card. */
+    .pp-modern-desktop-hero-panel {
+      display:none !important;
+      visibility:hidden !important;
+      width:0 !important;
+      height:0 !important;
+      min-width:0 !important;
+      min-height:0 !important;
+      max-width:0 !important;
+      max-height:0 !important;
+      margin:0 !important;
+      padding:0 !important;
+      border:0 !important;
+      overflow:hidden !important;
+      pointer-events:none !important;
+    }
+
+    /* Preserve the replacement photo card added specifically for phones. */
+    .pm-mobile-feature-photo {
+      display:block !important;
+      visibility:visible !important;
+      width:calc(100% - 28px) !important;
+      height:auto !important;
+      min-height:440px !important;
+      max-width:none !important;
+      max-height:none !important;
+      margin:34px auto 28px !important;
+      overflow:hidden !important;
+      pointer-events:auto !important;
+    }
+  }
+
+  @media(max-width:390px) {
+    .pm-mobile-feature-photo {
+      width:calc(100% - 20px) !important;
+      min-height:400px !important;
+      margin-top:26px !important;
+    }
+  }
+</style>
+<script id="proudpops-modern-hide-duplicate-mobile-price-v1-script">
+(function () {
+  function normalizedText(element) {
+    return (element.textContent || '').replace(/\s+/g, ' ').trim().toUpperCase();
+  }
+
+  function findHero() {
+    var heading = Array.from(document.querySelectorAll('h1')).find(function (element) {
+      return /SHARP\s*FADES|REAL\s*CRAFT/i.test(element.textContent || '');
+    });
+    return heading ? heading.closest('section, main > div, div') : document.querySelector('.hero, [class*="hero"]');
+  }
+
+  function findLegacyPriceText(hero) {
+    if (!hero) return null;
+    return Array.from(hero.querySelectorAll('*')).find(function (element) {
+      if (element.closest('.pm-mobile-feature-photo')) return false;
+      var text = normalizedText(element);
+      return text === 'HAIRCUT FROM' || text === 'HAIRCUT FROM $40 45 MIN';
+    }) || null;
+  }
+
+  function findLegacyPanel(hero, priceElement) {
+    if (!hero || !priceElement) return null;
+    var heroRect = hero.getBoundingClientRect();
+    var node = priceElement;
+    var best = null;
+
+    while (node && node !== hero && node.parentElement) {
+      if (node.classList && node.classList.contains('pm-mobile-feature-photo')) return null;
+      var rect = node.getBoundingClientRect();
+      var computed = getComputedStyle(node);
+      var onRight = rect.left >= heroRect.left + heroRect.width * 0.40;
+      var panelSized = rect.width >= Math.min(280, heroRect.width * 0.28) && rect.height >= 260;
+      var coloredPanel = computed.backgroundImage !== 'none' || computed.backgroundColor !== 'rgba(0, 0, 0, 0)';
+
+      if (onRight && panelSized && coloredPanel && node !== hero) {
+        best = node;
+      }
+
+      if (node.parentElement === hero) break;
+      node = node.parentElement;
+    }
+    return best;
+  }
+
+  function markLegacyPanel() {
+    var hero = findHero();
+    var price = findLegacyPriceText(hero);
+    var panel = findLegacyPanel(hero, price);
+
+    if (panel) {
+      panel.classList.add('pp-modern-desktop-hero-panel');
+      panel.setAttribute('data-pp-mobile-hidden', 'true');
+    }
+  }
+
+  function initialize() {
+    markLegacyPanel();
+    window.setTimeout(markLegacyPanel, 250);
+    window.setTimeout(markLegacyPanel, 1000);
+
+    var hero = findHero();
+    if (hero) {
+      new MutationObserver(markLegacyPanel).observe(hero, { childList: true, subtree: true });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
+  window.addEventListener('load', markLegacyPanel);
+  window.addEventListener('resize', markLegacyPanel);
+})();
+</script>
+<!-- PROUDPOPS-MODERN-HIDE-DUPLICATE-MOBILE-PRICE-V1-END -->
 </body>
 </html>
