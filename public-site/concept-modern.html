@@ -735,5 +735,181 @@
 })();
 </script>
 <!-- PROUDPOPS-MODERN-MOBILE-HERO-PHOTO-V2-END -->
+<!-- PROUDPOPS-MODERN-MOBILE-ACTIONS-V1-START -->
+<style id="proudpops-modern-mobile-actions-v1-style">
+  .pp-modern-mobile-actions { display:none; }
+
+  @media(max-width:760px) {
+    body {
+      padding-bottom:calc(82px + env(safe-area-inset-bottom,0px)) !important;
+    }
+
+    .pp-modern-mobile-actions {
+      position:fixed;
+      z-index:10020;
+      left:0;
+      right:0;
+      bottom:0;
+      display:grid !important;
+      grid-template-columns:1fr 1.18fr;
+      gap:9px;
+      padding:9px 10px calc(9px + env(safe-area-inset-bottom,0px));
+      background:rgba(9,11,14,.96);
+      border-top:1px solid rgba(255,255,255,.14);
+      box-shadow:0 -10px 30px rgba(0,0,0,.30);
+      backdrop-filter:blur(15px);
+      -webkit-backdrop-filter:blur(15px);
+      transition:opacity .2s ease,visibility .2s ease,transform .2s ease;
+    }
+
+    .pp-modern-mobile-action {
+      min-height:54px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:9px 12px;
+      border:0;
+      border-radius:10px;
+      font:900 15px/1.1 Inter,system-ui,sans-serif;
+      text-decoration:none;
+      cursor:pointer;
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .pp-modern-mobile-call {
+      color:#111820 !important;
+      background:#ffffff !important;
+      border:1px solid #d7e1ea !important;
+    }
+
+    .pp-modern-mobile-book {
+      color:#17130b !important;
+      background:linear-gradient(135deg,#f0b93f,#ffd36f) !important;
+      box-shadow:0 8px 20px rgba(240,185,63,.25);
+    }
+
+    .pp-modern-mobile-action:active { transform:scale(.98); }
+    .pp-modern-mobile-action:focus-visible {
+      outline:3px solid #45a99d !important;
+      outline-offset:2px;
+    }
+
+    .pp-modern-action-icon {
+      width:23px;
+      height:23px;
+      display:grid;
+      place-items:center;
+      flex:0 0 23px;
+      font-size:21px;
+      line-height:1;
+    }
+
+    .pp-modern-action-copy {
+      display:flex;
+      min-width:0;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:2px;
+      color:inherit !important;
+    }
+    .pp-modern-action-copy small {
+      color:inherit !important;
+      font-size:9px;
+      font-weight:750;
+      line-height:1;
+      opacity:.72;
+    }
+    .pp-modern-action-copy strong {
+      color:inherit !important;
+      font-size:15px;
+      line-height:1.05;
+      white-space:nowrap;
+    }
+
+    body.pp-modern-booking-open .pp-modern-mobile-actions {
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transform:translateY(100%);
+    }
+  }
+
+  @media(max-width:375px) {
+    .pp-modern-mobile-actions { gap:7px;padding-inline:7px; }
+    .pp-modern-mobile-action { padding-inline:8px; }
+    .pp-modern-action-copy strong { font-size:13px; }
+  }
+</style>
+
+<nav class="pp-modern-mobile-actions" aria-label="Quick contact and booking actions">
+  <a class="pp-modern-mobile-action pp-modern-mobile-call" href="tel:+15408191346" aria-label="Call Proud Pops at (540) 819-1346">
+    <span class="pp-modern-action-icon" aria-hidden="true">☎</span>
+    <span class="pp-modern-action-copy"><small>Questions?</small><strong>Call Now</strong></span>
+  </a>
+  <button class="pp-modern-mobile-action pp-modern-mobile-book" type="button" aria-label="Book a Proud Pops appointment">
+    <span class="pp-modern-action-icon" aria-hidden="true">✦</span>
+    <span class="pp-modern-action-copy"><small>See open times</small><strong>Book Appointment</strong></span>
+  </button>
+</nav>
+
+<script id="proudpops-modern-mobile-actions-v1-script">
+(function(){
+  function visible(element){
+    if(!element)return false;
+    var style=getComputedStyle(element),rect=element.getBoundingClientRect();
+    return style.display!=='none'&&style.visibility!=='hidden'&&rect.width>0&&rect.height>0;
+  }
+
+  function findBookingTrigger(){
+    return Array.from(document.querySelectorAll('a,button')).find(function(element){
+      if(element.classList.contains('pp-modern-mobile-book'))return false;
+      var text=(element.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+      return /^(BOOK NOW|BOOK APPOINTMENT|BOOK YOUR APPOINTMENT)$/.test(text)&&visible(element);
+    })||null;
+  }
+
+  function openBooking(){
+    if(typeof window.openBooksyModal==='function'){
+      window.openBooksyModal();
+      return;
+    }
+    var trigger=findBookingTrigger();
+    if(trigger){
+      trigger.click();
+      return;
+    }
+    var modal=document.getElementById('booksy-modal');
+    if(modal){
+      modal.classList.add('open');
+      modal.style.display='flex';
+      document.body.style.overflow='hidden';
+      return;
+    }
+    var booksy=Array.from(document.querySelectorAll('a[href*="booksy.com"]'))[0];
+    if(booksy)booksy.click();
+  }
+
+  function updateBookingState(){
+    var modal=document.getElementById('booksy-modal');
+    document.body.classList.toggle('pp-modern-booking-open',Boolean(modal&&visible(modal)));
+  }
+
+  function initialize(){
+    var bookButton=document.querySelector('.pp-modern-mobile-book');
+    if(bookButton)bookButton.addEventListener('click',openBooking);
+
+    var modal=document.getElementById('booksy-modal');
+    if(modal){
+      new MutationObserver(updateBookingState).observe(modal,{attributes:true,childList:true,subtree:true});
+      updateBookingState();
+    }
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initialize);else initialize();
+})();
+</script>
+<!-- PROUDPOPS-MODERN-MOBILE-ACTIONS-V1-END -->
 </body>
 </html>
