@@ -1656,5 +1656,132 @@
 })();
 </script>
 <!-- PROUDPOPS-MODERN-SERVICE-CARDS-V1-END -->
+<!-- PROUDPOPS-MODERN-SERVICES-EXACT-V2-START -->
+<style id="proudpops-modern-services-exact-v2-style">
+  .pp-exact-service-grid {
+    display:grid !important;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    align-items:stretch !important;
+    gap:18px !important;
+    width:100% !important;
+  }
+  .pp-exact-service-card {
+    box-sizing:border-box !important;
+    width:auto !important;
+    max-width:none !important;
+    min-width:0 !important;
+    min-height:344px !important;
+    height:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    margin:0 !important;
+    padding:28px 24px !important;
+  }
+  .pp-exact-service-card > :first-child,
+  .pp-exact-service-card h3,
+  .pp-exact-service-card h4 {
+    min-height:66px !important;
+    margin-top:0 !important;
+    margin-bottom:8px !important;
+    font-size:clamp(20px,1.55vw,28px) !important;
+    line-height:1.12 !important;
+    overflow-wrap:anywhere !important;
+  }
+  .pp-exact-service-card .pp-exact-duration {
+    min-height:25px !important;
+    margin:0 0 30px !important;
+  }
+  .pp-exact-service-card .pp-exact-price {
+    margin:0 0 30px !important;
+    font-size:clamp(42px,3vw,56px) !important;
+    line-height:1 !important;
+    font-weight:950 !important;
+  }
+  .pp-exact-service-card .pp-exact-book {
+    margin-top:auto !important;
+    align-self:flex-start !important;
+  }
+  @media(max-width:1250px){
+    .pp-exact-service-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+  }
+  @media(max-width:760px){
+    .pp-exact-service-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:14px !important}
+    .pp-exact-service-card{min-height:292px !important;padding:22px 18px !important}
+    .pp-exact-service-card > :first-child,.pp-exact-service-card h3,.pp-exact-service-card h4{min-height:52px !important;font-size:21px !important}
+  }
+  @media(max-width:420px){
+    .pp-exact-service-grid{grid-template-columns:1fr !important}
+    .pp-exact-service-card{min-height:250px !important}
+    .pp-exact-service-card > :first-child,.pp-exact-service-card h3,.pp-exact-service-card h4{min-height:0 !important}
+  }
+</style>
+<script id="proudpops-modern-services-exact-v2-script">
+(function(){
+  var names=['HAIRCUT','EDGEUP','BEARD TRIM','SHAVE','CUT + ENHANCEMENT'];
+  function norm(e){return(e.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}
+  function directServiceName(e){
+    var text=norm(e);
+    return names.find(function(name){return text.startsWith(name)||text.includes(name+' ')})||null;
+  }
+  function findSection(){
+    var heading=Array.from(document.querySelectorAll('h1,h2,h3')).find(function(e){return norm(e)==='PICK YOUR CUT'});
+    return heading?heading.closest('section'):null;
+  }
+  function findExactCards(section){
+    if(!section)return[];
+    var all=Array.from(section.querySelectorAll('div,article,li'));
+    return names.map(function(name){
+      var matches=all.filter(function(e){
+        var text=norm(e);
+        if(!text.includes(name)||!text.includes('BOOK')||!text.match(/\$\s*\d+/))return false;
+        var nested=Array.from(e.children).some(function(child){
+          var childText=norm(child);
+          return childText.includes(name)&&childText.includes('BOOK')&&childText.match(/\$\s*\d+/);
+        });
+        return !nested;
+      });
+      matches.sort(function(a,b){return a.querySelectorAll('*').length-b.querySelectorAll('*').length});
+      return matches[0]||null;
+    }).filter(Boolean);
+  }
+  function commonParent(cards){
+    if(cards.length!==5)return null;
+    var ancestors=[];var n=cards[0].parentElement;
+    while(n){ancestors.push(n);n=n.parentElement}
+    return ancestors.find(function(parent){return cards.every(function(card){return parent.contains(card)})})||null;
+  }
+  function directChildrenFor(parent,cards){
+    return cards.map(function(card){
+      var node=card;
+      while(node.parentElement&&node.parentElement!==parent)node=node.parentElement;
+      return node;
+    });
+  }
+  function markParts(card){
+    card.classList.add('pp-exact-service-card');
+    Array.from(card.querySelectorAll('*')).forEach(function(e){
+      var t=(e.textContent||'').trim();
+      if(/^\d+\s*(min|hr|hour)/i.test(t))e.classList.add('pp-exact-duration');
+      if(/^\$\s*\d+/i.test(t))e.classList.add('pp-exact-price');
+      if(/^book$/i.test(t))e.classList.add('pp-exact-book');
+    });
+  }
+  function install(){
+    var section=findSection(),cards=findExactCards(section);
+    if(cards.length!==5)return;
+    var parent=commonParent(cards);if(!parent)return;
+    var gridChildren=directChildrenFor(parent,cards);
+    if(new Set(gridChildren).size!==5){
+      parent=cards[0].parentElement;
+      gridChildren=cards;
+    }
+    parent.classList.add('pp-exact-service-grid');
+    gridChildren.forEach(function(child,index){child.classList.add('pp-exact-service-card');markParts(cards[index])});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+  window.addEventListener('load',install);
+})();
+</script>
+<!-- PROUDPOPS-MODERN-SERVICES-EXACT-V2-END -->
 </body>
 </html>
