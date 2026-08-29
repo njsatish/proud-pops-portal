@@ -256,6 +256,58 @@
 })();
 </script>
 <!-- PROUDPOPS-BOOKSY-SPEED-V1-END -->
+
+<style id="proudpops-booksy-selection-reminder-v1-style">
+  #pp-booksy-selection-reminder {
+    position:fixed;
+    z-index:10050;
+    left:50%;
+    top:14px;
+    transform:translateX(-50%);
+    width:min(760px,calc(100% - 28px));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:13px 46px 13px 18px;
+    border:1px solid rgba(255,255,255,.18);
+    border-top:4px solid #f0b93f;
+    border-radius:12px;
+    background:rgba(14,19,24,.97);
+    color:#fff;
+    box-shadow:0 16px 40px rgba(0,0,0,.36);
+    font:700 14px/1.3 Inter,system-ui,sans-serif;
+    text-align:center;
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+  #pp-booksy-selection-reminder strong { color:#f0b93f!important; }
+  #pp-booksy-selection-reminder button {
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    width:30px;
+    height:30px;
+    border:0;
+    border-radius:8px;
+    background:#ff6548;
+    color:#111820;
+    font-size:20px;
+    font-weight:950;
+    cursor:pointer;
+  }
+  @media(max-width:620px) {
+    #pp-booksy-selection-reminder {
+      top:8px;
+      justify-content:flex-start;
+      padding-left:14px;
+      font-size:12px;
+      text-align:left;
+    }
+  }
+</style>
+
 </head>
 <body>
 
@@ -1904,6 +1956,57 @@
       .then(function(data){if(data.success!==true||!Array.isArray(data.slots))throw new Error('Invalid availability response');state.slots=data.slots.filter(function(slot){return slot&&slot.date&&slot.time});if(!renderDates()){setStatus('No upcoming availability was returned.',false);showFallback(true);return}renderTimes()})
       .catch(function(error){if(error.name==='AbortError')return;state.slots=[];document.getElementById('pp-sda-date').innerHTML='<option>Unavailable</option>';setStatus('Could not load verified '+service().name+' times.',false);showFallback(true)});
   }
+  function hideIntermediateBooksyModal(){
+    var modal=document.getElementById('booksy-modal');
+    if(!modal)return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    modal.style.setProperty('display','none','important');
+    document.body.classList.remove('pp-modern-booking-open');
+    document.body.style.removeProperty('overflow');
+  }
+
+  function findOfficialBooksyTrigger(){
+    var selectors=[
+      '#booksy-official-host .booksy-widget-button',
+      '#booksy-official-host a[href*="booksy.com"]',
+      '#booksy-official-host button',
+      '.booksy-widget-button',
+      'a.booksy-business-link',
+      'a[href*="booksy.com"][data-booksy-widget]',
+      'a[href*="booksy.com"]'
+    ];
+
+    for(var index=0;index<selectors.length;index+=1){
+      var candidates=Array.from(document.querySelectorAll(selectors[index]));
+      var trigger=candidates.find(function(element){
+        if(element.classList.contains('pp-sda-book'))return false;
+        if(element.closest('.pp-sda'))return false;
+        return typeof element.click==='function';
+      });
+      if(trigger)return trigger;
+    }
+    return null;
+  }
+
+  function showBooksySelectionReminder(){
+    var old=document.getElementById('pp-booksy-selection-reminder');
+    if(old)old.remove();
+
+    var selectedService=typeof service==='function'?service():null;
+    var selectedSlot=(typeof state!=='undefined'&&state&&state.selectedSlot)?state.selectedSlot:null;
+    if(!selectedService||!selectedSlot||!selectedSlot.date||!selectedSlot.time)return;
+
+    var reminder=document.createElement('div');
+    reminder.id='pp-booksy-selection-reminder';
+    reminder.setAttribute('role','status');
+    reminder.innerHTML='<strong>Confirm in Booksy:</strong> '
+      +selectedService.name+' • '+formatDate(selectedSlot.date)+' • '+formatTime(selectedSlot.time)
+      +'<button type="button" aria-label="Dismiss selection reminder">×</button>';
+    reminder.querySelector('button').addEventListener('click',function(){reminder.remove();});
+    document.body.appendChild(reminder);
+  }
+
   function openBooksy(event){
     var selectedService=typeof service==='function'?service():null;
     var selectedSlot=(typeof state!=='undefined'&&state&&state.selectedSlot)?state.selectedSlot:null;
@@ -1933,25 +2036,21 @@
       }
     }
 
+    showBooksySelectionReminder();
+    hideIntermediateBooksyModal();
+
+    var officialTrigger=findOfficialBooksyTrigger();
+    if(officialTrigger){
+      officialTrigger.click();
+      window.setTimeout(hideIntermediateBooksyModal,0);
+      window.setTimeout(hideIntermediateBooksyModal,180);
+      return;
+    }
+
+    /* Last-resort fallback: use the existing modal only when the official
+       Booksy trigger has not been created by the widget script. */
     if(typeof window.openBooksyModal==='function'){
       window.openBooksyModal();
-      return;
-    }
-
-    var trigger=Array.from(document.querySelectorAll('a,button')).find(function(element){
-      if(element.classList.contains('pp-sda-book'))return false;
-      var label=(element.textContent||'').replace(/\s+/g,' ').trim();
-      return /BOOK NOW|BOOK APPOINTMENT|BOOK YOUR APPOINTMENT/i.test(label);
-    });
-
-    if(trigger){
-      trigger.click();
-      return;
-    }
-
-    var officialLink=document.querySelector('a[href*="booksy.com"]');
-    if(officialLink){
-      officialLink.click();
       return;
     }
 
@@ -1964,6 +2063,7 @@
 </script>
 <!-- PROUDPOPS-BOOKING-SELECTION-SUMMARY-V1 -->
 <!-- PROUDPOPS-BOOKING-SELECTION-SUMMARY-V2-1 -->
+<!-- PROUDPOPS-DIRECT-OFFICIAL-BOOKSY-V1 -->
 <!-- PROUDPOPS-SERVICE-DATE-AVAILABILITY-V1-END -->
 </body>
 </html>
