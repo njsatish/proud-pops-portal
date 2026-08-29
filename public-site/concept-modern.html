@@ -2032,6 +2032,19 @@
       return value?{value:value,display:item.display||displayTime(value),period:item.period||item.l||''}:null;
     }).filter(Boolean);
   }
+  function responseIdentity(data){
+    var root=data&&data.data&&typeof data.data==='object'?data.data:data||{};
+    var service=root.service||root.selectedService||{};
+    var variant=root.variant||service.variant||{};
+    var returnedDate=root.date||root.requestedDate||root.selectedDate||root.availabilityDate||null;
+    var returnedVariant=root.serviceVariantId||root.service_variant_id||root.variantId||root.variant_id||service.variantId||service.variant_id||variant.id||null;
+    return {date:returnedDate,variantId:returnedVariant};
+  }
+  function responseMatchesSelection(data,service,date){
+    var identity=responseIdentity(data);
+    if(!identity.date||identity.variantId===null||identity.variantId===undefined)return false;
+    return String(identity.date).slice(0,10)===String(date)&&Number(identity.variantId)===Number(service.variantId);
+  }
   function serviceCard(service){
     var article=document.createElement('article');article.className='pp-gbook-service';article.dataset.variantId=service.variantId;
     article.innerHTML='<div class="pp-gbook-icon" aria-hidden="true">✂</div>'
@@ -2048,7 +2061,7 @@
     var card=document.querySelector('.pp-gbook-service[data-variant-id="'+service.variantId+'"]');if(!card)return;
     card.querySelector('.pp-gbook-loading,.pp-gbook-empty,.pp-gbook-error,.pp-gbook-times')?.remove();
     if(error){
-      var e=document.createElement('div');e.className='pp-gbook-error';e.textContent='Service-specific availability is temporarily unavailable. Continue with Booksy to see current times.';card.appendChild(e);return;
+      var e=document.createElement('div');e.className='pp-gbook-error';e.innerHTML='<span><strong>Times are not verified for this service and date.</strong><br>Open Booksy to view current availability.</span>';card.appendChild(e);return;
     }
     if(!times.length){
       var empty=document.createElement('div');empty.className='pp-gbook-empty';empty.textContent='No available times returned for this date.';card.appendChild(empty);return;
@@ -2077,7 +2090,7 @@
       var controller=new AbortController();state.requests.set(service.variantId,controller);
       fetch(availabilityUrl(service),{cache:'no-store',credentials:'omit',signal:controller.signal})
         .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
-        .then(function(data){renderResult(service,normalizeTimes(data,state.date),false)})
+        .then(function(data){if(!responseMatchesSelection(data,service,state.date))throw new Error('UNVERIFIED_AVAILABILITY_RESPONSE');renderResult(service,normalizeTimes(data,state.date),false)})
         .catch(function(error){if(error.name!=='AbortError')renderResult(service,[],true)})
         .finally(function(){state.requests.delete(service.variantId)});
     });
@@ -2094,7 +2107,7 @@
   }
   function init(){
     placeAfterHero();
-    var today=new Date();today.setDate(today.getDate()+1);state.date=isoLocal(today);
+    var today=new Date();state.date=isoLocal(today);
     var date=document.getElementById('pp-gbook-date');date.min=isoLocal(new Date());date.value=state.date;
     document.getElementById('pp-gbook-service').addEventListener('change',function(e){state.filter=e.target.value;load()});
     date.addEventListener('change',function(e){state.date=e.target.value;load()});
@@ -2105,6 +2118,7 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
+<!-- PROUDPOPS-MODERN-VERIFIED-TIMES-V2 -->
 <!-- PROUDPOPS-GOOGLE-STYLE-BOOKING-V1-END -->
 </body>
 </html>
