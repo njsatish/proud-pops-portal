@@ -1783,5 +1783,328 @@
 })();
 </script>
 <!-- PROUDPOPS-MODERN-SERVICES-EXACT-V2-END -->
+<!-- PROUDPOPS-GOOGLE-STYLE-BOOKING-V1-START -->
+<style id="proudpops-google-style-booking-v1-style">
+  .pp-gbook {
+    padding:78px 0;
+    background:#20242a;
+    color:#f6f8fa;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .pp-gbook * { box-sizing:border-box; }
+  .pp-gbook-kicker {
+    margin:0 0 8px;
+    color:#45a99d;
+    font-size:12px;
+    font-weight:950;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+  }
+  .pp-gbook h2 {
+    margin:0;
+    color:#fff !important;
+    font:950 clamp(42px,5vw,64px)/.98 Inter,system-ui,sans-serif !important;
+    letter-spacing:-.055em !important;
+  }
+  .pp-gbook-intro {
+    max-width:720px;
+    margin:13px 0 28px;
+    color:#adb6c0 !important;
+    font-size:16px;
+  }
+  .pp-gbook-toolbar {
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+  }
+  .pp-gbook-filter {
+    min-height:52px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:0 18px;
+    border:1px solid #4d5259;
+    border-radius:999px;
+    background:#20242a;
+    color:#f4f6f8;
+    font:850 16px/1 Inter,system-ui,sans-serif;
+  }
+  .pp-gbook-filter select,
+  .pp-gbook-filter input {
+    max-width:220px;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:#f4f6f8;
+    font:inherit;
+    color-scheme:dark;
+  }
+  .pp-gbook-filter select option { background:#20242a;color:#fff; }
+  .pp-gbook-refresh {
+    min-height:52px;
+    padding:0 18px;
+    border:1px solid #4d5259;
+    border-radius:999px;
+    background:transparent;
+    color:#f4f6f8;
+    font:800 14px/1 Inter,system-ui,sans-serif;
+    cursor:pointer;
+  }
+  .pp-gbook-divider { border:0;border-top:1px solid #454a50;margin:0 0 8px; }
+  .pp-gbook-service {
+    display:grid;
+    grid-template-columns:76px minmax(0,1fr) auto;
+    gap:18px;
+    padding:24px 0 26px;
+    border-bottom:1px solid #454a50;
+  }
+  .pp-gbook-icon {
+    width:76px;height:76px;display:grid;place-items:center;
+    border-radius:14px;background:#41464c;color:#d7dce1;font-size:30px;
+  }
+  .pp-gbook-name { margin:1px 0 3px;color:#fff;font-size:21px;font-weight:850; }
+  .pp-gbook-duration { color:#aeb6bf;font-size:15px; }
+  .pp-gbook-price { padding-top:3px;color:#fff;font-size:21px;font-weight:850; }
+  .pp-gbook-times {
+    grid-column:2/4;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(112px,1fr));
+    gap:10px 14px;
+    margin-top:6px;
+  }
+  .pp-gbook-time {
+    min-height:52px;
+    display:grid;
+    place-items:center;
+    padding:8px 12px;
+    border:1px solid #4d5259;
+    border-radius:999px;
+    background:transparent;
+    color:#b7ccff;
+    font:900 17px/1 Inter,system-ui,sans-serif;
+    cursor:pointer;
+  }
+  .pp-gbook-time:hover,.pp-gbook-time.selected {
+    border-color:#45a99d;background:#173f3b;color:#fff;
+  }
+  .pp-gbook-empty,.pp-gbook-loading,.pp-gbook-error {
+    grid-column:2/4;
+    min-height:52px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#aeb6bf;
+    font-size:14px;
+  }
+  .pp-gbook-error { color:#f4b6a1; }
+  .pp-gbook-spinner {
+    width:18px;height:18px;flex:0 0 18px;border:3px solid #4d5259;
+    border-top-color:#45a99d;border-radius:50%;animation:ppGbookSpin .75s linear infinite;
+  }
+  @keyframes ppGbookSpin { to { transform:rotate(360deg); } }
+  .pp-gbook-summary {
+    position:sticky;
+    bottom:78px;
+    z-index:8;
+    display:none;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    margin-top:20px;
+    padding:16px 18px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:12px;
+    background:rgba(13,17,22,.96);
+    box-shadow:0 16px 40px rgba(0,0,0,.28);
+    backdrop-filter:blur(13px);
+  }
+  .pp-gbook-summary.active { display:flex; }
+  .pp-gbook-summary strong { display:block;color:#fff; }
+  .pp-gbook-summary small { color:#aeb6bf; }
+  .pp-gbook-continue {
+    min-height:48px;padding:0 24px;border:0;border-radius:9px;
+    background:linear-gradient(135deg,#f0b93f,#ffd36f);color:#17130b;
+    font:900 15px/1 Inter,system-ui,sans-serif;cursor:pointer;
+  }
+  .pp-gbook-source {
+    margin:16px 0 0;color:#939da6;font-size:12px;
+  }
+
+  @media(max-width:980px) {
+    .pp-gbook-times { grid-template-columns:repeat(3,minmax(105px,1fr)); }
+  }
+  @media(max-width:620px) {
+    .pp-gbook { padding:62px 0; }
+    .pp-gbook-toolbar { display:grid;grid-template-columns:1fr; }
+    .pp-gbook-filter,.pp-gbook-refresh { width:100%;justify-content:flex-start; }
+    .pp-gbook-filter select,.pp-gbook-filter input { width:100%;max-width:none; }
+    .pp-gbook-service { grid-template-columns:58px minmax(0,1fr) auto;gap:12px; }
+    .pp-gbook-icon { width:58px;height:58px;font-size:24px; }
+    .pp-gbook-name { font-size:18px; }
+    .pp-gbook-price { font-size:18px; }
+    .pp-gbook-times { grid-column:1/4;grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .pp-gbook-empty,.pp-gbook-loading,.pp-gbook-error { grid-column:1/4; }
+    .pp-gbook-summary { bottom:82px;display:none;align-items:stretch;flex-direction:column; }
+    .pp-gbook-summary.active { display:flex; }
+    .pp-gbook-continue { width:100%; }
+  }
+</style>
+
+<section class="pp-gbook" id="modern-google-booking">
+  <div class="wrap">
+    <p class="pp-gbook-kicker">Live appointments</p>
+    <h2>Book an appointment.</h2>
+    <p class="pp-gbook-intro">Choose a service and date to view real availability. Final confirmation is completed through Booksy.</p>
+
+    <div class="pp-gbook-toolbar">
+      <label class="pp-gbook-filter">✂
+        <select id="pp-gbook-service" aria-label="Filter by service">
+          <option value="all">All services</option>
+          <option value="7331041">Haircut</option>
+          <option value="7331042">Beard Trim</option>
+          <option value="7331043">Shave</option>
+          <option value="7331044">Haircut With Enhancement</option>
+          <option value="7331046">Edgeup</option>
+        </select>
+      </label>
+      <label class="pp-gbook-filter">▣
+        <input id="pp-gbook-date" type="date" aria-label="Appointment date">
+      </label>
+      <button class="pp-gbook-refresh" id="pp-gbook-refresh" type="button">Refresh availability</button>
+    </div>
+    <hr class="pp-gbook-divider">
+    <div id="pp-gbook-services" aria-live="polite"></div>
+    <div class="pp-gbook-summary" id="pp-gbook-summary">
+      <div><strong id="pp-gbook-summary-main"></strong><small id="pp-gbook-summary-detail"></small></div>
+      <button class="pp-gbook-continue" type="button">Continue with Booksy</button>
+    </div>
+    <p class="pp-gbook-source">Availability is provided through the Proud Pops Booksy integration. Times can change until confirmed.</p>
+  </div>
+</section>
+
+<script id="proudpops-google-style-booking-v1-script">
+(function(){
+  var API_BASE='https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com';
+  var services=[
+    {serviceId:1510671,variantId:7331041,name:'Haircut',duration:45,price:40},
+    {serviceId:1510672,variantId:7331042,name:'Beard Trim',duration:25,price:20},
+    {serviceId:1510673,variantId:7331043,name:'Shave',duration:20,price:15},
+    {serviceId:1510679,variantId:7331044,name:'Haircut With Enhancement',duration:60,price:50},
+    {serviceId:1510683,variantId:7331046,name:'Edgeup',duration:30,price:25}
+  ];
+  var state={date:'',filter:'all',selected:null,requests:new Map()};
+
+  function isoLocal(date){
+    var y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,'0'),d=String(date.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+d;
+  }
+  function displayTime(value){
+    if(!value)return'';
+    if(/AM|PM/i.test(value))return value;
+    var parts=value.split(':'),h=Number(parts[0]),m=parts[1]||'00',period=h>=12?'PM':'AM';
+    h=h%12||12;return h+':'+m+' '+period;
+  }
+  function visibleServices(){
+    return state.filter==='all'?services:services.filter(function(s){return String(s.variantId)===state.filter});
+  }
+  function availabilityUrl(service){
+    var url=new URL(API_BASE+'/booksy/availability');
+    url.searchParams.set('variantId',service.variantId);
+    url.searchParams.set('serviceVariantId',service.variantId);
+    url.searchParams.set('date',state.date);
+    return url.toString();
+  }
+  function normalizeTimes(data,date){
+    var raw=[];
+    if(Array.isArray(data.times))raw=data.times;
+    else if(data.timeslots&&Array.isArray(data.timeslots[date]))raw=data.timeslots[date];
+    else if(Array.isArray(data.slots))raw=data.slots;
+    else if(data.data){
+      if(Array.isArray(data.data.times))raw=data.data.times;
+      else if(data.data.timeslots&&Array.isArray(data.data.timeslots[date]))raw=data.data.timeslots[date];
+      else if(Array.isArray(data.data.slots))raw=data.data.slots;
+    }
+    return raw.map(function(item){
+      if(typeof item==='string')return{value:item,display:displayTime(item)};
+      var value=item.value||item.t||item.time||item.start||item.startTime;
+      return value?{value:value,display:item.display||displayTime(value),period:item.period||item.l||''}:null;
+    }).filter(Boolean);
+  }
+  function serviceCard(service){
+    var article=document.createElement('article');article.className='pp-gbook-service';article.dataset.variantId=service.variantId;
+    article.innerHTML='<div class="pp-gbook-icon" aria-hidden="true">✂</div>'
+      +'<div><h3 class="pp-gbook-name">'+service.name+'</h3><div class="pp-gbook-duration">'+service.duration+' min</div></div>'
+      +'<div class="pp-gbook-price">$'+service.price+'</div>'
+      +'<div class="pp-gbook-loading"><span class="pp-gbook-spinner"></span>Checking availability…</div>';
+    return article;
+  }
+  function renderSkeleton(){
+    var root=document.getElementById('pp-gbook-services');root.innerHTML='';
+    visibleServices().forEach(function(s){root.appendChild(serviceCard(s))});
+  }
+  function renderResult(service,times,error){
+    var card=document.querySelector('.pp-gbook-service[data-variant-id="'+service.variantId+'"]');if(!card)return;
+    card.querySelector('.pp-gbook-loading,.pp-gbook-empty,.pp-gbook-error,.pp-gbook-times')?.remove();
+    if(error){
+      var e=document.createElement('div');e.className='pp-gbook-error';e.textContent='Service-specific availability is temporarily unavailable. Continue with Booksy to see current times.';card.appendChild(e);return;
+    }
+    if(!times.length){
+      var empty=document.createElement('div');empty.className='pp-gbook-empty';empty.textContent='No available times returned for this date.';card.appendChild(empty);return;
+    }
+    var grid=document.createElement('div');grid.className='pp-gbook-times';
+    times.forEach(function(time){
+      var button=document.createElement('button');button.type='button';button.className='pp-gbook-time';button.textContent=time.display;
+      button.addEventListener('click',function(){
+        document.querySelectorAll('.pp-gbook-time').forEach(function(b){b.classList.remove('selected')});button.classList.add('selected');
+        state.selected={service:service,time:time};updateSummary();
+      });grid.appendChild(button);
+    });card.appendChild(grid);
+  }
+  function updateSummary(){
+    var box=document.getElementById('pp-gbook-summary');
+    if(!state.selected){box.classList.remove('active');return}
+    var s=state.selected.service,t=state.selected.time;
+    document.getElementById('pp-gbook-summary-main').textContent=s.name+' at '+t.display;
+    document.getElementById('pp-gbook-summary-detail').textContent=state.date+' • '+s.duration+' min • $'+s.price;
+    box.classList.add('active');
+  }
+  function abortRequests(){state.requests.forEach(function(c){c.abort()});state.requests.clear()}
+  function load(){
+    abortRequests();state.selected=null;updateSummary();renderSkeleton();
+    visibleServices().forEach(function(service){
+      var controller=new AbortController();state.requests.set(service.variantId,controller);
+      fetch(availabilityUrl(service),{cache:'no-store',credentials:'omit',signal:controller.signal})
+        .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
+        .then(function(data){renderResult(service,normalizeTimes(data,state.date),false)})
+        .catch(function(error){if(error.name!=='AbortError')renderResult(service,[],true)})
+        .finally(function(){state.requests.delete(service.variantId)});
+    });
+  }
+  function openBooksy(){
+    if(typeof window.openBooksyModal==='function')return window.openBooksyModal();
+    var trigger=Array.from(document.querySelectorAll('a,button')).find(function(e){if(e.classList.contains('pp-gbook-continue'))return false;return /BOOK NOW|BOOK APPOINTMENT/i.test((e.textContent||'').trim())});
+    if(trigger)return trigger.click();
+    var link=document.querySelector('a[href*="booksy.com"]');if(link)link.click();
+  }
+  function placeAfterHero(){
+    var section=document.getElementById('modern-google-booking'),hero=document.querySelector('section.hero,.hero');
+    if(section&&hero&&section.previousElementSibling!==hero)hero.insertAdjacentElement('afterend',section);
+  }
+  function init(){
+    placeAfterHero();
+    var today=new Date();today.setDate(today.getDate()+1);state.date=isoLocal(today);
+    var date=document.getElementById('pp-gbook-date');date.min=isoLocal(new Date());date.value=state.date;
+    document.getElementById('pp-gbook-service').addEventListener('change',function(e){state.filter=e.target.value;load()});
+    date.addEventListener('change',function(e){state.date=e.target.value;load()});
+    document.getElementById('pp-gbook-refresh').addEventListener('click',load);
+    document.querySelector('.pp-gbook-continue').addEventListener('click',openBooksy);
+    load();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<!-- PROUDPOPS-GOOGLE-STYLE-BOOKING-V1-END -->
 </body>
 </html>
