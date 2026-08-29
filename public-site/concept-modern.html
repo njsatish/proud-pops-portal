@@ -163,6 +163,99 @@
   }
 </style>
 <!-- PROUDPOPS-MODERN-EXACT-HERO-BLOCK-MOBILE-V2-END -->
+<!-- PROUDPOPS-BOOKSY-SPEED-V1-START -->
+<link rel="dns-prefetch" href="//booksy.com">
+<link rel="preconnect" href="https://booksy.com" crossorigin>
+<link rel="dns-prefetch" href="//wkpl27gu7j.execute-api.us-east-1.amazonaws.com">
+<link rel="preconnect" href="https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com" crossorigin>
+<style id="proudpops-booksy-speed-v1-style">
+  .pp-booksy-loading {
+    display:none;
+    align-items:center;
+    gap:11px;
+    margin:14px 0 4px;
+    padding:13px 15px;
+    border:1px solid rgba(16,42,67,.12);
+    border-radius:10px;
+    background:#f4f7fa;
+    color:#102a43;
+    font:800 14px/1.3 Inter,system-ui,sans-serif;
+  }
+  .pp-booksy-loading.active { display:flex; }
+  .pp-booksy-spinner {
+    width:20px;height:20px;flex:0 0 20px;border:3px solid #d7e1ea;border-top-color:#159887;border-radius:50%;animation:ppBooksySpin .75s linear infinite;
+  }
+  @keyframes ppBooksySpin { to { transform:rotate(360deg); } }
+</style>
+<script id="proudpops-booksy-speed-v1-script">
+(function(){
+  var widgetUrl='https://booksy.com/widget/code.js?id=212027&country=us&lang=en';
+  var apiUrl='https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com/booksy/availability';
+  var warmed=false;
+
+  function addHint(rel,href,as){
+    if(document.head.querySelector('link[href="'+href+'"]'))return;
+    var link=document.createElement('link');link.rel=rel;link.href=href;
+    if(as)link.as=as;
+    if(rel==='preload')link.crossOrigin='anonymous';
+    document.head.appendChild(link);
+  }
+
+  function warmConnections(){
+    if(warmed)return;warmed=true;
+    addHint('preload',widgetUrl,'script');
+    addHint('prefetch',widgetUrl);
+    try{fetch(apiUrl,{method:'GET',mode:'cors',cache:'no-store',credentials:'omit'}).catch(function(){});}catch(error){}
+  }
+
+  function installLoadingIndicator(){
+    var host=document.getElementById('booksy-official-host');
+    if(!host||document.querySelector('.pp-booksy-loading'))return;
+    var loading=document.createElement('div');loading.className='pp-booksy-loading';loading.setAttribute('role','status');loading.setAttribute('aria-live','polite');
+    loading.innerHTML='<span class="pp-booksy-spinner" aria-hidden="true"></span><span>Loading Booksy services and times…</span>';
+    host.parentElement.insertBefore(loading,host);
+  }
+
+  function showLoading(){
+    installLoadingIndicator();
+    var loading=document.querySelector('.pp-booksy-loading');if(loading)loading.classList.add('active');
+    window.setTimeout(hideLoading,9000);
+  }
+
+  function hideLoading(){
+    var loading=document.querySelector('.pp-booksy-loading');if(loading)loading.classList.remove('active');
+  }
+
+  function watchWidget(){
+    var modal=document.getElementById('booksy-modal');if(!modal)return;
+    new MutationObserver(function(){
+      var visibleWidget=modal.querySelector('iframe,.booksy-widget-container,.booksy-widget-button,a.booksy-widget-button,a.booksy-business-link');
+      if(visibleWidget)hideLoading();
+    }).observe(modal,{childList:true,subtree:true});
+  }
+
+  function primeOnIntent(){
+    document.querySelectorAll('a,button').forEach(function(element){
+      var text=(element.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+      if(/BOOK NOW|BOOK APPOINTMENT|BOOK YOUR APPOINTMENT/.test(text)){
+        element.addEventListener('pointerenter',warmConnections,{once:true,passive:true});
+        element.addEventListener('touchstart',warmConnections,{once:true,passive:true});
+        element.addEventListener('pointerdown',function(){warmConnections();showLoading();},{passive:true});
+        element.addEventListener('click',function(){warmConnections();showLoading();});
+      }
+    });
+  }
+
+  function init(){
+    installLoadingIndicator();primeOnIntent();watchWidget();
+    var idle=window.requestIdleCallback||function(callback){return window.setTimeout(callback,1200)};
+    idle(warmConnections,{timeout:2500});
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<!-- PROUDPOPS-BOOKSY-SPEED-V1-END -->
 </head>
 <body>
 
