@@ -1,3 +1,4 @@
+// PROUDPOPS-FOURTEEN-DAY-AVAILABILITY-V1
 // PROUDPOPS-SEVEN-DAY-AVAILABILITY-V3
 const BOOKSY_API_KEY = process.env.BOOKSY_API_KEY;
 const BOOKSY_APP_VERSION = process.env.BOOKSY_APP_VERSION;
@@ -17,7 +18,7 @@ function selectSevenDayWindow(allSlots) {
     .sort((a,b) => String(a.date).localeCompare(String(b.date)) || String(a.time).localeCompare(String(b.time)));
   if (!ordered.length) return { windowStart: null, windowEnd: null, slots: [] };
   const windowStart = ordered[0].date;
-  const windowEnd = addCalendarDays(windowStart, 6);
+  const windowEnd = addCalendarDays(windowStart, 13);
   return { windowStart, windowEnd, slots: ordered.filter((slot) => slot.date >= windowStart && slot.date <= windowEnd) };
 }
 
