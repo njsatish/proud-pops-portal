@@ -276,3 +276,39 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .pp-concept-price { left: 12px; bottom: 12px; }
   .pp-concept-experience { right: 12px; bottom: 12px; }
 }
+
+/* PROUDPOPS-OFFICIAL-LOGO-V1 */
+.pp-brand-logo {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.16);
+  border-radius: 14px;
+  background: #49a9d7;
+  box-shadow: 0 8px 20px rgba(0,0,0,.24);
+}
+.pp-footer-logo-lockup {
+  width: min(var(--pp-content), calc(100% - 40px));
+  margin: 0 auto 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--pp-text);
+  font-size: 19px;
+  font-weight: 950;
+}
+.pp-footer-logo {
+  width: 82px;
+  height: 82px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.14);
+  border-radius: 16px;
+  background: #49a9d7;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
+@media (max-width: 620px) {
+  .pp-brand-logo { width: 50px; height: 50px; flex-basis: 50px; }
+  .pp-brand > span { font-size: 14px; }
+  .pp-footer-logo-lockup { align-items: flex-start; flex-direction: column; }
+}
