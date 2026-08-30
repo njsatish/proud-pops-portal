@@ -517,3 +517,54 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   }
 }
 /* PROUDPOPS-HOMEPAGE-LARGER-LOGO-V1-END */
+
+
+/* PROUDPOPS-ALTERNATE-SERVICE-ACTIONS-V1 */
+:root {
+  --pp-service-orange: #ff5a3c;
+  --pp-service-teal: #45b7a8;
+  --pp-service-blue: #4b74d1;
+  --pp-service-gold: #f0bf51;
+  --pp-service-coral: #ef7658;
+}
+
+/* Alternate only service-card booking actions. Global confirmation and
+   primary conversion buttons remain orange for consistent conversion intent. */
+.pp-home-services .pp-home-service:nth-child(5n+1) .pp-button-primary,
+.pp-services-grid .pp-service-card:nth-child(5n+1) .pp-button-primary {
+  border-color: var(--pp-service-orange);
+  background: var(--pp-service-orange);
+  color: #111820;
+}
+.pp-home-services .pp-home-service:nth-child(5n+2) .pp-button-primary,
+.pp-services-grid .pp-service-card:nth-child(5n+2) .pp-button-primary {
+  border-color: var(--pp-service-teal);
+  background: var(--pp-service-teal);
+  color: #07120f;
+}
+.pp-home-services .pp-home-service:nth-child(5n+3) .pp-button-primary,
+.pp-services-grid .pp-service-card:nth-child(5n+3) .pp-button-primary {
+  border-color: var(--pp-service-blue);
+  background: var(--pp-service-blue);
+  color: #ffffff;
+}
+.pp-home-services .pp-home-service:nth-child(5n+4) .pp-button-primary,
+.pp-services-grid .pp-service-card:nth-child(5n+4) .pp-button-primary {
+  border-color: var(--pp-service-gold);
+  background: var(--pp-service-gold);
+  color: #17130b;
+}
+.pp-home-services .pp-home-service:nth-child(5n+5) .pp-button-primary,
+.pp-services-grid .pp-service-card:nth-child(5n+5) .pp-button-primary {
+  border-color: var(--pp-service-coral);
+  background: var(--pp-service-coral);
+  color: #111820;
+}
+
+.pp-home-services .pp-home-service .pp-button-primary:hover,
+.pp-home-services .pp-home-service .pp-button-primary:focus-visible,
+.pp-services-grid .pp-service-card .pp-button-primary:hover,
+.pp-services-grid .pp-service-card .pp-button-primary:focus-visible {
+  filter: brightness(1.1);
+}
+/* PROUDPOPS-ALTERNATE-SERVICE-ACTIONS-V1-END */
