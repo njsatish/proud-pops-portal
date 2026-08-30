@@ -568,3 +568,63 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   filter: brightness(1.1);
 }
 /* PROUDPOPS-ALTERNATE-SERVICE-ACTIONS-V1-END */
+
+/* PROUDPOPS-LOGO-BLUE-BOOKING-BUTTONS-V1 */
+:root {
+  --pp-logo-blue: #49a9d7;
+  --pp-logo-blue-hover: #62b8df;
+  --pp-logo-blue-pressed: #358db9;
+  --pp-logo-blue-ink: #07131a;
+}
+
+/* All booking and primary conversion buttons use the official logo blue. */
+.pp-button-primary,
+.pp-mobile-book,
+.pp-home-services .pp-home-service .pp-button-primary,
+.pp-services-grid .pp-service-card .pp-button-primary,
+[data-booking-confirm],
+[data-booking-fallback-button] {
+  border-color: var(--pp-logo-blue) !important;
+  background: var(--pp-logo-blue) !important;
+  color: var(--pp-logo-blue-ink) !important;
+  filter: none;
+  box-shadow: none;
+}
+
+.pp-button-primary:hover,
+.pp-button-primary:focus-visible,
+.pp-mobile-book:hover,
+.pp-mobile-book:focus-visible,
+.pp-home-services .pp-home-service .pp-button-primary:hover,
+.pp-home-services .pp-home-service .pp-button-primary:focus-visible,
+.pp-services-grid .pp-service-card .pp-button-primary:hover,
+.pp-services-grid .pp-service-card .pp-button-primary:focus-visible,
+[data-booking-confirm]:hover,
+[data-booking-confirm]:focus-visible,
+[data-booking-fallback-button]:hover,
+[data-booking-fallback-button]:focus-visible {
+  border-color: var(--pp-logo-blue-hover) !important;
+  background: var(--pp-logo-blue-hover) !important;
+  color: var(--pp-logo-blue-ink) !important;
+  filter: none;
+}
+
+.pp-button-primary:active,
+.pp-mobile-book:active,
+.pp-home-services .pp-home-service .pp-button-primary:active,
+.pp-services-grid .pp-service-card .pp-button-primary:active,
+[data-booking-confirm]:active,
+[data-booking-fallback-button]:active {
+  border-color: var(--pp-logo-blue-pressed) !important;
+  background: var(--pp-logo-blue-pressed) !important;
+  color: #ffffff !important;
+  transform: translateY(1px);
+}
+
+/* Orange remains reserved for the active navigation page and selected time. */
+.pp-nav a[aria-current="page"] {
+  border-color: var(--pp-action-orange,var(--pp-orange));
+  background: var(--pp-action-orange,var(--pp-orange));
+  color: #111820;
+}
+/* PROUDPOPS-LOGO-BLUE-BOOKING-BUTTONS-V1-END */
