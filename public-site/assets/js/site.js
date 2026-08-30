@@ -1,3 +1,4 @@
+// PROUDPOPS-SINGLE-ACTIVE-NAVIGATION-V1
 (function(){
   'use strict';
 
@@ -16,12 +17,24 @@
     nav.addEventListener('click',function(event){if(event.target.closest('a'))setOpen(false);});
   }
 
+  function normalizePath(value){
+    var path=String(value||'/').split('?')[0].split('#')[0];
+    if(path==='/'||path==='')return '/index.html';
+    if(path.length>1&&path.endsWith('/'))path=path.slice(0,-1);
+    return path;
+  }
+
   function markCurrentPage(){
-    var path=window.location.pathname.replace(/\/$/,'/index.html');
-    document.querySelectorAll('[data-site-nav] a').forEach(function(link){
-      var linkPath=new URL(link.href,window.location.href).pathname.replace(/\/$/,'/index.html');
-      if(path===linkPath)link.setAttribute('aria-current','page');
+    var currentPath=normalizePath(window.location.pathname);
+    var links=Array.from(document.querySelectorAll('[data-site-nav] a'));
+
+    links.forEach(function(link){link.removeAttribute('aria-current');});
+
+    var currentLink=links.find(function(link){
+      return normalizePath(new URL(link.href,window.location.href).pathname)===currentPath;
     });
+
+    if(currentLink)currentLink.setAttribute('aria-current','page');
   }
 
   function init(){initNavigation();markCurrentPage();}

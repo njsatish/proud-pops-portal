@@ -1,3 +1,4 @@
+/* PROUDPOPS-SINGLE-ACTIVE-NAVIGATION-V1 */
 :root {
   --pp-bg: #111820;
   --pp-surface: #20262d;
@@ -74,8 +75,22 @@ button, a { -webkit-tap-highlight-color: transparent; }
   text-decoration: none;
   font-weight: 800;
 }
-.pp-nav a:hover, .pp-nav a[aria-current="page"] { background: var(--pp-surface); color: var(--pp-text); }
-.pp-nav .pp-nav-book { background: var(--pp-gold); color: #17130b; }
+.pp-nav a:hover {
+  background: var(--pp-surface);
+  color: var(--pp-text);
+}
+.pp-nav a[aria-current="page"] {
+  background: var(--pp-gold);
+  color: #17130b;
+}
+.pp-nav a[aria-current="page"]:hover {
+  background: var(--pp-gold);
+  color: #17130b;
+}
+.pp-nav .pp-nav-book {
+  background: transparent;
+  color: var(--pp-muted);
+}
 .pp-menu-button {
   display: none;
   width: 46px;
