@@ -719,3 +719,44 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   .pp-home-location-line { align-items: flex-start; flex-direction: column; }
 }
 /* PROUDPOPS-ADDRESS-PHONE-V1-END */
+
+
+/* PROUDPOPS-APPOINTMENTS-ONLY-V1 */
+.pp-appointment-policy {
+  width: min(var(--pp-content), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 15px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-left: 4px solid var(--pp-action-orange,var(--pp-orange));
+  border-radius: 10px;
+  background: rgba(32,38,45,.88);
+  color: var(--pp-muted);
+}
+.pp-appointment-policy strong { color: var(--pp-text); }
+.pp-appointment-policy a {
+  margin-left: auto;
+  color: var(--pp-logo-blue,var(--pp-blue));
+  font-weight: 900;
+  text-decoration: none;
+}
+.pp-book-policy {
+  max-width: 760px;
+  margin-top: 18px;
+  padding: 14px 17px;
+  display: grid;
+  gap: 4px;
+  border-left: 4px solid var(--pp-action-orange,var(--pp-orange));
+  border-radius: 8px;
+  background: rgba(255,90,60,.10);
+  color: var(--pp-muted);
+}
+.pp-book-policy strong { color: var(--pp-text); }
+@media (max-width: 620px) {
+  .pp-appointment-policy { align-items: flex-start; flex-direction: column; }
+  .pp-appointment-policy a { margin-left: 0; }
+}
+/* PROUDPOPS-APPOINTMENTS-ONLY-V1-END */
