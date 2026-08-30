@@ -312,3 +312,65 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .pp-brand > span { font-size: 14px; }
   .pp-footer-logo-lockup { align-items: flex-start; flex-direction: column; }
 }
+
+/* PROUDPOPS-ORANGE-ACTION-THEME-V1 */
+:root {
+  --pp-action-orange: #ff5a3c;
+  --pp-action-orange-hover: #ff704f;
+  --pp-action-orange-pressed: #e94a30;
+  --pp-action-ink: #111820;
+}
+
+/* Primary calls to action use the concept's strong orange treatment. */
+.pp-button-primary,
+.pp-nav .pp-nav-book[aria-current="page"],
+.pp-nav a[aria-current="page"],
+.pp-mobile-book {
+  border-color: var(--pp-action-orange);
+  background: var(--pp-action-orange);
+  color: var(--pp-action-ink);
+  box-shadow: none;
+}
+
+.pp-button-primary:hover,
+.pp-button-primary:focus-visible,
+.pp-nav a[aria-current="page"]:hover,
+.pp-nav a[aria-current="page"]:focus-visible,
+.pp-mobile-book:hover,
+.pp-mobile-book:focus-visible {
+  border-color: var(--pp-action-orange-hover);
+  background: var(--pp-action-orange-hover);
+  color: var(--pp-action-ink);
+}
+
+.pp-button-primary:active,
+.pp-nav a[aria-current="page"]:active,
+.pp-mobile-book:active {
+  border-color: var(--pp-action-orange-pressed);
+  background: var(--pp-action-orange-pressed);
+  transform: translateY(1px);
+}
+
+/* Book is neutral unless Book is the current page. */
+.pp-nav .pp-nav-book:not([aria-current="page"]) {
+  border-color: transparent;
+  background: transparent;
+  color: var(--pp-muted);
+  box-shadow: none;
+}
+
+.pp-nav .pp-nav-book:not([aria-current="page"]):hover,
+.pp-nav .pp-nav-book:not([aria-current="page"]):focus-visible {
+  background: var(--pp-surface);
+  color: var(--pp-text);
+}
+
+/* Preserve gold for prices and secondary premium details. */
+.pp-service-price,
+.pp-service-card-price,
+.pp-home-service-meta span:last-child,
+.pp-concept-price strong,
+.pp-concept-experience strong {
+  color: var(--pp-gold);
+}
+/* PROUDPOPS-ORANGE-ACTION-THEME-V1-END */
