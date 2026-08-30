@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111820">
+  <meta name="color-scheme" content="dark">
+
+  <title>About Proud Pops Barbershop</title>
+  <meta name="description" content="Learn about the Proud Pops approach to professional barbering, clear service choices, and convenient online appointment scheduling.">
+  <link rel="canonical" href="https://proudpops.denduluru.com/about.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Proud Pops Barbershop">
+  <meta property="og:description" content="A focused barbering experience built around quality service, clear choices, and convenient scheduling.">
+  <meta property="og:url" content="https://proudpops.denduluru.com/about.html">
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+
+  <style>
+    .pp-about-section {
+      padding: 76px 0;
+      background: linear-gradient(145deg,#171c22,#232a32);
+    }
+
+    .pp-about-intro {
+      display: grid;
+      grid-template-columns: minmax(0,1.15fr) minmax(340px,.85fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .pp-about-story,
+    .pp-about-highlight {
+      padding: 32px;
+    }
+
+    .pp-about-story h2,
+    .pp-about-highlight h2 {
+      margin: 0 0 16px;
+      font-size: clamp(30px,4vw,45px);
+      line-height: 1;
+      letter-spacing: -.035em;
+    }
+
+    .pp-about-story p,
+    .pp-about-highlight p {
+      color: var(--pp-muted);
+    }
+
+    .pp-about-story p:last-child,
+    .pp-about-highlight p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pp-about-highlight {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(150deg,#173f3b,#111820 72%);
+    }
+
+    .pp-about-highlight::before {
+      content: "PP";
+      position: absolute;
+      right: -16px;
+      bottom: -38px;
+      color: rgba(240,185,63,.10);
+      font-size: 190px;
+      font-weight: 950;
+      line-height: 1;
+      letter-spacing: -.12em;
+    }
+
+    .pp-about-highlight > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pp-value-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 20px;
+      margin-top: 34px;
+    }
+
+    .pp-value-card {
+      padding: 26px;
+    }
+
+    .pp-value-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: rgba(69,169,157,.17);
+      color: var(--pp-teal);
+      font-weight: 950;
+    }
+
+    .pp-value-card h3 {
+      margin: 0 0 9px;
+      font-size: 22px;
+    }
+
+    .pp-value-card p {
+      margin: 0;
+      color: var(--pp-muted);
+    }
+
+    .pp-about-process {
+      padding: 72px 0;
+      background: #0e1318;
+    }
+
+    .pp-process-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .pp-process-step {
+      padding: 24px;
+      border-left: 4px solid var(--pp-gold);
+      border-radius: 10px;
+      background: var(--pp-surface);
+    }
+
+    .pp-process-step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--pp-gold);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .pp-process-step h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .pp-process-step p {
+      margin: 0;
+      color: var(--pp-muted);
+    }
+
+    .pp-about-cta {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      align-items: center;
+      gap: 24px;
+      padding: 30px;
+      margin-top: 36px;
+    }
+
+    .pp-about-cta h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .pp-about-cta p {
+      margin: 0;
+      color: var(--pp-muted);
+    }
+
+    .pp-about-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .pp-footer-brand {
+      max-width: 420px;
+    }
+
+    @media (max-width: 900px) {
+      .pp-about-intro,
+      .pp-about-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .pp-value-grid,
+      .pp-process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pp-about-actions {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .pp-about-story,
+      .pp-about-highlight {
+        padding: 24px;
+      }
+
+      .pp-about-actions {
+        display: grid;
+      }
+    }
+  </style>
+
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="pp-skip-link" href="#main-content">Skip to About Proud Pops</a>
+
+  <header class="pp-site-header">
+    <div class="pp-wrap pp-header-inner">
+      <a class="pp-brand" href="/index.html" aria-label="Proud Pops Barbershop home">
+        <span aria-hidden="true" style="width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:#f0b93f;color:#17130b;font-size:20px;font-weight:950;">PP</span>
+        <span>Proud Pops Barbershop</span>
+      </a>
+
+      <button class="pp-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" data-menu-toggle>
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav class="pp-nav" aria-label="Primary navigation" data-site-nav>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a class="pp-nav-book" href="/book.html">Book</a>
+        <a href="/about.html">About</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="pp-page-hero" aria-labelledby="about-page-title">
+      <div class="pp-wrap">
+        <p class="pp-kicker">About Proud Pops</p>
+        <h1 class="pp-page-title" id="about-page-title">A focused barbering experience.</h1>
+        <p class="pp-page-intro">
+          Proud Pops brings professional grooming services, clear choices, and convenient online scheduling together in one straightforward customer experience.
+        </p>
+      </div>
+    </section>
+
+    <section class="pp-about-section" aria-labelledby="about-story-title">
+      <div class="pp-wrap">
+        <div class="pp-about-intro">
+          <article class="pp-card pp-about-story">
+            <p class="pp-kicker">The Proud Pops approach</p>
+            <h2 id="about-story-title">Clear service. Careful detail.</h2>
+            <p>
+              Every appointment starts with a clear service choice, transparent timing, and straightforward pricing. The goal is to make it easy for customers to understand the appointment before arriving.
+            </p>
+            <p>
+              The online booking experience uses current service-specific availability and then transfers the selected service, date, and time to Booksy for secure final confirmation.
+            </p>
+          </article>
+
+          <aside class="pp-card pp-about-highlight">
+            <p class="pp-kicker">What to expect</p>
+            <h2>Professional service without unnecessary steps.</h2>
+            <p>
+              Choose the service that fits, review available dates and times, and continue directly to Booksy with the selected appointment ready for confirmation.
+            </p>
+            <a class="pp-button pp-button-primary" href="/book.html">Check Live Availability</a>
+          </aside>
+        </div>
+
+        <div class="pp-value-grid" aria-label="Proud Pops service values">
+          <article class="pp-card pp-value-card">
+            <div class="pp-value-number" aria-hidden="true">01</div>
+            <h3>Clear choices</h3>
+            <p>Each service includes a visible price and appointment length before the customer selects a time.</p>
+          </article>
+
+          <article class="pp-card pp-value-card">
+            <div class="pp-value-number" aria-hidden="true">02</div>
+            <h3>Live availability</h3>
+            <p>Available dates and times are retrieved separately for Haircut, Beard Trim, Shave, Enhancement, and Edgeup.</p>
+          </article>
+
+          <article class="pp-card pp-value-card">
+            <div class="pp-value-number" aria-hidden="true">03</div>
+            <h3>Secure confirmation</h3>
+            <p>Booksy handles customer details, policies, payments when applicable, and final appointment confirmation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-about-process" aria-labelledby="process-title">
+      <div class="pp-wrap">
+        <p class="pp-kicker">How booking works</p>
+        <h2 class="pp-section-title" id="process-title">From service choice to confirmation.</h2>
+
+        <div class="pp-process-grid">
+          <article class="pp-process-step">
+            <strong>Step 1</strong>
+            <h3>Choose a service</h3>
+            <p>Compare service descriptions, prices, and appointment lengths on the Services page.</p>
+          </article>
+
+          <article class="pp-process-step">
+            <strong>Step 2</strong>
+            <h3>Select a date and time</h3>
+            <p>The Book page displays current service-specific dates and available appointment times.</p>
+          </article>
+
+          <article class="pp-process-step">
+            <strong>Step 3</strong>
+            <h3>Confirm through Booksy</h3>
+            <p>Booksy opens with the selected service, date, and time ready for the customer to continue.</p>
+          </article>
+        </div>
+
+        <aside class="pp-card pp-about-cta" aria-labelledby="about-cta-title">
+          <div>
+            <h2 id="about-cta-title">Ready to choose an appointment?</h2>
+            <p>View all services first, or go directly to live appointment availability.</p>
+          </div>
+          <div class="pp-about-actions">
+            <a class="pp-button pp-button-secondary" href="/services.html">View Services</a>
+            <a class="pp-button pp-button-primary" href="/book.html">Book Appointment</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pp-site-footer">
+    <div class="pp-wrap pp-footer-grid">
+      <div class="pp-footer-brand">
+        <h2>Proud Pops Barbershop</h2>
+        <p>Professional barbering with clear pricing, live appointment availability, and secure confirmation through Booksy.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <div class="pp-footer-links">
+          <a href="/services.html">Services</a>
+          <a href="/book.html">Book Appointment</a>
+          <a href="/about.html">About</a>
+          <a href="/gallery.html">Gallery</a>
+        </div>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <div class="pp-footer-links">
+          <a href="/contact.html">Contact and Directions</a>
+          <a href="/book.html">Check Availability</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="pp-mobile-actions" aria-label="Quick actions">
+    <a class="pp-mobile-call" href="/contact.html">Contact</a>
+    <a class="pp-mobile-book" href="/book.html">Book Appointment</a>
+  </div>
+</body>
+</html>
