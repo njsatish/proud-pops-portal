@@ -760,3 +760,227 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   .pp-appointment-policy a { margin-left: 0; }
 }
 /* PROUDPOPS-APPOINTMENTS-ONLY-V1-END */
+
+/* PROUDPOPS-POLICY-FOOTER-POLISH-V1 */
+
+/* Appointment policy becomes a deliberate information card rather than a
+   full-width utility strip. */
+.pp-appointment-policy {
+  position: relative;
+  width: min(1120px, calc(100% - 40px));
+  margin: 34px auto;
+  padding: 20px 22px 20px 72px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px 18px;
+  border: 1px solid rgba(73,169,215,.22);
+  border-left: 0;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg,rgba(73,169,215,.11),rgba(255,90,60,.05)),
+    #171d24;
+  box-shadow: 0 16px 36px rgba(0,0,0,.20);
+}
+.pp-appointment-policy::before {
+  content: "✓";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pp-logo-blue,#49a9d7);
+  color: #07131a;
+  font-size: 19px;
+  font-weight: 950;
+  transform: translateY(-50%);
+}
+.pp-appointment-policy strong {
+  color: var(--pp-text);
+  font-size: 17px;
+  white-space: nowrap;
+}
+.pp-appointment-policy span {
+  color: var(--pp-muted);
+  line-height: 1.45;
+}
+.pp-appointment-policy a {
+  min-height: 44px;
+  margin-left: 0;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pp-logo-blue,#49a9d7);
+  border-radius: 10px;
+  background: var(--pp-logo-blue,#49a9d7);
+  color: #07131a;
+  font-weight: 950;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pp-appointment-policy a:hover,
+.pp-appointment-policy a:focus-visible {
+  border-color: var(--pp-logo-blue-hover,#62b8df);
+  background: var(--pp-logo-blue-hover,#62b8df);
+}
+
+/* Consolidated footer spacing and hierarchy. */
+.pp-site-footer {
+  padding-top: 52px;
+  padding-bottom: 38px;
+}
+.pp-footer-logo-lockup {
+  width: min(var(--pp-content), calc(100% - 40px));
+  margin: 0 auto 30px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.pp-footer-logo-lockup span {
+  font-size: clamp(20px,2vw,26px);
+}
+.pp-footer-grid {
+  align-items: start;
+  gap: 34px;
+}
+
+/* The official logo lockup already names the business, so suppress the
+   repeated heading in the first footer column while preserving its copy. */
+.pp-footer-grid > div:first-child > h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.pp-footer-grid > div:first-child p {
+  max-width: 540px;
+  margin-top: 0;
+}
+.pp-footer-links {
+  gap: 10px;
+}
+.pp-footer-links a:hover,
+.pp-footer-links a:focus-visible {
+  color: var(--pp-logo-blue,#49a9d7);
+}
+
+/* Location becomes a compact horizontal footer card instead of a distant
+   second footer section. */
+.pp-footer-location {
+  width: min(var(--pp-content), calc(100% - 40px));
+  margin: 34px auto 0;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: auto minmax(260px, 1fr) auto;
+  align-items: center;
+  gap: 12px 28px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  background: rgba(23,29,36,.78);
+}
+.pp-footer-location h3 {
+  margin: 0;
+  color: var(--pp-text);
+  white-space: nowrap;
+}
+.pp-footer-location address {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  color: var(--pp-muted);
+}
+.pp-footer-location address span:first-child::after {
+  content: ",";
+}
+.pp-footer-location-links {
+  margin-top: 0;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+.pp-footer-location-links a {
+  color: var(--pp-logo-blue,#49a9d7);
+}
+
+@media (max-width: 900px) {
+  .pp-appointment-policy {
+    grid-template-columns: 1fr auto;
+  }
+  .pp-appointment-policy strong {
+    grid-column: 1;
+  }
+  .pp-appointment-policy span {
+    grid-column: 1;
+  }
+  .pp-appointment-policy a {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+  .pp-footer-location {
+    grid-template-columns: 1fr auto;
+  }
+  .pp-footer-location h3,
+  .pp-footer-location address {
+    grid-column: 1;
+  }
+  .pp-footer-location-links {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+}
+
+@media (max-width: 650px) {
+  .pp-appointment-policy {
+    padding: 64px 20px 20px;
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .pp-appointment-policy::before {
+    left: 20px;
+    top: 18px;
+    transform: none;
+  }
+  .pp-appointment-policy strong,
+  .pp-appointment-policy span,
+  .pp-appointment-policy a {
+    grid-column: 1;
+    grid-row: auto;
+    white-space: normal;
+  }
+  .pp-appointment-policy a {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .pp-site-footer {
+    padding-top: 42px;
+  }
+  .pp-footer-location {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .pp-footer-location h3,
+  .pp-footer-location address,
+  .pp-footer-location-links {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .pp-footer-location address {
+    display: grid;
+  }
+  .pp-footer-location address span:first-child::after {
+    content: "";
+  }
+  .pp-footer-location-links {
+    justify-content: flex-start;
+    white-space: normal;
+  }
+}
+/* PROUDPOPS-POLICY-FOOTER-POLISH-V1-END */
