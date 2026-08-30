@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111820">
+  <meta name="color-scheme" content="dark">
+
+  <title>Book a Barber Appointment | Proud Pops Barbershop</title>
+  <meta name="description" content="Choose a Proud Pops barbering service, view live available dates and times, and complete your appointment securely through Booksy.">
+  <link rel="canonical" href="https://proudpops.denduluru.com/book.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Book a Barber Appointment | Proud Pops Barbershop">
+  <meta property="og:description" content="View live service-specific availability and confirm your appointment through Booksy.">
+  <meta property="og:url" content="https://proudpops.denduluru.com/book.html">
+
+  <link rel="preconnect" href="https://wkpl27gu7j.execute-api.us-east-1.amazonaws.com" crossorigin>
+  <link rel="preconnect" href="https://booksy.com" crossorigin>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/booking.css">
+
+  <style>
+    .pp-book-page-note {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--pp-muted);
+      font-size: 14px;
+    }
+
+    .pp-booking-heading-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .pp-booking-heading-row .pp-section-title {
+      margin-bottom: 0;
+    }
+
+    .pp-booking-security {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--pp-muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .pp-booking-security-icon {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(69,169,157,.16);
+      color: var(--pp-teal);
+      font-weight: 950;
+    }
+
+    .pp-booking-help {
+      margin-top: 28px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      background: rgba(32,38,45,.72);
+    }
+
+    .pp-booking-help h2 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .pp-booking-help p {
+      margin: 0;
+      color: var(--pp-muted);
+    }
+
+    .pp-booking-help a {
+      color: var(--pp-gold);
+      font-weight: 850;
+    }
+
+    .pp-footer-brand {
+      max-width: 420px;
+    }
+
+    @media (max-width: 720px) {
+      .pp-booking-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .pp-booking-security {
+        white-space: normal;
+      }
+    }
+  </style>
+
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/booksy.js" defer></script>
+  <script src="/assets/js/booking.js" defer></script>
+</head>
+<body>
+  <a class="pp-skip-link" href="#main-content">Skip to booking</a>
+
+  <header class="pp-site-header">
+    <div class="pp-wrap pp-header-inner">
+      <a class="pp-brand" href="/index.html" aria-label="Proud Pops Barbershop home">
+        <span aria-hidden="true" style="width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:#f0b93f;color:#17130b;font-size:20px;font-weight:950;">PP</span>
+        <span>Proud Pops Barbershop</span>
+      </a>
+
+      <button
+        class="pp-menu-button"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        data-menu-toggle
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav class="pp-nav" aria-label="Primary navigation" data-site-nav>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a class="pp-nav-book" href="/book.html">Book</a>
+        <a href="/about.html">About</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="pp-page-hero" aria-labelledby="book-page-title">
+      <div class="pp-wrap">
+        <p class="pp-kicker">Live appointment availability</p>
+        <h1 class="pp-page-title" id="book-page-title">Book your next appointment.</h1>
+        <p class="pp-page-intro">
+          Choose a service, select one of the available dates, and pick a time. Proud Pops will open Booksy with the selected service, date, and time ready for final confirmation.
+        </p>
+        <p class="pp-book-page-note">
+          Availability can change until Booksy confirms the appointment. No appointment is reserved by selecting a time on this page.
+        </p>
+      </div>
+    </section>
+
+    <section class="pp-booking" aria-labelledby="booking-heading">
+      <div class="pp-wrap">
+        <div class="pp-booking-heading-row">
+          <div>
+            <p class="pp-kicker">Choose your service</p>
+            <h2 class="pp-section-title" id="booking-heading">Available appointments</h2>
+          </div>
+          <div class="pp-booking-security">
+            <span class="pp-booking-security-icon" aria-hidden="true">✓</span>
+            <span>Final booking is completed securely through Booksy</span>
+          </div>
+        </div>
+
+        <div class="pp-card pp-booking-card" data-booking-root>
+          <div class="pp-booking-controls">
+            <label class="pp-field">
+              <span>Service</span>
+              <select data-booking-service aria-label="Choose a service">
+                <option value="haircut">Haircut</option>
+                <option value="beard-trim">Beard Trim</option>
+                <option value="shave">Shave</option>
+                <option value="haircut-enhancement">Haircut With Enhancement</option>
+                <option value="edgeup">Edgeup</option>
+              </select>
+            </label>
+
+            <label class="pp-field">
+              <span>Available date</span>
+              <select data-booking-date aria-label="Choose an available date" disabled>
+                <option>Loading dates…</option>
+              </select>
+            </label>
+
+            <button
+              class="pp-button pp-button-secondary pp-booking-refresh"
+              type="button"
+              data-booking-refresh
+            >
+              Refresh Availability
+            </button>
+          </div>
+
+          <div class="pp-service-summary">
+            <div class="pp-service-icon" aria-hidden="true">✂</div>
+            <div>
+              <h3 class="pp-service-name" data-service-name>Haircut</h3>
+              <div class="pp-service-meta" data-service-meta>45 min • Booksy availability</div>
+            </div>
+            <div class="pp-service-price" data-service-price>$40</div>
+          </div>
+
+          <div
+            class="pp-booking-status"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            data-booking-status
+          ></div>
+
+          <div
+            class="pp-time-grid"
+            aria-label="Available appointment times"
+            data-booking-times
+          ></div>
+
+          <div class="pp-selection" data-booking-selection>
+            <div>
+              <strong data-selection-main>Your selection</strong>
+              <small data-selection-detail></small>
+            </div>
+            <button
+              class="pp-button pp-button-primary"
+              type="button"
+              data-booking-confirm
+            >
+              Confirm Availability in Booksy
+            </button>
+          </div>
+
+          <div class="pp-booking-fallback" data-booking-fallback>
+            <strong>Live availability is temporarily unavailable.</strong>
+            <p>Booksy can still show the latest times and complete the appointment.</p>
+            <button class="pp-button pp-button-primary" type="button" data-booking-fallback-button>
+              View Live Times in Booksy
+            </button>
+          </div>
+
+          <p class="pp-booking-note">
+            Booksy will verify the selected service, date, and time before the customer continues. Policies, customer details, payments, and final confirmation are handled by Booksy.
+          </p>
+        </div>
+
+        <aside class="pp-booking-help" aria-labelledby="booking-help-title">
+          <h2 id="booking-help-title">Need help choosing?</h2>
+          <p>
+            Review service details on the <a href="/services.html">Services page</a>, or visit the <a href="/contact.html">Contact page</a> for help reaching Proud Pops.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pp-site-footer">
+    <div class="pp-wrap pp-footer-grid">
+      <div class="pp-footer-brand">
+        <h2>Proud Pops Barbershop</h2>
+        <p>Professional barbering services with clear pricing, live appointment availability, and secure final confirmation through Booksy.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <div class="pp-footer-links">
+          <a href="/services.html">Services</a>
+          <a href="/book.html">Book Appointment</a>
+          <a href="/about.html">About</a>
+          <a href="/gallery.html">Gallery</a>
+        </div>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <div class="pp-footer-links">
+          <a href="/contact.html">Contact and Directions</a>
+          <a href="/book.html">Check Availability</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="pp-mobile-actions" aria-label="Quick actions">
+    <a class="pp-mobile-call" href="/contact.html">Contact</a>
+    <a class="pp-mobile-book" href="/book.html">Book Appointment</a>
+  </div>
+
+  <noscript>
+    <div style="position:fixed;left:12px;right:12px;bottom:12px;z-index:20000;padding:16px;border-radius:10px;background:#f0b93f;color:#17130b;font-weight:800;">
+      JavaScript is required to display live appointment availability. Please use Booksy or contact Proud Pops for help booking.
+    </div>
+  </noscript>
+</body>
+</html>
+
