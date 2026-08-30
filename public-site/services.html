@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111820">
+  <meta name="color-scheme" content="dark">
+
+  <title>Barber Services and Pricing | Proud Pops Barbershop</title>
+  <meta name="description" content="Explore Proud Pops haircuts, beard trims, shaves, enhanced haircuts, and edgeups with clear prices, durations, and direct appointment links.">
+  <link rel="canonical" href="https://proudpops.denduluru.com/services.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Barber Services and Pricing | Proud Pops">
+  <meta property="og:description" content="Compare Proud Pops services, prices, and appointment lengths, then choose a service and view live availability.">
+  <meta property="og:url" content="https://proudpops.denduluru.com/services.html">
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+
+  <style>
+    .pp-services-section {
+      padding: 72px 0;
+      background: linear-gradient(145deg,#171c22,#232a32);
+    }
+
+    .pp-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .pp-service-card {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--pp-radius);
+      background: var(--pp-surface-dark);
+      box-shadow: var(--pp-shadow);
+    }
+
+    .pp-service-card-featured {
+      border-color: rgba(240,185,63,.62);
+      background: linear-gradient(150deg,#171d23,#25241d);
+    }
+
+    .pp-service-card-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 14px;
+      background: var(--pp-surface-soft);
+      color: var(--pp-gold);
+      font-size: 25px;
+    }
+
+    .pp-service-card h2 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.05;
+      letter-spacing: -.025em;
+    }
+
+    .pp-service-description {
+      flex: 1;
+      margin: 14px 0 22px;
+      color: var(--pp-muted);
+    }
+
+    .pp-service-facts {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .pp-service-duration {
+      color: var(--pp-muted);
+      font-weight: 800;
+    }
+
+    .pp-service-card-price {
+      color: var(--pp-gold);
+      font-size: 30px;
+      font-weight: 950;
+    }
+
+    .pp-service-card .pp-button {
+      width: 100%;
+    }
+
+    .pp-services-guide {
+      margin-top: 34px;
+      padding: 26px;
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .pp-services-guide h2 {
+      margin: 0 0 8px;
+      font-size: 27px;
+    }
+
+    .pp-services-guide p {
+      margin: 0;
+      color: var(--pp-muted);
+    }
+
+    .pp-footer-brand {
+      max-width: 420px;
+    }
+
+    @media (max-width: 980px) {
+      .pp-services-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pp-services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pp-services-guide {
+        grid-template-columns: 1fr;
+      }
+
+      .pp-services-guide .pp-button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="pp-skip-link" href="#main-content">Skip to services</a>
+
+  <header class="pp-site-header">
+    <div class="pp-wrap pp-header-inner">
+      <a class="pp-brand" href="/index.html" aria-label="Proud Pops Barbershop home">
+        <span aria-hidden="true" style="width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:#f0b93f;color:#17130b;font-size:20px;font-weight:950;">PP</span>
+        <span>Proud Pops Barbershop</span>
+      </a>
+
+      <button class="pp-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" data-menu-toggle>
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav class="pp-nav" aria-label="Primary navigation" data-site-nav>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a class="pp-nav-book" href="/book.html">Book</a>
+        <a href="/about.html">About</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="pp-page-hero" aria-labelledby="services-title">
+      <div class="pp-wrap">
+        <p class="pp-kicker">Services and pricing</p>
+        <h1 class="pp-page-title" id="services-title">Choose the right service.</h1>
+        <p class="pp-page-intro">
+          Compare appointment lengths and prices, then continue to the Book page to view current service-specific dates and times.
+        </p>
+      </div>
+    </section>
+
+    <section class="pp-services-section" aria-label="Proud Pops service catalog">
+      <div class="pp-wrap">
+        <div class="pp-services-grid">
+          <article class="pp-service-card pp-service-card-featured">
+            <div class="pp-service-card-icon" aria-hidden="true">✂</div>
+            <h2>Haircut</h2>
+            <p class="pp-service-description">A complete haircut appointment with focused shaping, clean lines, and a polished finish.</p>
+            <div class="pp-service-facts">
+              <span class="pp-service-duration">45 minutes</span>
+              <span class="pp-service-card-price">$40</span>
+            </div>
+            <a class="pp-button pp-button-primary" href="/book.html?service=haircut">Book Haircut</a>
+          </article>
+
+          <article class="pp-service-card">
+            <div class="pp-service-card-icon" aria-hidden="true">◆</div>
+            <h2>Beard Trim</h2>
+            <p class="pp-service-description">Shape and refine facial hair with clean edges and balanced detail.</p>
+            <div class="pp-service-facts">
+              <span class="pp-service-duration">25 minutes</span>
+              <span class="pp-service-card-price">$20</span>
+            </div>
+            <a class="pp-button pp-button-primary" href="/book.html?service=beard-trim">Book Beard Trim</a>
+          </article>
+
+          <article class="pp-service-card">
+            <div class="pp-service-card-icon" aria-hidden="true">●</div>
+            <h2>Shave</h2>
+            <p class="pp-service-description">A clean, focused shave appointment for a smooth and refreshed finish.</p>
+            <div class="pp-service-facts">
+              <span class="pp-service-duration">20 minutes</span>
+              <span class="pp-service-card-price">$15</span>
+            </div>
+            <a class="pp-button pp-button-primary" href="/book.html?service=shave">Book Shave</a>
+          </article>
+
+          <article class="pp-service-card pp-service-card-featured">
+            <div class="pp-service-card-icon" aria-hidden="true">★</div>
+            <h2>Haircut With Enhancement</h2>
+            <p class="pp-service-description">A full haircut appointment with additional enhancement detail for a sharper, more defined finish.</p>
+            <div class="pp-service-facts">
+              <span class="pp-service-duration">60 minutes</span>
+              <span class="pp-service-card-price">$50</span>
+            </div>
+            <a class="pp-button pp-button-primary" href="/book.html?service=haircut-enhancement">Book Enhancement</a>
+          </article>
+
+          <article class="pp-service-card">
+            <div class="pp-service-card-icon" aria-hidden="true">◇</div>
+            <h2>Edgeup</h2>
+            <p class="pp-service-description">Refresh the hairline and perimeter with crisp, clean definition between full haircut appointments.</p>
+            <div class="pp-service-facts">
+              <span class="pp-service-duration">30 minutes</span>
+              <span class="pp-service-card-price">$25</span>
+            </div>
+            <a class="pp-button pp-button-primary" href="/book.html?service=edgeup">Book Edgeup</a>
+          </article>
+        </div>
+
+        <aside class="pp-card pp-services-guide" aria-labelledby="service-guide-title">
+          <div>
+            <h2 id="service-guide-title">Ready to check live availability?</h2>
+            <p>The Book page shows service-specific dates and times and opens Booksy with the selected appointment ready for final confirmation.</p>
+          </div>
+          <a class="pp-button pp-button-primary" href="/book.html">View All Availability</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pp-site-footer">
+    <div class="pp-wrap pp-footer-grid">
+      <div class="pp-footer-brand">
+        <h2>Proud Pops Barbershop</h2>
+        <p>Professional barbering with clear pricing, live appointment availability, and secure confirmation through Booksy.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <div class="pp-footer-links">
+          <a href="/services.html">Services</a>
+          <a href="/book.html">Book Appointment</a>
+          <a href="/about.html">About</a>
+          <a href="/gallery.html">Gallery</a>
+        </div>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <div class="pp-footer-links">
+          <a href="/contact.html">Contact and Directions</a>
+          <a href="/book.html">Check Availability</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="pp-mobile-actions" aria-label="Quick actions">
+    <a class="pp-mobile-call" href="/contact.html">Contact</a>
+    <a class="pp-mobile-book" href="/book.html">Book Appointment</a>
+  </div>
+</body>
+</html>
