@@ -628,3 +628,94 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   color: #111820;
 }
 /* PROUDPOPS-LOGO-BLUE-BOOKING-BUTTONS-V1-END */
+
+
+/* PROUDPOPS-ADDRESS-PHONE-V1 */
+.pp-footer-location {
+  width: min(var(--pp-content), calc(100% - 40px));
+  margin: 30px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+.pp-footer-location h3 { margin: 0 0 10px; color: var(--pp-text); }
+.pp-footer-location address {
+  display: grid;
+  gap: 2px;
+  color: var(--pp-muted);
+  font-style: normal;
+}
+.pp-footer-location-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 10px;
+}
+.pp-footer-location-links a {
+  color: var(--pp-logo-blue,var(--pp-blue));
+  font-weight: 850;
+  text-decoration: none;
+}
+.pp-contact-location-section {
+  padding: 0 0 72px;
+  background: linear-gradient(145deg,#171c22,#232a32);
+}
+.pp-contact-location-card {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  align-items: center;
+  gap: 28px;
+  padding: 30px;
+  border-left: 5px solid var(--pp-action-orange,var(--pp-orange));
+}
+.pp-contact-location-card h2 {
+  margin: 0 0 14px;
+  font-size: clamp(32px,4vw,48px);
+  line-height: 1;
+}
+.pp-contact-location-card address {
+  display: grid;
+  gap: 4px;
+  color: var(--pp-muted);
+  font-style: normal;
+}
+.pp-contact-location-card address strong { color: var(--pp-text); }
+.pp-contact-phone {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--pp-logo-blue,var(--pp-blue));
+  font-size: 20px;
+  font-weight: 950;
+  text-decoration: none;
+}
+.pp-contact-location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.pp-home-location-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px 16px;
+  margin-top: 22px;
+  color: var(--pp-muted);
+  font-size: 14px;
+}
+.pp-home-location-line strong { color: var(--pp-text); }
+.pp-home-location-line a {
+  color: var(--pp-logo-blue,var(--pp-blue));
+  font-weight: 850;
+  text-decoration: none;
+}
+@media (max-width: 760px) {
+  .pp-contact-location-card { grid-template-columns: 1fr; }
+  .pp-contact-location-actions { justify-content: flex-start; }
+}
+@media (max-width: 520px) {
+  .pp-contact-location-card { padding: 22px; }
+  .pp-contact-location-actions { display: grid; }
+  .pp-contact-location-actions .pp-button { width: 100%; }
+  .pp-home-location-line { align-items: flex-start; flex-direction: column; }
+}
+/* PROUDPOPS-ADDRESS-PHONE-V1-END */
