@@ -861,3 +861,43 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   }
 }
 /* PROUDPOPS-MOBILE-BOOK-PAGE-SINGLE-ACTION-V1-END */
+
+
+/* PROUDPOPS-HOURS-SOCIAL-EMAIL-V1 */
+.pp-footer-business-details {
+  width: min(var(--pp-content), calc(100% - 40px));
+  margin: 24px auto 0;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: minmax(0,1.4fr) minmax(220px,.6fr);
+  gap: 34px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  background: rgba(23,29,36,.58);
+}
+.pp-footer-business-details h3 { margin: 0 0 12px; color: var(--pp-text); }
+.pp-footer-hours dl { margin: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px 24px; }
+.pp-footer-hours dl div { display: flex; justify-content: space-between; gap: 14px; color: var(--pp-muted); }
+.pp-footer-hours dt { font-weight: 800; }
+.pp-footer-hours dd { margin: 0; text-align: right; }
+.pp-footer-connect { display: grid; align-content: start; gap: 10px; }
+.pp-footer-connect a,.pp-contact-detail-link { color: var(--pp-logo-blue,#49a9d7); font-weight: 850; overflow-wrap: anywhere; text-decoration: none; }
+.pp-contact-business-details { padding: 0 0 72px; background: linear-gradient(145deg,#171c22,#232a32); }
+.pp-contact-business-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+.pp-contact-hours-card,.pp-contact-connect-card { padding: 30px; }
+.pp-contact-business-grid h2 { margin: 0 0 18px; font-size: clamp(30px,4vw,44px); line-height: 1; }
+.pp-contact-hours-card dl { margin: 0; display: grid; gap: 9px; }
+.pp-contact-hours-card dl div { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 9px; border-bottom: 1px solid rgba(255,255,255,.09); }
+.pp-contact-hours-card dt { color: var(--pp-text); font-weight: 850; }
+.pp-contact-hours-card dd { margin: 0; color: var(--pp-muted); text-align: right; }
+.pp-contact-connect-card { display: flex; flex-direction: column; align-items: flex-start; }
+.pp-contact-connect-card .pp-button { margin-top: 20px; }
+@media (max-width: 900px) {
+  .pp-footer-business-details,.pp-contact-business-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .pp-footer-business-details { padding: 20px; }
+  .pp-footer-hours dl { grid-template-columns: 1fr; }
+  .pp-contact-hours-card,.pp-contact-connect-card { padding: 22px; }
+}
+/* PROUDPOPS-HOURS-SOCIAL-EMAIL-V1-END */
