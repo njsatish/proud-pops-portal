@@ -836,3 +836,28 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   }
 }
 /* PROUDPOPS-MOBILE-SINGLE-BOOKING-ACTION-V1-END */
+
+/* PROUDPOPS-MOBILE-BOOK-PAGE-SINGLE-ACTION-V1 */
+@media (max-width: 760px) {
+  /* Once a customer is on the Book page, Confirm Availability in Booksy is
+     the relevant conversion action. The global fixed booking bar is hidden. */
+  body.pp-book-page .pp-mobile-actions {
+    display: none !important;
+  }
+
+  /* Remove space reserved globally for the fixed mobile action bar. */
+  body.pp-book-page {
+    padding-bottom: 0 !important;
+  }
+
+  body.pp-book-page .pp-site-footer {
+    padding-bottom: 38px;
+  }
+
+  /* Keep the selected appointment confirmation visible and easy to tap. */
+  body.pp-book-page [data-booking-confirm] {
+    width: 100%;
+    min-height: 58px;
+  }
+}
+/* PROUDPOPS-MOBILE-BOOK-PAGE-SINGLE-ACTION-V1-END */
