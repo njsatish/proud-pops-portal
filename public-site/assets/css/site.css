@@ -901,3 +901,53 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   .pp-contact-hours-card,.pp-contact-connect-card { padding: 22px; }
 }
 /* PROUDPOPS-HOURS-SOCIAL-EMAIL-V1-END */
+
+
+/* PROUDPOPS-SIMPLIFIED-FOOTER-V1 */
+.pp-footer-grid.pp-footer-grid-simplified {
+  display: block;
+  padding-bottom: 6px;
+}
+.pp-footer-grid-simplified > div:first-child {
+  max-width: 680px;
+}
+.pp-footer-grid-simplified > div:first-child p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--pp-muted);
+  line-height: 1.65;
+}
+.pp-footer-location {
+  margin-top: 26px;
+}
+.pp-footer-business-details {
+  margin-top: 20px;
+}
+@media (max-width: 650px) {
+  .pp-footer-grid-simplified > div:first-child {
+    max-width: none;
+  }
+  .pp-footer-location,
+  .pp-footer-business-details {
+    margin-top: 18px;
+  }
+}
+/* PROUDPOPS-SIMPLIFIED-FOOTER-V1-END */
+
+
+/* PROUDPOPS-FOOTER-NAV-COLUMNS-REMOVED-V2 */
+.pp-footer-grid {
+  display: block;
+  padding-bottom: 4px;
+}
+.pp-footer-grid > div:first-child {
+  max-width: 680px;
+}
+.pp-footer-grid > div:first-child p {
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.65;
+}
+.pp-footer-location { margin-top: 24px; }
+.pp-footer-business-details { margin-top: 18px; }
+/* PROUDPOPS-FOOTER-NAV-COLUMNS-REMOVED-V2-END */
