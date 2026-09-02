@@ -58,6 +58,7 @@
   <!-- PROUDPOPS-HOMEPAGE-REAL-GALLERY-PHOTOS-V1 -->
   <!-- PROUDPOPS-HOMEPAGE-PORTFOLIO-THIRD-REAL-V1 -->
   <!-- PROUDPOPS-MOBILE-STEVE-INTRO-DEPLOYED-V1 -->
+  <!-- PROUDPOPS-HOME-PORTFOLIO-EQUAL-COLUMNS-DEPLOYED-V1 -->
 </head>
 <body class="pp-homepage">
   <a class="pp-skip-link" href="#main-content">Skip to main content</a>
@@ -236,5 +237,43 @@
 })();
 </script>
 <!-- PROUDPOPS-ACTUAL-HOME-SERVICE-ACCENTS-V1-END -->
+<!-- PROUDPOPS-HOME-PORTFOLIO-EQUAL-COLUMNS-V1-START -->
+<script>
+(() => {
+  const normalize = value => (value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const heading = [...document.querySelectorAll('h1,h2,h3')]
+    .find(node => normalize(node.textContent).includes('detail you can see'));
+  const section = heading ? heading.closest('section') : null;
+  if (!section) return;
+
+  const images = [...section.querySelectorAll('img')].slice(0, 3);
+  if (images.length !== 3) return;
+
+  const wrappers = images.map(image => {
+    let node = image.parentElement;
+    while (node && node !== section) {
+      if (node.querySelectorAll('img').length === 1) return node;
+      node = node.parentElement;
+    }
+    return image;
+  });
+
+  let grid = wrappers[0].parentElement;
+  while (grid && grid !== section) {
+    if (wrappers.every(wrapper => grid.contains(wrapper))) break;
+    grid = grid.parentElement;
+  }
+  if (!grid || grid === section) return;
+
+  grid.classList.add('pp-home-portfolio-equal-grid');
+  wrappers.forEach((wrapper, index) => {
+    wrapper.classList.add('pp-home-portfolio-equal-item');
+    wrapper.dataset.portfolioEqualIndex = String(index + 1);
+    images[index].classList.add('pp-home-portfolio-equal-image');
+  });
+  section.dataset.portfolioEqualColumns = '3';
+})();
+</script>
+<!-- PROUDPOPS-HOME-PORTFOLIO-EQUAL-COLUMNS-V1-END -->
 </body>
 </html>
