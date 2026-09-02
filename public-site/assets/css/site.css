@@ -1229,3 +1229,49 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   }
 }
 /* PROUDPOPS-GUIDED-SERVICES-MOBILE-VERTICAL-V1-END */
+
+
+/* PROUDPOPS-ACTUAL-HOME-SERVICE-ACCENTS-V1 */
+.pp-actual-home-service-card {
+  --pp-service-accent: #49a9d7;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid color-mix(in srgb,var(--pp-service-accent) 58%,transparent) !important;
+  background:
+    linear-gradient(180deg,color-mix(in srgb,var(--pp-service-accent) 7%,transparent),transparent 43%),
+    #0d141a !important;
+  box-shadow:
+    0 16px 34px rgba(0,0,0,.22),
+    0 0 0 1px color-mix(in srgb,var(--pp-service-accent) 8%,transparent) !important;
+  transition: transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease !important;
+}
+.pp-actual-home-service-card::before {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 2 !important;
+  inset: 0 0 auto !important;
+  width: auto !important;
+  height: 5px !important;
+  background: var(--pp-service-accent) !important;
+  border-radius: 0 !important;
+}
+.pp-actual-home-service-card:hover {
+  border-color: color-mix(in srgb,var(--pp-service-accent) 88%,transparent) !important;
+  background:
+    linear-gradient(180deg,color-mix(in srgb,var(--pp-service-accent) 12%,transparent),transparent 48%),
+    #10181f !important;
+  box-shadow:
+    0 20px 42px rgba(0,0,0,.28),
+    0 0 25px color-mix(in srgb,var(--pp-service-accent) 15%,transparent) !important;
+  transform: translateY(-3px);
+}
+.pp-actual-home-service-card.pp-accent-haircut { --pp-service-accent: #49a9d7; }
+.pp-actual-home-service-card.pp-accent-beard { --pp-service-accent: #2fb5aa; }
+.pp-actual-home-service-card.pp-accent-shave { --pp-service-accent: #55c7d9; }
+.pp-actual-home-service-card.pp-accent-enhancement { --pp-service-accent: #798ee8; }
+.pp-actual-home-service-card.pp-accent-edgeup { --pp-service-accent: #66c89a; }
+@media (prefers-reduced-motion: reduce) {
+  .pp-actual-home-service-card { transition: none !important; }
+  .pp-actual-home-service-card:hover { transform: none; }
+}
+/* PROUDPOPS-ACTUAL-HOME-SERVICE-ACCENTS-V1-END */

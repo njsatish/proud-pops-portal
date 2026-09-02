@@ -54,6 +54,7 @@
   <!-- PROUDPOPS-SIMPLIFIED-FOOTER-V1 -->
   <!-- PROUDPOPS-FOOTER-NAV-COLUMNS-REMOVED-V2 -->
   <!-- PROUDPOPS-HOME-SERVICE-ACCENTS-V1 -->
+  <!-- PROUDPOPS-ACTUAL-HOME-SERVICE-ACCENTS-DEPLOYED-V1 -->
 </head>
 <body class="pp-homepage">
   <a class="pp-skip-link" href="#main-content">Skip to main content</a>
@@ -185,5 +186,44 @@
 <!-- PROUDPOPS-HOURS-SOCIAL-EMAIL-V1-END -->
 </footer>
   <div class="pp-mobile-actions" aria-label="Quick actions"><a class="pp-mobile-call" href="/contact.html">Contact</a><a class="pp-mobile-book" href="/book.html">Book Appointment</a></div>
+<!-- PROUDPOPS-ACTUAL-HOME-SERVICE-ACCENTS-V1-START -->
+<script>
+(() => {
+  const normalize = value => (value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const expected = [
+    ['haircut', 'pp-accent-haircut'],
+    ['beard trim', 'pp-accent-beard'],
+    ['shave', 'pp-accent-shave'],
+    ['haircut with enhancement', 'pp-accent-enhancement'],
+    ['edgeup', 'pp-accent-edgeup']
+  ];
+
+  const heading = [...document.querySelectorAll('h1,h2')]
+    .find(node => normalize(node.textContent).includes('five ways to get'));
+  const section = heading ? heading.closest('section') : null;
+  if (!section) return;
+
+  const candidates = [...section.querySelectorAll('article, li, div')]
+    .filter(node => {
+      const text = normalize(node.textContent);
+      const directBookLinks = [...node.querySelectorAll('a,button')]
+        .filter(action => normalize(action.textContent) === 'book');
+      return directBookLinks.length === 1 && expected.some(([name]) => text.includes(name));
+    })
+    .sort((a, b) => a.querySelectorAll('*').length - b.querySelectorAll('*').length);
+
+  const used = new Set();
+  expected.forEach(([name, className], index) => {
+    const card = candidates.find(node => !used.has(node) && normalize(node.textContent).includes(name));
+    if (!card) return;
+    used.add(card);
+    card.classList.add('pp-actual-home-service-card', className);
+    card.dataset.serviceAccentIndex = String(index + 1);
+  });
+
+  section.dataset.serviceAccentCards = String(used.size);
+})();
+</script>
+<!-- PROUDPOPS-ACTUAL-HOME-SERVICE-ACCENTS-V1-END -->
 </body>
 </html>
