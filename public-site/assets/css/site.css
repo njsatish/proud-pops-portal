@@ -1082,3 +1082,150 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   }
 }
 /* PROUDPOPS-HOME-SERVICE-ACCENTS-V1-END */
+
+
+/* PROUDPOPS-GUIDED-SERVICES-MOBILE-VERTICAL-V1 */
+@media (max-width: 760px) {
+  body,
+  .pp-site-main,
+  .pp-guided-services,
+  .pp-service-choice-wrap,
+  .pp-service-detail-wrap,
+  .pp-service-detail {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .pp-guided-services {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 16px;
+    overflow: visible;
+  }
+
+  .pp-service-choice-wrap {
+    position: static;
+    width: 100%;
+    padding: 14px;
+    overflow: visible;
+  }
+
+  .pp-service-choice-heading {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .pp-service-choice-heading h2 {
+    margin-bottom: 0;
+    font-size: 22px;
+  }
+
+  .pp-service-choice-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 8px;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .pp-service-choice {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
+    align-items: center;
+    gap: 12px;
+    white-space: normal;
+  }
+
+  .pp-service-choice span,
+  .pp-service-choice small {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .pp-service-choice small {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .pp-service-choice.is-active {
+    box-shadow: inset 4px 0 0 var(--pp-logo-blue,#49a9d7);
+  }
+
+  .pp-service-detail-wrap,
+  .pp-service-detail {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .pp-service-detail {
+    min-height: 0;
+    padding: 22px 18px;
+  }
+
+  .pp-service-detail-head {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 18px;
+  }
+
+  .pp-service-detail-head > div,
+  .pp-service-detail-head h2,
+  .pp-service-detail-head p {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .pp-service-detail-head h2 {
+    font-size: clamp(38px,12vw,50px);
+  }
+
+  .pp-service-detail-price {
+    font-size: 54px;
+  }
+
+  .pp-service-detail-facts {
+    width: 100%;
+    grid-template-columns: minmax(0,1fr);
+    gap: 10px;
+  }
+
+  .pp-service-detail-facts div {
+    width: 100%;
+    min-width: 0;
+    min-height: 86px;
+    overflow-wrap: anywhere;
+  }
+
+  .pp-service-detail-actions {
+    width: 100%;
+    display: grid;
+  }
+
+  .pp-service-detail-actions .pp-button {
+    width: 100%;
+  }
+
+  /* Keep page content clear of the fixed Contact/Book bar. */
+  body:not(.pp-book-page) .pp-site-footer {
+    padding-bottom: 118px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pp-service-choice {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-service-choice small {
+    text-align: left;
+    white-space: normal;
+  }
+}
+/* PROUDPOPS-GUIDED-SERVICES-MOBILE-VERTICAL-V1-END */
