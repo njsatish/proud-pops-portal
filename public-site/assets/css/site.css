@@ -1016,3 +1016,69 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
 @media(max-width:900px){.pp-guided-services{grid-template-columns:1fr}.pp-service-choice-wrap{position:static;padding:16px}.pp-service-choice-heading{display:none}.pp-service-choice-list{display:flex;gap:8px;overflow-x:auto;padding-bottom:3px}.pp-service-choice{width:auto;min-width:max-content;padding:11px 14px}.pp-service-choice.is-active{box-shadow:inset 0 -3px 0 var(--pp-logo-blue,#49a9d7)}.pp-service-detail{min-height:0}}
 @media(max-width:620px){.pp-service-detail{padding:23px;border-radius:15px}.pp-service-detail-head{flex-direction:column;gap:22px}.pp-service-detail-head h2{font-size:45px}.pp-service-detail-head p:not(.pp-kicker){font-size:16px}.pp-service-detail-price{font-size:56px}.pp-service-detail-facts{grid-template-columns:1fr;margin:28px 0 24px}.pp-service-detail-facts div{min-height:88px}.pp-service-detail-actions{display:grid}.pp-service-detail-actions .pp-button{width:100%;min-height:54px}}
 /* PROUDPOPS-GUIDED-SERVICE-SELECTOR-V1-END */
+
+
+/* PROUDPOPS-HOME-SERVICE-ACCENTS-V1 */
+/* Preserve the existing card design. Only the outline, top accent, subtle
+   tint, and hover feedback change. Multiple class variants are supported so
+   the rule remains compatible with the current homepage markup. */
+.pp-homepage :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card) {
+  --pp-service-accent: #49a9d7;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb,var(--pp-service-accent) 34%,transparent) !important;
+  background:
+    linear-gradient(180deg,color-mix(in srgb,var(--pp-service-accent) 5%,transparent),transparent 43%),
+    var(--pp-panel,#0d141a) !important;
+  box-shadow:
+    0 16px 34px rgba(0,0,0,.22),
+    0 0 0 1px color-mix(in srgb,var(--pp-service-accent) 5%,transparent);
+  transition: transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.pp-homepage :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card)::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 auto;
+  height: 5px;
+  background: var(--pp-service-accent);
+}
+.pp-homepage :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card):hover {
+  border-color: color-mix(in srgb,var(--pp-service-accent) 66%,transparent) !important;
+  background:
+    linear-gradient(180deg,color-mix(in srgb,var(--pp-service-accent) 10%,transparent),transparent 48%),
+    #10181f !important;
+  box-shadow:
+    0 20px 42px rgba(0,0,0,.28),
+    0 0 24px color-mix(in srgb,var(--pp-service-accent) 12%,transparent);
+  transform: translateY(-3px);
+}
+.pp-homepage :is(.pp-concept-service-grid,.pp-services-grid,.pp-home-services-grid)
+  > :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card):nth-child(1) {
+  --pp-service-accent: #49a9d7;
+}
+.pp-homepage :is(.pp-concept-service-grid,.pp-services-grid,.pp-home-services-grid)
+  > :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card):nth-child(2) {
+  --pp-service-accent: #2fb5aa;
+}
+.pp-homepage :is(.pp-concept-service-grid,.pp-services-grid,.pp-home-services-grid)
+  > :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card):nth-child(3) {
+  --pp-service-accent: #55c7d9;
+}
+.pp-homepage :is(.pp-concept-service-grid,.pp-services-grid,.pp-home-services-grid)
+  > :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card):nth-child(4) {
+  --pp-service-accent: #798ee8;
+}
+.pp-homepage :is(.pp-concept-service-grid,.pp-services-grid,.pp-home-services-grid)
+  > :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card):nth-child(5) {
+  --pp-service-accent: #66c89a;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-homepage :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card) {
+    transition: none;
+  }
+  .pp-homepage :is(.pp-concept-service-card,.pp-service-card,.pp-home-service-card):hover {
+    transform: none;
+  }
+}
+/* PROUDPOPS-HOME-SERVICE-ACCENTS-V1-END */
