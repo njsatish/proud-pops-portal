@@ -1275,3 +1275,39 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   .pp-actual-home-service-card:hover { transform: none; }
 }
 /* PROUDPOPS-ACTUAL-HOME-SERVICE-ACCENTS-V1-END */
+
+
+/* PROUDPOPS-MOBILE-STEVE-INTRO-V1 */
+.pp-mobile-steve-intro { display: none; }
+@media (max-width: 760px) {
+  .pp-mobile-steve-intro {
+    width: min(100% - 36px, 680px);
+    margin: 0 auto 24px;
+    padding: 0;
+    display: block;
+  }
+  .pp-mobile-steve-kicker {
+    margin: 0 0 8px;
+    color: var(--pp-logo-blue,#49a9d7);
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+  .pp-mobile-steve-intro h2 {
+    margin: 0;
+    max-width: 620px;
+    color: var(--pp-text,#f7f8fa);
+    font-size: clamp(34px,10vw,48px);
+    line-height: .98;
+    letter-spacing: -.045em;
+  }
+  .pp-mobile-steve-intro > p:last-child {
+    margin: 15px 0 0;
+    max-width: 620px;
+    color: var(--pp-muted,#aab5c1);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+}
+/* PROUDPOPS-MOBILE-STEVE-INTRO-V1-END */
