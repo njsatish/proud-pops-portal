@@ -1375,3 +1375,89 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   }
 }
 /* PROUDPOPS-HOME-PORTFOLIO-EQUAL-COLUMNS-V1-END */
+
+
+/* PROUDPOPS-ABOUT-FAMILY-PHOTOS-V1-START */
+.pp-about-family {
+  padding: clamp(56px, 8vw, 96px) 20px;
+  background: linear-gradient(180deg, rgba(11, 20, 31, 0.98), rgba(17, 30, 45, 0.98));
+}
+
+.pp-about-family__inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.pp-about-family__intro {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.pp-about-family__eyebrow {
+  margin: 0 0 10px;
+  color: #f3a24a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pp-about-family__intro h2 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.pp-about-family__intro p:last-child {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.pp-about-family__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.pp-about-family__card {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #0b1420;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.28);
+}
+
+.pp-about-family__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pp-about-family__card figcaption {
+  padding: 16px 18px 18px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.94rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .pp-about-family__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .pp-about-family__card img {
+    aspect-ratio: 4 / 5;
+  }
+}
+/* PROUDPOPS-ABOUT-FAMILY-PHOTOS-V1-END */
