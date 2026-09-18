@@ -1461,3 +1461,48 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   }
 }
 /* PROUDPOPS-ABOUT-FAMILY-PHOTOS-V1-END */
+
+
+/* PROUDPOPS-ABOUT-CLEANUP-V1-START */
+.pp-about-clean-main { background: #09111c; color: #fff; }
+.pp-about-clean-shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+.pp-about-clean-hero,
+.pp-about-clean-story,
+.pp-about-family,
+.pp-about-clean-cta { padding: clamp(58px, 8vw, 100px) 0; }
+.pp-about-clean-hero { background: radial-gradient(circle at 85% 25%, rgba(36, 154, 219, .2), transparent 38%), linear-gradient(160deg, #07101b, #102337); }
+.pp-about-clean-hero__grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(240px, .55fr); gap: 48px; align-items: center; }
+.pp-about-clean-eyebrow { margin: 0 0 10px; color: #f3a24a; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.pp-about-clean-hero h1 { margin: 0 0 20px; font-size: clamp(3rem, 7vw, 6.2rem); line-height: .95; }
+.pp-about-clean-lead { max-width: 760px; margin: 0; color: rgba(255,255,255,.82); font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.75; }
+.pp-about-clean-hero__accent { display: grid; gap: 12px; }
+.pp-about-clean-hero__accent span { padding: 15px 18px; border: 1px solid rgba(255,255,255,.15); border-radius: 999px; color: rgba(255,255,255,.86); text-align: center; background: rgba(255,255,255,.05); }
+.pp-about-clean-story { background: #0e1a29; }
+.pp-about-clean-story__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 56px; }
+.pp-about-clean-story h2,
+.pp-about-family h2,
+.pp-about-clean-cta h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.08; }
+.pp-about-clean-story__copy { color: rgba(255,255,255,.78); font-size: 1.05rem; line-height: 1.8; }
+.pp-about-clean-story__copy p { margin: 0 0 18px; }
+.pp-about-family { background: linear-gradient(180deg, #0b1420, #111e2d); }
+.pp-about-family__intro { max-width: 720px; margin: 0 auto 34px; text-align: center; }
+.pp-about-family__intro > p:last-child { margin: 16px 0 0; color: rgba(255,255,255,.76); line-height: 1.7; }
+.pp-about-family__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.pp-about-family__card { margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: #09111c; box-shadow: 0 20px 48px rgba(0,0,0,.28); }
+.pp-about-family__card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
+.pp-about-family__card figcaption { padding: 16px 18px 18px; color: rgba(255,255,255,.78); text-align: center; line-height: 1.5; }
+.pp-about-clean-cta { background: linear-gradient(135deg, #10273d, #0b1827); }
+.pp-about-clean-cta__inner { display: flex; gap: 36px; align-items: center; justify-content: space-between; }
+.pp-about-clean-cta__inner p:last-child { margin: 14px 0 0; color: rgba(255,255,255,.76); }
+.pp-about-clean-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; flex: 0 0 auto; }
+@media (max-width: 760px) {
+  .pp-about-clean-hero__grid,
+  .pp-about-clean-story__grid,
+  .pp-about-family__grid { grid-template-columns: 1fr; gap: 24px; }
+  .pp-about-clean-hero__accent { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .pp-about-clean-hero__accent span { padding: 10px 8px; font-size: .76rem; }
+  .pp-about-clean-cta__inner { display: grid; }
+  .pp-about-clean-cta__actions { width: 100%; }
+  .pp-about-clean-cta__actions .button { flex: 1 1 100%; text-align: center; }
+}
+/* PROUDPOPS-ABOUT-CLEANUP-V1-END */
