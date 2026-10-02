@@ -1506,3 +1506,116 @@ body:has(.pp-concept-home-hero) .pp-site-header .pp-brand > span {
   .pp-about-clean-cta__actions .button { flex: 1 1 100%; text-align: center; }
 }
 /* PROUDPOPS-ABOUT-CLEANUP-V1-END */
+
+/* PROUDPOPS-SAME-PAGE-BOOKSY-WIDGET-V1-START */
+.pp-booksy-modal[hidden] { display: none !important; }
+.pp-booksy-modal {
+  position: fixed;
+  z-index: 100000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.pp-booksy-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: rgba(4, 9, 13, .86);
+  backdrop-filter: blur(7px);
+  cursor: pointer;
+}
+.pp-booksy-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 820px);
+  height: min(92dvh, 920px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 34px 100px rgba(0,0,0,.58);
+}
+.pp-booksy-modal__header {
+  min-height: 76px;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #0d151c;
+  color: #fff;
+}
+.pp-booksy-modal__header > div { min-width: 0; display: grid; gap: 4px; }
+.pp-booksy-modal__header strong { font-size: 18px; }
+.pp-booksy-modal__summary {
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.pp-booksy-modal__close {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  font-size: 29px;
+  line-height: 1;
+  cursor: pointer;
+}
+.pp-booksy-modal__frame-wrap { position: relative; min-height: 0; background: #fff; }
+.pp-booksy-modal__frame { width: 100%; height: 100%; min-height: 640px; display: block; border: 0; background: #fff; }
+.pp-booksy-modal__loading {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: #34424c;
+  background: #fff;
+  text-align: center;
+  font-weight: 800;
+}
+.pp-booksy-modal__frame { position: relative; z-index: 1; opacity: 0; transition: opacity .2s ease; }
+.pp-booksy-modal.is-loaded .pp-booksy-modal__frame { opacity: 1; }
+.pp-booksy-modal__footer {
+  min-height: 48px;
+  padding: 10px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #0d151c;
+  color: rgba(255,255,255,.65);
+  font-size: 12px;
+}
+.pp-booksy-modal__fallback { color: #66bce4; font-weight: 900; text-decoration: none; }
+.pp-booksy-modal__fallback:hover,
+.pp-booksy-modal__fallback:focus-visible { text-decoration: underline; }
+html.pp-booksy-modal-open,
+body.pp-booksy-modal-open { overflow: hidden !important; }
+@media (max-width: 700px) {
+  .pp-booksy-modal { padding: 0; }
+  .pp-booksy-modal__dialog { width: 100%; height: 100dvh; max-height: none; border: 0; border-radius: 0; }
+  .pp-booksy-modal__header {
+    min-height: 68px;
+    padding: max(12px, env(safe-area-inset-top)) 14px 12px;
+  }
+  .pp-booksy-modal__frame { min-height: 0; }
+  .pp-booksy-modal__footer {
+    padding: 10px 14px max(10px, env(safe-area-inset-bottom));
+    flex-wrap: wrap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-booksy-modal__frame { transition: none; }
+}
+/* PROUDPOPS-SAME-PAGE-BOOKSY-WIDGET-V1-END */

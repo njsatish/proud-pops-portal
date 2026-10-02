@@ -58,15 +58,7 @@
     serviceSelect.addEventListener('change',function(event){state.serviceKey=event.target.value;updateService();load();});
     dateSelect.addEventListener('change',function(event){state.date=event.target.value;renderTimes();});
     refresh.addEventListener('click',load);
-    bookButton.addEventListener('click',function(){
-      if(!state.slot)return;
-      var service=currentService();
-      var selectedDateTime=state.slot.date+'T'+state.slot.time;
-      var booksyInstantURL='https://booksy.com/en-us/instant-experiences/widget/212027' +
-        '?variantId='+encodeURIComponent(service.variantId) +
-        '&date='+encodeURIComponent(selectedDateTime);
-      global.location.assign(booksyInstantURL);
-    });
+    bookButton.addEventListener('click',function(){if(!state.slot)return;global.ProudPopsBooksy.openSelection(currentService(),state.slot);});
 
     var requested=new URLSearchParams(global.location.search).get('service');
     if(Object.prototype.hasOwnProperty.call(SERVICES,requested)){state.serviceKey=requested;serviceSelect.value=requested;}
